@@ -7,6 +7,9 @@ public class BackgroundController : MonoBehaviour
     public GameObject CellObj;
     public GameObject ForegroundCellObj;
     public GameObject cellPrefab;
+
+    private CellController[,] backgroundArray;
+    private CellController[,] foregroundArray;
     private List<CellController> backgroundCells;
     private List<CellController> foregroundCells;
     private static BackgroundController _instance;
@@ -21,6 +24,10 @@ public class BackgroundController : MonoBehaviour
 
             _instance = this;
             DontDestroyOnLoad(this.gameObject);
+            ///////////////////////
+            _instance.backgroundArray = new CellController[200,200];
+            _instance.foregroundArray = new CellController[200,200];
+            ///////////////////////
             _instance.backgroundCells = new List<CellController>(CellObj.GetComponentsInChildren<CellController>());
             _instance.foregroundCells = new List<CellController>(ForegroundCellObj.GetComponentsInChildren<CellController>());
             _instance.backgroundCells.Sort((p1, p2) =>
@@ -57,7 +64,9 @@ public class BackgroundController : MonoBehaviour
                 }
                 cell.setPosY(y);
                 cell.setPosX(x);
+                _instance.backgroundArray[x, y] = cell;
                 x++;
+
             }
 
             foreach (CellController cell in _instance.foregroundCells)
@@ -68,10 +77,15 @@ public class BackgroundController : MonoBehaviour
                     {
                         cell.setPosX(backcell.getPosX());
                         cell.setPosY(backcell.getPosY());
+                        _instance.foregroundArray[backcell.getPosX(), backcell.getPosY()] = cell;
                         break;
                     }
                 }                    
             }
+
+            
+
+
 
 
         }
@@ -101,17 +115,16 @@ public class BackgroundController : MonoBehaviour
 
     public void spawnCell(int x, int y, Vector3 position, CellController prefab)
     {
-        foreach (CellController existing in foregroundCells)
+
+        if (foregroundArray[x,y]!=null)
         {
-            if (existing.getPosX() == x && existing.getPosY() == y)
-            {
-                return;
-            }
-        }
+            return;
+        }        
         CellController cell = Instantiate(prefab, position, new Quaternion());
         cell.setPosX(x);
         cell.setPosY(y);
         _instance.foregroundCells.Add(cell);
+        _instance.foregroundArray[x, y] = cell;
     }
 
     void OnMouseDown()
