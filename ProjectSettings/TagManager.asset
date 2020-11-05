@@ -13,7 +13,7 @@ TagManager:
   - UI
   - 
   - 
-  - 
+  - Canvas
   - 
   - 
   - 
@@ -38,6 +38,9 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: User Interface
+    uniqueID: 2973898955
+    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0
