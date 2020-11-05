@@ -5,6 +5,7 @@ using UnityEngine;
 public class BackgroundController : MonoBehaviour
 {
     public GameObject CellObj;
+    public GameObject ForegroundCellObj;
     public GameObject cellPrefab;
     private List<CellController> backgroundCells;
     private List<CellController> foregroundCells;
@@ -21,7 +22,7 @@ public class BackgroundController : MonoBehaviour
             _instance = this;
             DontDestroyOnLoad(this.gameObject);
             _instance.backgroundCells = new List<CellController>(CellObj.GetComponentsInChildren<CellController>());
-            _instance.foregroundCells = new List<CellController>();
+            _instance.foregroundCells = new List<CellController>(ForegroundCellObj.GetComponentsInChildren<CellController>());
             _instance.backgroundCells.Sort((p1, p2) =>
             {
                 if (p1.transform.position.y > p2.transform.position.y)
@@ -59,10 +60,19 @@ public class BackgroundController : MonoBehaviour
                 x++;
             }
 
-            foreach (CellController cell in _instance.backgroundCells)
+            foreach (CellController cell in _instance.foregroundCells)
             {
-                Debug.Log(cell.getPosX() + " " + cell.getPosY() + " : " + cell.name);
+                foreach (CellController backcell in _instance.backgroundCells)
+                {
+                    if(cell.transform.position == backcell.transform.position )
+                    {
+                        cell.setPosX(backcell.getPosX());
+                        cell.setPosY(backcell.getPosY());
+                        break;
+                    }
+                }                    
             }
+
 
         }
         else
