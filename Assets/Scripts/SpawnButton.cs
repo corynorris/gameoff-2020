@@ -6,50 +6,90 @@ using UnityEngine.UI;
 
 public class SpawnButton : MonoBehaviour
 {
-    [SerializeField] SpawnObject spawnPrefab;
-    [SerializeField] int countAvailable = 1;
-    [SerializeField] int countMax = 5;
-    [SerializeField] int countStart = 1;
-    [SerializeField] float rechargeSpeed = 1;
+    SpawnObject spawnPrefab;
+    int resourceCount = 1;
+    int resourceMax = 5;    
+
+    int resourceIndex = -1;    
 
     Text resourceText;
     Slider slider;
+    float rechargeProgress;
+    Sprite imageSprite;
 
     string resourceTextValue;
+    bool buttonStatus = false;
+
+    ResourceController controller;
+    Image buttonImage;
 
     private void Start()
-    {      
-
+    {
+        controller = ResourceController.getInstance();
         resourceText = GetComponentInChildren<Text>();
         slider = GetComponentInChildren<Slider>();
-        UpdateDisplay();
+        buttonImage = GetComponentInChildren<Image>();
+        updateDisplay();
+
+
     }
 
-    private void UpdateDisplay()
+    private void updateDisplay()
     {
-        resourceTextValue = countAvailable.ToString() + "/" + countMax.ToString();        
+        resourceTextValue = resourceCount.ToString() + "/" + resourceMax.ToString();
+        slider.value = rechargeProgress;
         resourceText.text = resourceTextValue;
+        buttonImage.sprite = imageSprite;
+        if (buttonStatus)
+            buttonImage.color = Color.white;
+        else
+            buttonImage.color = new Color32(115, 115, 115, 255);
+        
     }
 
     private void OnMouseDown()
-    {      
-      //  FindObjectOfType<DefenderSpawner>().setDefender(defenderPrefab);
+    {
+        //  FindObjectOfType<DefenderSpawner>().setDefender(defenderPrefab);               
+        if(buttonStatus)
+            controller.setActiveResource(-1);
+        else
+            controller.setActiveResource(resourceIndex);
     }
 
     void Update()
-    {
-        if(slider.enabled)
-            slider.value = slider.value + rechargeSpeed;
-
-        if(slider.value >= slider.maxValue)
-        {
-            countAvailable++;
-            if (countAvailable == countMax)
-                slider.enabled = false;
-            
-            slider.value = 0;
-            UpdateDisplay();
-        }
+    {      
+        updateDisplay();
     }
-     
+
+
+    public void setResourceCount(int count)
+    {
+        resourceCount = count;
+    }    
+
+    public void setResourceMax(int max)
+    {
+        resourceMax = max;
+    }
+
+    public void setIndex(int index)
+    {        
+        resourceIndex = index;
+    }
+
+    public void setRechargeProgress(float progress)
+    {
+        rechargeProgress = progress;
+    }
+
+    public void setActive(bool status)
+    {
+        buttonStatus = status;
+    }
+
+    public void setImage(Sprite sprite)
+    {
+        imageSprite = sprite;
+        
+    }
 }
