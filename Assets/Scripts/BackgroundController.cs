@@ -23,7 +23,6 @@ public class BackgroundController : MonoBehaviour
         {
 
             _instance = this;
-            DontDestroyOnLoad(this.gameObject);
             ///////////////////////
             _instance.backgroundArray = new CellController[200,200];
             _instance.foregroundArray = new CellController[200,200];
@@ -82,12 +81,6 @@ public class BackgroundController : MonoBehaviour
                     }
                 }                    
             }
-
-            
-
-
-
-
         }
         else
         {
