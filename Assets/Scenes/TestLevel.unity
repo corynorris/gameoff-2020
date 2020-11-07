@@ -756,6 +756,7 @@ MonoBehaviour:
   CellObj: {fileID: 852012337}
   ForegroundCellObj: {fileID: 278076071}
   cellPrefab: {fileID: 0}
+  turnManager: {fileID: 1530207820}
 --- !u!4 &736271722
 Transform:
   m_ObjectHideFlags: 0
@@ -1514,6 +1515,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4c68c6c3474017f45b290a2e530a7d38, type: 3}
+--- !u!114 &1530207820 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4171360673095531218, guid: 98503460e65e27347b0a2053fb89cace,
+    type: 3}
+  m_PrefabInstance: {fileID: 4171360672171533470}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 94c56ec6b531da34da058941d3c9087c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &1542639735 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3077130317928751285, guid: 4c68c6c3474017f45b290a2e530a7d38,
@@ -2299,7 +2312,7 @@ PrefabInstance:
     - target: {fileID: 5930265702285050184, guid: dc539c649f2f6d1468aa0ec59fd02c03,
         type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5930265702285050184, guid: dc539c649f2f6d1468aa0ec59fd02c03,
         type: 3}
