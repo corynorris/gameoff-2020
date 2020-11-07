@@ -18,7 +18,7 @@ public class SpawnButton : MonoBehaviour
     string resourceTextValue;
 
     private void Start()
-    {      
+    {
 
         resourceText = GetComponentInChildren<Text>();
         slider = GetComponentInChildren<Slider>();
@@ -27,29 +27,29 @@ public class SpawnButton : MonoBehaviour
 
     private void UpdateDisplay()
     {
-        resourceTextValue = countAvailable.ToString() + "/" + countMax.ToString();        
+        resourceTextValue = countAvailable.ToString() + "/" + countMax.ToString();
         resourceText.text = resourceTextValue;
     }
 
     private void OnMouseDown()
-    {      
-      //  FindObjectOfType<DefenderSpawner>().setDefender(defenderPrefab);
+    {
+        //  FindObjectOfType<DefenderSpawner>().setDefender(defenderPrefab);
     }
 
     void Update()
     {
-        if(slider.enabled)
+        if (slider.enabled)
             slider.value = slider.value + rechargeSpeed;
 
-        if(slider.value >= slider.maxValue)
+        if (slider.value >= slider.maxValue)
         {
             countAvailable++;
             if (countAvailable == countMax)
                 slider.enabled = false;
-            
+
             slider.value = 0;
             UpdateDisplay();
         }
     }
-     
+
 }

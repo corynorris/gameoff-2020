@@ -2,18 +2,20 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BackgroundController : MonoBehaviour
+public class GridController : MonoBehaviour
 {
-    public GameObject CellObj;
+    public GameObject BackgroundCellObj;
     public GameObject ForegroundCellObj;
-    public GameObject cellPrefab;
     public TurnManager turnManager;
+
+    public CellController ActiveCell;
+
 
     private CellController[,] backgroundArray;
     private CellController[,] foregroundArray;
     private List<CellController> backgroundCells;
     private List<CellController> foregroundCells;
-    private static BackgroundController _instance;
+    private static GridController _instance;
     private float offsetX;
     private float offsetY;
 
@@ -23,6 +25,21 @@ public class BackgroundController : MonoBehaviour
         turnManager.TurnPassed += RunSimulation;
 
     }
+
+    void Update()
+    {
+        if (Input.GetMouseButtonDown(0))
+        {
+            RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero);
+            if (hit.collider != null)
+            {
+                CellController cell = hit.collider.gameObject.GetComponent<CellController>();
+                SpawnCell(cell.getPosX(), cell.getPosY(), cell.transform.position, ActiveCell);
+            }
+        }
+    }
+
+
 
     void Destroy()
     {
@@ -42,7 +59,7 @@ public class BackgroundController : MonoBehaviour
             _instance.backgroundArray = new CellController[200, 200];
             _instance.foregroundArray = new CellController[200, 200];
             ///////////////////////
-            _instance.backgroundCells = new List<CellController>(CellObj.GetComponentsInChildren<CellController>());
+            _instance.backgroundCells = new List<CellController>(BackgroundCellObj.GetComponentsInChildren<CellController>());
             _instance.foregroundCells = new List<CellController>(ForegroundCellObj.GetComponentsInChildren<CellController>());
             _instance.backgroundCells.Sort((p1, p2) =>
             {
@@ -97,11 +114,6 @@ public class BackgroundController : MonoBehaviour
                 }
             }
 
-
-
-
-
-
         }
         else
         {
@@ -109,16 +121,32 @@ public class BackgroundController : MonoBehaviour
         }
     }
 
-    public static BackgroundController getInstance()
+
+
+    public static GridController getInstance()
     {
         return _instance;
     }
 
 
-
     void RunSimulation(int turnsElapsed)
     {
-        Debug.Log("Running Simulation, Turn: " + turnsElapsed);
+        foreach (CellController cell in foregroundCells)
+        {
+            if (cell is ICellBehaviour)
+            {
+                ((ICellBehaviour)cell).CalculateNextSpawn();
+            }
+        }
+
+        foreach (CellController cell in foregroundCells)
+        {
+
+            if (cell is ICellBehaviour)
+            {
+                ((ICellBehaviour)cell).SpawnNextCell();
+            }
+        }
     }
 
     // Update is called once per frame
@@ -129,7 +157,7 @@ public class BackgroundController : MonoBehaviour
 
     }
 
-    public void spawnCell(int x, int y, Vector3 position, CellController prefab)
+    public void SpawnCell(int x, int y, Vector3 position, CellController prefab)
     {
         if (foregroundArray[x, y] != null)
         {
@@ -142,8 +170,4 @@ public class BackgroundController : MonoBehaviour
         _instance.foregroundArray[x, y] = cell;
     }
 
-    void OnMouseDown()
-    {
-
-    }
 }
