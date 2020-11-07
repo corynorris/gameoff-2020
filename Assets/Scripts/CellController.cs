@@ -8,6 +8,7 @@ public class CellController : MonoBehaviour
     private int posY;
     private BackgroundController background;
     public CellController prefab;
+    private ResourceController resourceController;
 
     public int getPosX()
     {
@@ -33,6 +34,7 @@ public class CellController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        resourceController = ResourceController.getInstance();
         background = BackgroundController.getInstance();
     }
 
@@ -44,6 +46,6 @@ public class CellController : MonoBehaviour
 
     void OnMouseDown()
     {
-        background.spawnCell(posX, posY, transform.position, prefab);
+        background.spawnCell(posX, posY, transform.position, resourceController.getActiveResource());
     }
 }
