@@ -36,7 +36,6 @@ public class BackgroundController : MonoBehaviour
         {
 
             _instance = this;
-            DontDestroyOnLoad(this.gameObject);
             // _instance.turnManager.TurnPassed += RunSimulation;
             ///////////////////////
             _instance.backgroundArray = new CellController[200, 200];
@@ -96,12 +95,6 @@ public class BackgroundController : MonoBehaviour
                     }
                 }
             }
-
-
-
-
-
-
         }
         else
         {
