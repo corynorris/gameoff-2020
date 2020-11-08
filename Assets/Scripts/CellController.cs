@@ -1,31 +1,61 @@
-﻿
-using UnityEngine;
+﻿using UnityEngine;
 
 public class CellController : MonoBehaviour
 {
-    private int posX;
-    private int posY;
 
-    public ICellBehaviour cellBehaviour;
+    [SerializeField]
+    private int x;
+    [SerializeField]
+    private int y;
 
-    public int getPosX()
+
+
+    private CellController claimant = null;
+
+
+    public void Claim(CellController claimant)
     {
-        return this.posX;
+        this.claimant = claimant;
     }
 
-    public int getPosY()
+    public bool IsClaimed()
     {
-        return this.posY;
+        return claimant != null;
     }
 
-    public void setPosX(int x)
+    public bool IsEmpty()
     {
-        this.posX = x;
+        return false;
     }
 
-    public void setPosY(int y)
+    public CellController GetClaimant()
     {
-        this.posY = y;
+        return claimant;
+    }
+
+    public void Reset()
+    {
+        this.claimant = null;
+    }
+
+    public int X
+    {
+        get { return x; }
+        set { x = value; }
+    }
+
+    public int Y
+    {
+        get { return y; }
+        set { y = value; }
+    }
+
+    public GridController Grid { set; get; }
+
+
+    public void destroyCell()
+    {
+        Destroy(this.gameObject);
     }
 
 
