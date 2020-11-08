@@ -36,8 +36,20 @@ TagManager:
   - 
   - 
   - 
-  - 
+  - GridGuide
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: BackgroundBottom
+    uniqueID: 1271937835
+    locked: 0
+  - name: BackgroundTop
+    uniqueID: 3979665995
+    locked: 0
+  - name: ForegroundBottom
+    uniqueID: 1247568493
+    locked: 0
+  - name: ForegroundTop
+    uniqueID: 3367683235
     locked: 0
