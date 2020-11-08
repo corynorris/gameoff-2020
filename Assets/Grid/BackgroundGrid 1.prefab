@@ -41,7 +41,7 @@ GameObject:
   - component: {fileID: 6138958022494548783}
   - component: {fileID: 3952395694271617003}
   m_Layer: 0
-  m_Name: BackgroundGrid
+  m_Name: BackgroundGrid 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -75,9 +75,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c168b28db5ffcb04d9e5623398dda75e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CellObj: {fileID: 2455282681340473073}
+  TilesWide: 0
+  TilesHigh: 0
+  BackgroundCellObj: {fileID: 0}
   ForegroundCellObj: {fileID: 351132097243401860}
-  cellPrefab: {fileID: 563484719615313683, guid: 9a1e7db54d1f3544998ba56bb74d8935,
+  turnManager: {fileID: 4171360673095531218, guid: 98503460e65e27347b0a2053fb89cace,
+    type: 3}
+  ActiveCell: {fileID: 179422681792180150, guid: 78153c63e78fc0346a2fcc431f1890b6,
+    type: 3}
+  EmptyCell: {fileID: 6426056574784461433, guid: 3291355b70855794399533898004e7c1,
     type: 3}
 --- !u!1 &2455282681340473073
 GameObject:

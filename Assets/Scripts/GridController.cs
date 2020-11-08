@@ -279,8 +279,7 @@ public class GridController : MonoBehaviour
         if (_instance.foregroundArray[x, y] != null)
         {
             Debug.Log("destroying cell at: " + x + "," + y);
-            // Destroy(_instance.foregroundArray[x, y]);
-            _instance.foregroundArray[x, y].destroyCell();
+            Destroy(_instance.foregroundArray[x, y].gameObject);
         }
 
 
