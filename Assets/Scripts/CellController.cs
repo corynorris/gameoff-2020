@@ -1,51 +1,62 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class CellController : MonoBehaviour
 {
-    private int posX;
-    private int posY;
-    private BackgroundController background;
-    public CellController prefab;
-    private ResourceController resourceController;
 
-    public int getPosX()
+    [SerializeField]
+    private int x;
+    [SerializeField]
+    private int y;
+
+
+
+    private CellController claimant = null;
+
+
+    public void Claim(CellController claimant)
     {
-        return this.posX;
+        this.claimant = claimant;
     }
 
-    public int getPosY()
+    public bool IsClaimed()
     {
-        return this.posY;
+        return claimant != null;
     }
 
-    public void setPosX(int x)
+    public bool IsEmpty()
     {
-        this.posX = x;
+        return false;
     }
 
-    public void setPosY(int y)
+    public CellController GetClaimant()
     {
-        this.posY = y;
+        return claimant;
+    }
+
+    public void Reset()
+    {
+        this.claimant = null;
+    }
+
+    public int X
+    {
+        get { return x; }
+        set { x = value; }
+    }
+
+    public int Y
+    {
+        get { return y; }
+        set { y = value; }
+    }
+
+    public GridController Grid { set; get; }
+
+
+    public void destroyCell()
+    {
+        Destroy(this.gameObject);
     }
 
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        resourceController = ResourceController.getInstance();
-        background = BackgroundController.getInstance();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
-    void OnMouseDown()
-    {
-        background.spawnCell(posX, posY, transform.position, resourceController.getActiveResource());
-    }
 }
