@@ -7,6 +7,7 @@ public class BackgroundController : MonoBehaviour
     public GameObject CellObj;
     public GameObject ForegroundCellObj;
     public GameObject cellPrefab;
+    public TurnManager turnManager;
 
     private CellController[,] backgroundArray;
     private CellController[,] foregroundArray;
@@ -16,6 +17,18 @@ public class BackgroundController : MonoBehaviour
     private float offsetX;
     private float offsetY;
 
+    // Start is called before the first frame update
+    void Start()
+    {
+        turnManager.TurnPassed += RunSimulation;
+
+    }
+
+    void Destroy()
+    {
+        turnManager.TurnPassed -= RunSimulation;
+    }
+
     void Awake()
     {
 
@@ -23,9 +36,10 @@ public class BackgroundController : MonoBehaviour
         {
 
             _instance = this;
+            // _instance.turnManager.TurnPassed += RunSimulation;
             ///////////////////////
-            _instance.backgroundArray = new CellController[200,200];
-            _instance.foregroundArray = new CellController[200,200];
+            _instance.backgroundArray = new CellController[200, 200];
+            _instance.foregroundArray = new CellController[200, 200];
             ///////////////////////
             _instance.backgroundCells = new List<CellController>(CellObj.GetComponentsInChildren<CellController>());
             _instance.foregroundCells = new List<CellController>(ForegroundCellObj.GetComponentsInChildren<CellController>());
@@ -72,14 +86,14 @@ public class BackgroundController : MonoBehaviour
             {
                 foreach (CellController backcell in _instance.backgroundCells)
                 {
-                    if(cell.transform.position == backcell.transform.position )
+                    if (cell.transform.position == backcell.transform.position)
                     {
                         cell.setPosX(backcell.getPosX());
                         cell.setPosY(backcell.getPosY());
                         _instance.foregroundArray[backcell.getPosX(), backcell.getPosY()] = cell;
                         break;
                     }
-                }                    
+                }
             }
         }
         else
@@ -93,26 +107,27 @@ public class BackgroundController : MonoBehaviour
         return _instance;
     }
 
-    // Start is called before the first frame update
-    void Start()
-    {
 
-        
+
+    void RunSimulation(int turnsElapsed)
+    {
+        Debug.Log("Running Simulation, Turn: " + turnsElapsed);
     }
 
     // Update is called once per frame
-    void Update()
+
+
+    public void OnDestroy()
     {
-        
+
     }
 
     public void spawnCell(int x, int y, Vector3 position, CellController prefab)
     {
-
-        if (foregroundArray[x,y]!=null)
+        if (foregroundArray[x, y] != null)
         {
             return;
-        }        
+        }
         CellController cell = Instantiate(prefab, position, new Quaternion());
         cell.setPosX(x);
         cell.setPosY(y);
