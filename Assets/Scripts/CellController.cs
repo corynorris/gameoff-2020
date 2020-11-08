@@ -53,10 +53,4 @@ public class CellController : MonoBehaviour
     public GridController Grid { set; get; }
 
 
-    public void destroyCell()
-    {
-        Destroy(this.gameObject);
-    }
-
-
 }
