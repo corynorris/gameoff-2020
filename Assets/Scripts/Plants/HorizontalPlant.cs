@@ -1,26 +1,24 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System;
 // using GridDirectionExtensions;
 
-public class ExpandPlant : Plant
+public class HorizontalPlant : Plant
 {
     GridDirection lastDirection = GridDirection.N;
 
     private int lastSpawn = 0;
 
-    int turnsSinceLastGrowth = 0;
+    int turnsOld = 0;
 
     public override void ClaimGrowth()
     {
 
-        turnsSinceLastGrowth++;
+        turnsOld++;
+        if (turnsOld > 1) return;
 
-        int numPlantsTouching = NumPlantsTouching();
-
-        if (turnsSinceLastGrowth < numPlantsTouching) return;
-
-        foreach (GridDirection direction in GridDirectionHelpers.StraightDirections)
+        foreach (GridDirection direction in GridDirectionHelpers.Horizontal)
         {
+
             CellController neighbour = this.Grid.GetCellInDirection(this.X, this.Y, direction);
 
             if (CanClaim(neighbour))
@@ -30,7 +28,6 @@ public class ExpandPlant : Plant
 
         }
 
-        turnsSinceLastGrowth = 0;
     }
 
 
