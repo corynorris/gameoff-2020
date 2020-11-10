@@ -1,14 +1,10 @@
 using System;
 using UnityEngine;
-public abstract class Plant : CellController, IGrows
+public abstract class Plant : CellController
 {
-    public int priority;
-
-
-
     protected bool CanClaim(CellController cellController)
     {
-        return cellController && !cellController.IsClaimed() && !cellController.IsEmpty();
+        return cellController && !cellController.IsClaimed() && cellController.IsEmpty();
     }
 
 
@@ -26,13 +22,8 @@ public abstract class Plant : CellController, IGrows
         return num;
 
     }
-    public int GetPriority()
-    {
-        return priority;
-    }
+
+
 
     public abstract void ClaimGrowth();
-
-
-
 }

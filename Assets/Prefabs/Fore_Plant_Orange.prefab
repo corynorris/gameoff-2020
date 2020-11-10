@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1635229746064799836}
   - component: {fileID: 1635229746064799835}
   - component: {fileID: 1635229746064799834}
-  - component: {fileID: 1635229746064799837}
+  - component: {fileID: 5020771995090592729}
   m_Layer: 0
   m_Name: Fore_Plant_Orange
   m_TagString: Player
@@ -110,7 +110,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &1635229746064799837
+--- !u!114 &5020771995090592729
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -119,10 +119,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1635229746064799839}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b33c76f86c91eb048a938e0387a0952d, type: 3}
+  m_Script: {fileID: 11500000, guid: c6ee0116501cc004784b9b1a7de74915, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefab: {fileID: 0}
+  priority: 5
 --- !u!1 &3364928400028676050
 GameObject:
   m_ObjectHideFlags: 0

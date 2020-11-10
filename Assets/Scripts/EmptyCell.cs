@@ -3,8 +3,9 @@
 public class EmptyCell : CellController
 {
 
-    public bool IsEmpty()
+    public override bool IsEmpty()
     {
         return true;
     }
 }
+
