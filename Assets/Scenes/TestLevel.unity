@@ -3264,7 +3264,7 @@ MonoBehaviour:
   - {fileID: 5146249602985808222, guid: ab45c0b7cfec99f488620e038ff6d028, type: 3}
   - {fileID: 6984684397228786649, guid: fcb0061e479697b4f8da3b46be39e516, type: 3}
   - {fileID: 1635229746064799837, guid: 7306110f9d6183d4380b28cfa2aee490, type: 3}
-  resourceMax: 030000000300000003000000
+  resourceMax: 0a0000000a0000000a000000
   buttonSprites:
   - {fileID: 21300000, guid: f7672fd50c43f7b4a94be5ec8461f0da, type: 3}
   - {fileID: 21300000, guid: aff1e7071cdb81e4bae4ad954bbb9944, type: 3}
@@ -3276,8 +3276,7 @@ MonoBehaviour:
   resourceCount: 020000000200000002000000
   buttonPrefab: {fileID: 4231019901656266730, guid: a5257e5667199894aa6fe0523e36b44c,
     type: 3}
-  buttonFrame: {fileID: 5512691853039389751, guid: 5ab3fd71019913a4b88142f6eb05effc,
-    type: 3}
+  buttonFrame: {fileID: 2015906349}
 --- !u!4 &633708075
 Transform:
   m_ObjectHideFlags: 0
@@ -4286,7 +4285,6 @@ GameObject:
   m_Component:
   - component: {fileID: 736271722}
   - component: {fileID: 736271721}
-  - component: {fileID: 736271723}
   m_Layer: 0
   m_Name: GridController
   m_TagString: Untagged
@@ -4316,6 +4314,7 @@ MonoBehaviour:
     type: 3}
   EmptyCell: {fileID: 6426056574784461433, guid: 3291355b70855794399533898004e7c1,
     type: 3}
+  ResourceController: {fileID: 633708074}
 --- !u!4 &736271722
 Transform:
   m_ObjectHideFlags: 0
@@ -4332,25 +4331,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &736271723
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 736271720}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0ea3f43a92552cb469fc8eef1a862b44, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  resourcePrefabs: []
-  resourceMax: 
-  buttonSprites: []
-  resourceChargeRate: []
-  resourceCount: 
-  buttonPrefab: {fileID: 0}
-  buttonFrame: {fileID: 0}
 --- !u!1 &742151530
 GameObject:
   m_ObjectHideFlags: 0
@@ -11841,6 +11821,12 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3077130317928751285, guid: 4c68c6c3474017f45b290a2e530a7d38,
     type: 3}
   m_PrefabInstance: {fileID: 1103714192}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &2015906349 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5512691853039389751, guid: 5ab3fd71019913a4b88142f6eb05effc,
+    type: 3}
+  m_PrefabInstance: {fileID: 5512691852779166189}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &2026504253 stripped
 Transform:

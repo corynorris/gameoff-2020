@@ -42,11 +42,9 @@ public class ResourceController : MonoBehaviour
 
     private void initializeButtons()
     {
-        Debug.Log("TEST");
-            for (int i = 0; i < getButtonCount(); i++)
+        for (int i = 0; i < getButtonCount(); i++)
         {
-            Debug.Log("TEST2");
-            spawnButtons[i] = Instantiate(buttonPrefab, buttonPositions[i+1].position, buttonPositions[i+1].rotation) as SpawnButton;
+            spawnButtons[i] = Instantiate(buttonPrefab, buttonPositions[i + 1].position, buttonPositions[i + 1].rotation) as SpawnButton;
             spawnButtons[i].transform.parent = buttonFrame.transform;
             spawnButtons[i].transform.localScale = buttonPrefab.transform.localScale;
             spawnButtons[i].transform.localPosition = buttonPositions[i + 1].localPosition;
@@ -61,7 +59,7 @@ public class ResourceController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(spawnButtons.Length > 0)
+        if (spawnButtons.Length > 0)
         {
             for (int i = 0; i < getButtonCount(); i++)
             {
@@ -72,14 +70,14 @@ public class ResourceController : MonoBehaviour
                     {
                         resourceCount[i]++;
                         rechargeProgress[i] = 0;
-                    }                    
+                    }
                     spawnButtons[i].setResourceCount(resourceCount[i]);
                     spawnButtons[i].setResourceMax(resourceMax[i]);
                     spawnButtons[i].setRechargeProgress(rechargeProgress[i]);
                 }
             }
         }
-         
+
     }
 
     private int getButtonCount()
@@ -108,20 +106,18 @@ public class ResourceController : MonoBehaviour
     public void clearActiveResource(int index)
     {
         activeResourceIndex = -1;
-        Debug.Log(activeResourceIndex);
     }
 
     public CellController getActiveResource()
     {
-        Debug.Log(activeResourceIndex);
-        if(activeResourceIndex >= 0)
+        if (activeResourceIndex >= 0)
         {
-            if(resourceCount[activeResourceIndex] > 0)
+            if (resourceCount[activeResourceIndex] > 0)
             {
                 resourceCount[activeResourceIndex]--;
                 resourceMax[activeResourceIndex]--;
                 return resourcePrefabs[activeResourceIndex];
-            }            
+            }
         }
         return null;
     }

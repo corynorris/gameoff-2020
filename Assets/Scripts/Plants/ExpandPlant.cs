@@ -17,11 +17,12 @@ public class ExpandPlant : Plant
 
         int numPlantsTouching = NumPlantsTouching();
 
-        if (turnsSinceLastGrowth < numPlantsTouching) return;
+        // if (turnsSinceLastGrowth < numPlantsTouching) return;
 
         foreach (GridDirection direction in GridDirectionHelpers.StraightDirections)
         {
             CellController neighbour = this.Grid.GetCellInDirection(this.X, this.Y, direction);
+
 
             if (CanClaim(neighbour))
             {

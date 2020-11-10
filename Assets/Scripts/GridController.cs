@@ -1,7 +1,5 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
-
 using UnityEngine;
 
 public class GridController : MonoBehaviour
@@ -14,6 +12,7 @@ public class GridController : MonoBehaviour
     public CellController ActiveCell;
     public CellController EmptyCell;
 
+    public ResourceController ResourceController;
     private CellController[,] backgroundArray;
     private CellController[,] foregroundArray;
 
@@ -21,6 +20,7 @@ public class GridController : MonoBehaviour
     private float offsetX;
     private float offsetY;
 
+    List<CellController> cellsToUpdate = new List<CellController>();
     // Start is called before the first frame update
     void Start()
     {
@@ -35,8 +35,19 @@ public class GridController : MonoBehaviour
             RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero);
             if (hit.collider != null)
             {
+
                 CellController cell = hit.collider.gameObject.GetComponent<CellController>();
-                SpawnCell(cell.X, cell.Y, ActiveCell);
+
+
+                if (cell)
+                {
+                    CellController activeResource = ResourceController.getActiveResource();
+
+                    if (activeResource)
+                    {
+                        SpawnCell(cell.X, cell.Y, activeResource);
+                    }
+                }
             }
         }
     }
@@ -69,8 +80,9 @@ public class GridController : MonoBehaviour
 
             backgroundCells.Sort((p1, p2) =>
             {
-                Vector3Int p1Pos = Vector3Int.RoundToInt(p1.transform.position);
-                Vector3Int p2Pos = Vector3Int.RoundToInt(p2.transform.position);
+                Vector3 p1Pos = p1.transform.position;
+                Vector3 p2Pos = p2.transform.position;
+
                 if (p1Pos.y > p2Pos.y)
                 {
                     return 1;
@@ -222,7 +234,7 @@ public class GridController : MonoBehaviour
             return null;
         }
 
-        return foregroundArray[point.x, point.y];
+        return _instance.foregroundArray[point.x, point.y];
 
     }
 
@@ -231,20 +243,17 @@ public class GridController : MonoBehaviour
 
     void RunSimulation(int turnsElapsed)
     {
+        cellsToUpdate.Sort();
 
-        for (int x = 0; x < TilesWide; x++)
+        foreach (CellController cellController in cellsToUpdate)
         {
-            for (int y = 0; y < TilesHigh; y++)
+
+            if (cellController is Plant)
             {
-
-                if (foregroundArray[x, y] is IGrows)
-                {
-                    // Have cell determine next spawn direction
-                    ((IGrows)foregroundArray[x, y]).ClaimGrowth();
-                }
+                ((Plant)cellController).ClaimGrowth();
             }
-
         }
+
 
         for (int x = 0; x < TilesWide; x++)
         {
@@ -252,6 +261,7 @@ public class GridController : MonoBehaviour
             {
                 if (foregroundArray[x, y].IsClaimed())
                 {
+                    // Debug.Log("spawning claimant");
                     SpawnCell(x, y, foregroundArray[x, y].GetClaimant());
                     foregroundArray[x, y].Reset();
                 }
@@ -276,20 +286,24 @@ public class GridController : MonoBehaviour
         }
 
 
-        if (_instance.foregroundArray[x, y] != null)
+        if (foregroundArray[x, y] != null)
         {
-            Debug.Log("destroying cell at: " + x + "," + y);
-            Destroy(_instance.foregroundArray[x, y].gameObject);
+            int indexToRemove = cellsToUpdate.IndexOf(foregroundArray[x, y]);
+
+            if (indexToRemove > 0)
+            {
+                cellsToUpdate.RemoveAt(indexToRemove);
+            }
+
+            Destroy(foregroundArray[x, y].gameObject);
         }
 
 
+
+
+        Vector3 scale = this.transform.localScale;
         Vector3 bottomLeft = backgroundArray[0, 0].transform.position;
-        Vector3 position = new Vector3(bottomLeft.x + x, bottomLeft.y + y, 1);
-
-        // Debug.Log("(" + x + ", " + y + ") - (" + origPosition.x + ", " + origPosition.y + ") - (" + bottomLeft.x + ", " + bottomLeft.y + ") ");
-        // Debug.Log("(" + x + ", " + y + ")");
-
-
+        Vector3 position = new Vector3((bottomLeft.x / scale.x) + x, (bottomLeft.y / scale.x) + y, 0.1f);
 
         CellController cell = Instantiate(prefab, position, new Quaternion());
 
@@ -298,7 +312,16 @@ public class GridController : MonoBehaviour
         cell.Grid = this;
         cell.transform.SetParent(ForegroundCellObj.transform, false);
 
-        _instance.foregroundArray[x, y] = cell;
+        foregroundArray[x, y] = cell;
+
+        // Debug.Losg("prefab.GetPriority(): " + prefab.GetPriority());
+        int priority = prefab.GetPriority();
+
+        if (priority > 0)
+        {
+            cellsToUpdate.Add(foregroundArray[x, y]);
+
+        }
 
 
     }
