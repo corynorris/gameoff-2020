@@ -1,51 +1,69 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System;
 using UnityEngine;
 
-public class CellController : MonoBehaviour
+public class CellController : MonoBehaviour, IComparable
 {
-    private int posX;
-    private int posY;
-    private BackgroundController background;
-    public CellController prefab;
-    private ResourceController resourceController;
 
-    public int getPosX()
+    private int x;
+    private int y;
+
+    [SerializeField]
+    private int priority = 0;
+    private CellController claimant = null;
+
+    public void Claim(CellController claimant)
     {
-        return this.posX;
+
+        this.claimant = claimant;
+        Debug.Log("Claimed: " + this.IsClaimed());
     }
 
-    public int getPosY()
+    public bool IsClaimed()
     {
-        return this.posY;
+        return claimant != null;
     }
 
-    public void setPosX(int x)
+    public CellController GetClaimant()
     {
-        this.posX = x;
+        return claimant;
     }
 
-    public void setPosY(int y)
+    public void Reset()
     {
-        this.posY = y;
+        this.claimant = null;
+    }
+
+    public int X
+    {
+        get { return x; }
+        set { x = value; }
+    }
+
+    public int Y
+    {
+        get { return y; }
+        set { y = value; }
+    }
+
+    public virtual bool IsEmpty()
+    {
+        return false;
+    }
+
+    public int GetPriority()
+    {
+        return priority;
     }
 
 
-    // Start is called before the first frame update
-    void Start()
+
+    public int CompareTo(object obj)
     {
-        resourceController = ResourceController.getInstance();
-        background = BackgroundController.getInstance();
+        CellController other = (CellController)obj;
+        return other.GetPriority().CompareTo(this.GetPriority());
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    public GridController Grid { set; get; }
 
-    void OnMouseDown()
-    {
-        background.spawnCell(posX, posY, transform.position, resourceController.getActiveResource());
-    }
+
 }
