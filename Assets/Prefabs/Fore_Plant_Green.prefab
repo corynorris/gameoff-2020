@@ -11,7 +11,8 @@ GameObject:
   - component: {fileID: 6151721565692981517}
   - component: {fileID: 6151721565692981514}
   - component: {fileID: 6151721565692981515}
-  - component: {fileID: 6619559625442135046}
+  - component: {fileID: 6151721565692981516}
+  - component: {fileID: 8406492372042285451}
   m_Layer: 0
   m_Name: Fore_Plant_Green
   m_TagString: Player
@@ -122,7 +123,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72a3a39203840ff4ea94b9dabc46ef03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  priority: 9
+  prefab: {fileID: 0}
+--- !u!95 &8406492372042285451
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6151721565692981518}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 63973db91e2158449aac7c33ca2afd9c, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &7880294861586327171
 GameObject:
   m_ObjectHideFlags: 0
