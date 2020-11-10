@@ -7,6 +7,13 @@ public class CellController : MonoBehaviour, IComparable
     private int x;
     private int y;
 
+    private Animator animator;
+    void Start()
+    {
+        animator = GetComponent<Animator>();
+        animator.SetTrigger("spawn");
+    }
+
     [SerializeField]
     private int priority = 0;
     private CellController claimant = null;
