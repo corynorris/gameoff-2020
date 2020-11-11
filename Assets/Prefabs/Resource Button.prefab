@@ -255,7 +255,7 @@ GameObject:
   - component: {fileID: 4231019901656266730}
   - component: {fileID: 5894648731825842475}
   m_Layer: 5
-  m_Name: Seed Button
+  m_Name: Resource Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -295,11 +295,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 82d2835c787cb3c4b892827983679f1d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnPrefab: {fileID: 0}
-  seedCount: 1
-  seedMax: 5
-  countStart: 1
-  rechargeSpeed: 0.001
 --- !u!61 &5894648731825842475
 BoxCollider2D:
   m_ObjectHideFlags: 0

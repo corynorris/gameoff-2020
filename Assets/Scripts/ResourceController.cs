@@ -10,9 +10,11 @@ public class ResourceController : MonoBehaviour
     [SerializeField] Sprite[] buttonSprites;
     [SerializeField] float[] resourceChargeRate;
     [SerializeField] int[] resourceCount;
+    [SerializeField] string[] tooltipText;
     [SerializeField] SpawnButton buttonPrefab;
     [SerializeField] GameObject buttonFrame;
 
+    public TurnManager turnManager;
 
     SpawnButton[] spawnButtons;
     Transform[] buttonPositions;
@@ -21,6 +23,17 @@ public class ResourceController : MonoBehaviour
     int activeResourceIndex = -1;
 
     private static ResourceController _instance;
+
+    void Start()
+    {
+       turnManager.TurnPassed += IncrementResourceCounts;
+
+    }
+
+    void Destroy()
+    {
+        turnManager.TurnPassed -= IncrementResourceCounts;
+    }
 
     void Awake()
     {
@@ -42,41 +55,28 @@ public class ResourceController : MonoBehaviour
 
     private void initializeButtons()
     {
-        for (int i = 0; i < getButtonCount(); i++)
+   
+            for (int buttonIndex = 0; buttonIndex < getButtonCount(); buttonIndex++)
         {
-            spawnButtons[i] = Instantiate(buttonPrefab, buttonPositions[i + 1].position, buttonPositions[i + 1].rotation) as SpawnButton;
-            spawnButtons[i].transform.parent = buttonFrame.transform;
-            spawnButtons[i].transform.localScale = buttonPrefab.transform.localScale;
-            spawnButtons[i].transform.localPosition = buttonPositions[i + 1].localPosition;
-            spawnButtons[i].setResourceCount(resourceCount[i]);
-            spawnButtons[i].setResourceMax(resourceMax[i]);
-            spawnButtons[i].setRechargeProgress(rechargeProgress[i]);
-            spawnButtons[i].setIndex(i);
-            spawnButtons[i].setImage(buttonSprites[i]);
-        }
+         
+            spawnButtons[buttonIndex] = Instantiate(buttonPrefab, buttonPositions[buttonIndex + 1].position, buttonPositions[buttonIndex + 1].rotation) as SpawnButton;
+            spawnButtons[buttonIndex].transform.parent = buttonFrame.transform;
+            spawnButtons[buttonIndex].transform.localScale = buttonPrefab.transform.localScale;
+            spawnButtons[buttonIndex].transform.localPosition = buttonPositions[buttonIndex + 1].localPosition;
+            spawnButtons[buttonIndex].setResourceCount(resourceCount[buttonIndex]);
+            spawnButtons[buttonIndex].setResourceMax(resourceMax[buttonIndex]);
+            spawnButtons[buttonIndex].setRechargeProgress(rechargeProgress[buttonIndex]);
+            spawnButtons[buttonIndex].setIndex(buttonIndex);
+            spawnButtons[buttonIndex].setImage(buttonSprites[buttonIndex]);
+            spawnButtons[buttonIndex].setTooltipText(tooltipText[buttonIndex]);
+
+       }
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (spawnButtons.Length > 0)
-        {
-            for (int i = 0; i < getButtonCount(); i++)
-            {
-                if (resourceCount[i] != resourceMax[i])
-                {
-                    rechargeProgress[i] = rechargeProgress[i] + resourceChargeRate[i];
-                    if (rechargeProgress[i] >= 1)
-                    {
-                        resourceCount[i]++;
-                        rechargeProgress[i] = 0;
-                    }
-                    spawnButtons[i].setResourceCount(resourceCount[i]);
-                    spawnButtons[i].setResourceMax(resourceMax[i]);
-                    spawnButtons[i].setRechargeProgress(rechargeProgress[i]);
-                }
-            }
-        }
+       // IncrementResourceCounts(1);
 
     }
 
@@ -94,16 +94,16 @@ public class ResourceController : MonoBehaviour
     {
 
         activeResourceIndex = index;
-        for (int i = 0; i < getButtonCount(); i++)
+        for (int buttonIndex = 0; buttonIndex < getButtonCount(); buttonIndex++)
         {
-            if (i != activeResourceIndex)
-                spawnButtons[i].setActive(false);
-            if (i == activeResourceIndex)
-                spawnButtons[i].setActive(true);
+            if (buttonIndex != activeResourceIndex)
+                spawnButtons[buttonIndex].setActive(false);
+            if (buttonIndex == activeResourceIndex)
+                spawnButtons[buttonIndex].setActive(true);
         }
     }
 
-    public void clearActiveResource(int index)
+    public void clearActiveResource()
     {
         activeResourceIndex = -1;
     }
@@ -114,11 +114,37 @@ public class ResourceController : MonoBehaviour
         {
             if (resourceCount[activeResourceIndex] > 0)
             {
-                resourceCount[activeResourceIndex]--;
-                resourceMax[activeResourceIndex]--;
+                resourceCount[activeResourceIndex] = resourceCount[activeResourceIndex] - 1;
+                resourceMax[activeResourceIndex] = resourceMax[activeResourceIndex] - 1;
+                spawnButtons[activeResourceIndex].setResourceCount(resourceCount[activeResourceIndex]);
+                spawnButtons[activeResourceIndex].setResourceMax(resourceMax[activeResourceIndex]);
                 return resourcePrefabs[activeResourceIndex];
             }
         }
         return null;
+    }
+
+    void IncrementResourceCounts(int turnsElapsed)
+    {
+        Debug.Log("here");
+        if (spawnButtons.Length > 0)
+        {
+            for (int buttonIndex = 0; buttonIndex < getButtonCount(); buttonIndex++)
+            {
+                if (resourceCount[buttonIndex] != resourceMax[buttonIndex])
+                {
+                    rechargeProgress[buttonIndex] = rechargeProgress[buttonIndex] + resourceChargeRate[buttonIndex];
+                    if (rechargeProgress[buttonIndex] >= 1)
+                    {
+                        resourceCount[buttonIndex]++;
+                        rechargeProgress[buttonIndex] = 0;
+                    }
+                    spawnButtons[buttonIndex].setResourceCount(resourceCount[buttonIndex]);
+                    spawnButtons[buttonIndex].setResourceMax(resourceMax[buttonIndex]);
+                    spawnButtons[buttonIndex].setRechargeProgress(rechargeProgress[buttonIndex]);
+
+                }
+            }
+        }
     }
 }
