@@ -134,7 +134,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &88015138 stripped
 Transform:
@@ -1243,8 +1243,8 @@ MonoBehaviour:
   - {fileID: 7276516592790936010, guid: ed1c3f219af75f24fa0d7931b060da88, type: 3}
   resourceMax: 0500000019000000
   buttonSprites:
-  - {fileID: 21300000, guid: ee6bd2f02ec9c8a4d9564c47504aaf1f, type: 3}
-  - {fileID: 21300000, guid: 61b1447ce2f1f05499aebe410c6d09ed, type: 3}
+  - {fileID: 21300000, guid: e17bb705d5931d74ab5d856a4af21ac7, type: 3}
+  - {fileID: 21300000, guid: caaf25da1e1315742a0143a78c44c090, type: 3}
   resourceChargeRate:
   - 0.001
   - 0.008
@@ -1515,11 +1515,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4c68c6c3474017f45b290a2e530a7d38, type: 3}
---- !u!114 &1530207820 stripped
+--- !u!114 &1530207820
 MonoBehaviour:
+  m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 4171360673095531218, guid: 98503460e65e27347b0a2053fb89cace,
     type: 3}
-  m_PrefabInstance: {fileID: 4171360672171533470}
+  m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
@@ -1527,6 +1528,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94c56ec6b531da34da058941d3c9087c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  turnFrequency: 1
+  running: 0
 --- !u!4 &1542639735 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3077130317928751285, guid: 4c68c6c3474017f45b290a2e530a7d38,
