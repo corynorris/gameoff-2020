@@ -16,7 +16,8 @@ public class Tooltip : MonoBehaviour
         instance = this;
         uiCamera = FindObjectOfType<Camera>();
         tooltipBackground = transform.Find("Background").GetComponent<RectTransform>();
-        tooltipText = transform.Find("Text").GetComponent<Text>();       
+        tooltipText = transform.Find("Text").GetComponent<Text>();
+        HideTooltip();
     }
 
     private void Update()
