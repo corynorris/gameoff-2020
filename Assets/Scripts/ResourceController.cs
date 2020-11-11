@@ -44,7 +44,7 @@ public class ResourceController : MonoBehaviour
 
     private void initializeButtons()
     {
-       
+   
             for (int buttonIndex = 0; buttonIndex < getButtonCount(); buttonIndex++)
         {
          
@@ -59,13 +59,13 @@ public class ResourceController : MonoBehaviour
             spawnButtons[buttonIndex].setImage(buttonSprites[buttonIndex]);
             spawnButtons[buttonIndex].setTooltipText(tooltipText[buttonIndex]);
 
-        }
+       }
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(spawnButtons.Length > 0)
+        if (spawnButtons.Length > 0)
         {
             for (int buttonIndex = 0; buttonIndex < getButtonCount(); buttonIndex++)
             {
@@ -80,10 +80,11 @@ public class ResourceController : MonoBehaviour
                     spawnButtons[buttonIndex].setResourceCount(resourceCount[buttonIndex]);
                     spawnButtons[buttonIndex].setResourceMax(resourceMax[buttonIndex]);
                     spawnButtons[buttonIndex].setRechargeProgress(rechargeProgress[buttonIndex]);
+
                 }
             }
         }
-         
+
     }
 
     private int getButtonCount()
@@ -116,17 +117,16 @@ public class ResourceController : MonoBehaviour
 
     public CellController getActiveResource()
     {
-        Debug.Log(activeResourceIndex);
-        if(activeResourceIndex >= 0)
+        if (activeResourceIndex >= 0)
         {
-            if(resourceCount[activeResourceIndex] > 0)
+            if (resourceCount[activeResourceIndex] > 0)
             {
                 resourceCount[activeResourceIndex] = resourceCount[activeResourceIndex] - 1;
                 resourceMax[activeResourceIndex] = resourceMax[activeResourceIndex] - 1;
                 spawnButtons[activeResourceIndex].setResourceCount(resourceCount[activeResourceIndex]);
                 spawnButtons[activeResourceIndex].setResourceMax(resourceMax[activeResourceIndex]);
                 return resourcePrefabs[activeResourceIndex];
-            }            
+            }
         }
         return null;
     }

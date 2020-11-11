@@ -1,51 +1,76 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System;
 using UnityEngine;
 
-public class CellController : MonoBehaviour
+public class CellController : MonoBehaviour, IComparable
 {
-    private int posX;
-    private int posY;
-    private BackgroundController background;
-    public CellController prefab;
-    private ResourceController resourceController;
 
-    public int getPosX()
-    {
-        return this.posX;
-    }
+    private int x;
+    private int y;
 
-    public int getPosY()
-    {
-        return this.posY;
-    }
-
-    public void setPosX(int x)
-    {
-        this.posX = x;
-    }
-
-    public void setPosY(int y)
-    {
-        this.posY = y;
-    }
-
-
-    // Start is called before the first frame update
+    private Animator animator;
     void Start()
     {
-        resourceController = ResourceController.getInstance();
-        background = BackgroundController.getInstance();
+        animator = GetComponent<Animator>();
+        animator.SetTrigger("spawn");
     }
 
-    // Update is called once per frame
-    void Update()
+    [SerializeField]
+    private int priority = 0;
+    private CellController claimant = null;
+
+    public void Claim(CellController claimant)
     {
-        
+
+        this.claimant = claimant;
+        Debug.Log("Claimed: " + this.IsClaimed());
     }
 
-    void OnMouseDown()
+    public bool IsClaimed()
     {
-        background.spawnCell(posX, posY, transform.position, resourceController.getActiveResource());
+        return claimant != null;
     }
+
+    public CellController GetClaimant()
+    {
+        return claimant;
+    }
+
+    public void Reset()
+    {
+        this.claimant = null;
+    }
+
+    public int X
+    {
+        get { return x; }
+        set { x = value; }
+    }
+
+    public int Y
+    {
+        get { return y; }
+        set { y = value; }
+    }
+
+    public virtual bool IsEmpty()
+    {
+        return false;
+    }
+
+    public int GetPriority()
+    {
+        return priority;
+    }
+
+
+
+    public int CompareTo(object obj)
+    {
+        CellController other = (CellController)obj;
+        return other.GetPriority().CompareTo(this.GetPriority());
+    }
+
+    public GridController Grid { set; get; }
+
+
 }
