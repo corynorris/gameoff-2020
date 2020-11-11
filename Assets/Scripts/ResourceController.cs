@@ -13,8 +13,8 @@ public class ResourceController : MonoBehaviour
     [SerializeField] string[] tooltipText;
     [SerializeField] SpawnButton buttonPrefab;
     [SerializeField] GameObject buttonFrame;
-    
 
+    public TurnManager turnManager;
 
     SpawnButton[] spawnButtons;
     Transform[] buttonPositions;
@@ -23,6 +23,17 @@ public class ResourceController : MonoBehaviour
     int activeResourceIndex = -1;
 
     private static ResourceController _instance;
+
+    void Start()
+    {
+       turnManager.TurnPassed += IncrementResourceCounts;
+
+    }
+
+    void Destroy()
+    {
+        turnManager.TurnPassed -= IncrementResourceCounts;
+    }
 
     void Awake()
     {
@@ -65,25 +76,7 @@ public class ResourceController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (spawnButtons.Length > 0)
-        {
-            for (int buttonIndex = 0; buttonIndex < getButtonCount(); buttonIndex++)
-            {
-                if (resourceCount[buttonIndex] != resourceMax[buttonIndex])
-                {
-                    rechargeProgress[buttonIndex] = rechargeProgress[buttonIndex] + resourceChargeRate[buttonIndex];
-                    if (rechargeProgress[buttonIndex] >= 1)
-                    {
-                        resourceCount[buttonIndex]++;
-                        rechargeProgress[buttonIndex] = 0;
-                    }                    
-                    spawnButtons[buttonIndex].setResourceCount(resourceCount[buttonIndex]);
-                    spawnButtons[buttonIndex].setResourceMax(resourceMax[buttonIndex]);
-                    spawnButtons[buttonIndex].setRechargeProgress(rechargeProgress[buttonIndex]);
-
-                }
-            }
-        }
+       // IncrementResourceCounts(1);
 
     }
 
@@ -129,5 +122,29 @@ public class ResourceController : MonoBehaviour
             }
         }
         return null;
+    }
+
+    void IncrementResourceCounts(int turnsElapsed)
+    {
+        Debug.Log("here");
+        if (spawnButtons.Length > 0)
+        {
+            for (int buttonIndex = 0; buttonIndex < getButtonCount(); buttonIndex++)
+            {
+                if (resourceCount[buttonIndex] != resourceMax[buttonIndex])
+                {
+                    rechargeProgress[buttonIndex] = rechargeProgress[buttonIndex] + resourceChargeRate[buttonIndex];
+                    if (rechargeProgress[buttonIndex] >= 1)
+                    {
+                        resourceCount[buttonIndex]++;
+                        rechargeProgress[buttonIndex] = 0;
+                    }
+                    spawnButtons[buttonIndex].setResourceCount(resourceCount[buttonIndex]);
+                    spawnButtons[buttonIndex].setResourceMax(resourceMax[buttonIndex]);
+                    spawnButtons[buttonIndex].setRechargeProgress(rechargeProgress[buttonIndex]);
+
+                }
+            }
+        }
     }
 }
