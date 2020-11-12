@@ -30,7 +30,8 @@ public class SpawnButton : MonoBehaviour
         resourceController = ResourceController.getInstance();
         resourceText = GetComponentInChildren<Text>();
         resourceSlider = GetComponentInChildren<Slider>();
-        buttonImage = GetComponentInChildren<Image>();
+        //buttonImage = GetComponentInChildren<Image>();
+        buttonImage = gameObject.transform.Find("Button Image").GetComponent<Image>();
         updateDisplay();
 
 
@@ -53,8 +54,11 @@ public class SpawnButton : MonoBehaviour
     private void OnMouseDown()
     {
         //  FindObjectOfType<DefenderSpawner>().setDefender(defenderPrefab);               
-        if(buttonStatus)
+        if (buttonStatus)
+        {
             resourceController.clearActiveResource();
+            buttonStatus = false;        }
+            
         else
             resourceController.setActiveResource(resourceIndex);
     }
