@@ -26,7 +26,7 @@ public class ResourceController : MonoBehaviour
 
     void Start()
     {
-       turnManager.TurnPassed += IncrementResourceCounts;
+        turnManager.TurnPassed += IncrementResourceCounts;
 
     }
 
@@ -55,10 +55,10 @@ public class ResourceController : MonoBehaviour
 
     private void initializeButtons()
     {
-   
-            for (int buttonIndex = 0; buttonIndex < getButtonCount(); buttonIndex++)
+
+        for (int buttonIndex = 0; buttonIndex < getButtonCount(); buttonIndex++)
         {
-         
+
             spawnButtons[buttonIndex] = Instantiate(buttonPrefab, buttonPositions[buttonIndex + 1].position, buttonPositions[buttonIndex + 1].rotation) as SpawnButton;
             spawnButtons[buttonIndex].transform.parent = buttonFrame.transform;
             spawnButtons[buttonIndex].transform.localScale = buttonPrefab.transform.localScale;
@@ -70,13 +70,13 @@ public class ResourceController : MonoBehaviour
             spawnButtons[buttonIndex].setImage(buttonSprites[buttonIndex]);
             spawnButtons[buttonIndex].setTooltipText(tooltipText[buttonIndex]);
 
-       }
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
-       // IncrementResourceCounts(1);
+        // IncrementResourceCounts(1);
 
     }
 
@@ -123,7 +123,6 @@ public class ResourceController : MonoBehaviour
         }
         return null;
     }
-
     void IncrementResourceCounts(int turnsElapsed)
     {
         Debug.Log("here");
