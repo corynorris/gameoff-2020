@@ -3060,8 +3060,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b33c76f86c91eb048a938e0387a0952d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  x: 0
-  y: 0
+  priority: 0
 --- !u!61 &603004903
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3270,13 +3269,18 @@ MonoBehaviour:
   - {fileID: 21300000, guid: aff1e7071cdb81e4bae4ad954bbb9944, type: 3}
   - {fileID: 21300000, guid: e17bb705d5931d74ab5d856a4af21ac7, type: 3}
   resourceChargeRate:
-  - 0.001
-  - 0.001
-  - 0.001
+  - 1
+  - 2
+  - 3
   resourceCount: 020000000200000002000000
+  tooltipText:
+  - tooltip text 1
+  - tooltip text 2
+  - tooltip text 3
   buttonPrefab: {fileID: 4231019901656266730, guid: a5257e5667199894aa6fe0523e36b44c,
     type: 3}
   buttonFrame: {fileID: 2015906349}
+  turnManager: {fileID: 0}
 --- !u!4 &633708075
 Transform:
   m_ObjectHideFlags: 0
@@ -6589,8 +6593,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b33c76f86c91eb048a938e0387a0952d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  x: 0
-  y: 0
+  priority: 0
 --- !u!61 &1112112751
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -12813,6 +12816,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 377204440, guid: dc539c649f2f6d1468aa0ec59fd02c03, type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1661687656, guid: dc539c649f2f6d1468aa0ec59fd02c03, type: 3}
+      propertyPath: m_RootOrder
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2095306265, guid: dc539c649f2f6d1468aa0ec59fd02c03, type: 3}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 5930265702285050184, guid: dc539c649f2f6d1468aa0ec59fd02c03,
         type: 3}
       propertyPath: m_LocalPosition.x

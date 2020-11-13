@@ -13,21 +13,23 @@ public class SpawnButton : MonoBehaviour
     int resourceIndex = -1;    
 
     Text resourceText;
-    Slider slider;
+    Slider resourceSlider;
     float rechargeProgress;
     Sprite imageSprite;
+
+    string toolTipText;
 
     string resourceTextValue;
     bool buttonStatus = false;
 
-    ResourceController controller;
+    ResourceController resourceController;
     Image buttonImage;
 
     private void Start()
     {
-        controller = ResourceController.getInstance();
+        resourceController = ResourceController.getInstance();
         resourceText = GetComponentInChildren<Text>();
-        slider = GetComponentInChildren<Slider>();
+        resourceSlider = GetComponentInChildren<Slider>();
         buttonImage = GetComponentInChildren<Image>();
         updateDisplay();
 
@@ -37,13 +39,14 @@ public class SpawnButton : MonoBehaviour
     private void updateDisplay()
     {
         resourceTextValue = resourceCount.ToString() + "/" + resourceMax.ToString();
-        slider.value = rechargeProgress;
+        resourceSlider.value = rechargeProgress;
         resourceText.text = resourceTextValue;
         buttonImage.sprite = imageSprite;
+
         if (buttonStatus)
             buttonImage.color = Color.white;
         else
-            buttonImage.color = new Color32(115, 115, 115, 255);
+            buttonImage.color = new Color32(100, 100, 100, 255);
         
     }
 
@@ -51,14 +54,19 @@ public class SpawnButton : MonoBehaviour
     {
         //  FindObjectOfType<DefenderSpawner>().setDefender(defenderPrefab);               
         if(buttonStatus)
-            controller.setActiveResource(-1);
+            resourceController.clearActiveResource();
         else
-            controller.setActiveResource(resourceIndex);
+            resourceController.setActiveResource(resourceIndex);
     }
 
     void Update()
     {      
         updateDisplay();
+    }
+
+    public void setTooltipText(string text)
+    {
+        toolTipText = text;
     }
 
 
@@ -91,5 +99,15 @@ public class SpawnButton : MonoBehaviour
     {
         imageSprite = sprite;
         
+    }
+
+    public void OnMouseEnter()
+    {
+        Tooltip.showTooltipStatic(toolTipText);
+    }
+
+    public void OnMouseExit()
+    {
+        Tooltip.hideTooltipStatic();
     }
 }
