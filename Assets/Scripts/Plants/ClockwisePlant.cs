@@ -10,6 +10,8 @@ public class ClockwisePlant : Plant
 
     private CellController GetNextEmptyNeighbour()
     {
+
+
         for (int i = 0; i < 8; i++)
         {
             CellController neighbour = this.Grid.GetCellInDirection(this.X, this.Y, lastDirection);
