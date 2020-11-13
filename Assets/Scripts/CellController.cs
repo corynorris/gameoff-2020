@@ -22,7 +22,7 @@ public class CellController : MonoBehaviour, IComparable
     {
 
         this.claimant = claimant;
-        Debug.Log("Claimed: " + this.IsClaimed());
+        // Debug.Log("Claimed: " + this.IsClaimed());
     }
 
     public bool IsClaimed()
