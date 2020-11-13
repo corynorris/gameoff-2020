@@ -53,3 +53,6 @@ TagManager:
   - name: ForegroundTop
     uniqueID: 3367683235
     locked: 0
+  - name: Ship
+    uniqueID: 2052099405
+    locked: 0
