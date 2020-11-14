@@ -94,6 +94,7 @@ GameObject:
   - component: {fileID: 2616190819972875024}
   - component: {fileID: 2616190819972875031}
   - component: {fileID: 3847280532690446825}
+  - component: {fileID: 6470099250236949075}
   m_Layer: 0
   m_Name: Fore_Plant_Teal
   m_TagString: Player
@@ -204,7 +205,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b33c76f86c91eb048a938e0387a0952d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefab: {fileID: 0}
+  priority: 0
 --- !u!95 &3847280532690446825
 Animator:
   serializedVersion: 3
@@ -224,3 +225,16 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &6470099250236949075
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2616190819972875029}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72a3a39203840ff4ea94b9dabc46ef03, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  priority: 3
