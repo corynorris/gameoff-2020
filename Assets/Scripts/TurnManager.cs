@@ -54,12 +54,7 @@ public class TurnManager : MonoBehaviour
         running = false;
     }
 
-    void PauseClock()
-    {
-        Time.timeScale = 0;
-    }
-
-    void SetSpeed(int speed)
+    public void SetSpeed(int speed)
     {
         Time.timeScale = speed;
     }
