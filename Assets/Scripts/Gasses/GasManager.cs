@@ -1,0 +1,22 @@
+﻿using UnityEngine;
+
+
+
+public class GasManager : MonoBehaviour
+{
+
+    public int[] GasTotals = new int[GasHelpers.AllGasses.Length];
+
+
+    public void AddGas(Gas gas, int amount)
+    {
+        GasTotals[(int)gas] = Mathf.Max(GasTotals[(int)gas] + amount, 0);
+    }
+
+    public void RemoveGas(Gas gas, int amount)
+    {
+        GasTotals[(int)gas] = Mathf.Max(GasTotals[(int)gas] - amount, 0);
+    }
+
+    }
+}
