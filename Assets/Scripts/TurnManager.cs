@@ -8,6 +8,7 @@ public class TurnManager : MonoBehaviour
     public delegate void TurnPassHandler(int ticksElapsed);
     public event TurnPassHandler TurnPassed; // event
 
+    [SerializeField] int[] timingOptions = {1, 2, 3, 4};
     [SerializeField] float turnFrequency = 1f;
     public float TurnFrequency
     {
@@ -51,5 +52,10 @@ public class TurnManager : MonoBehaviour
     public void Pause()
     {
         running = false;
+    }
+
+    public void SetSpeed(int speed)
+    {
+        Time.timeScale = speed;
     }
 }

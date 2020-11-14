@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 6473385070831960466}
   - component: {fileID: 6473385070831960469}
   - component: {fileID: 4635787721017601870}
+  - component: {fileID: -7870217258772552176}
   m_Layer: 0
   m_Name: Fore_Plant_Red
   m_TagString: Player
@@ -143,6 +144,19 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &-7870217258772552176
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6473385070831960471}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f94659014ad36864288fdeb193e857e0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  priority: 2
 --- !u!1 &7049599254264583706
 GameObject:
   m_ObjectHideFlags: 0
