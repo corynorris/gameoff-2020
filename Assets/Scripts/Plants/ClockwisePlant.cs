@@ -6,12 +6,9 @@ public class ClockwisePlant : Plant
 {
     GridDirection lastDirection = GridDirection.N;
 
-    private int lastSpawn = 0;
 
     private CellController GetNextEmptyNeighbour()
     {
-
-
         for (int i = 0; i < 8; i++)
         {
             CellController neighbour = this.Grid.GetCellInDirection(this.X, this.Y, lastDirection);
@@ -26,10 +23,12 @@ public class ClockwisePlant : Plant
         }
         return null;
     }
-    public override void ClaimGrowth()
+    public override void MakeClaims()
     {
         CellController cellToClaim = GetNextEmptyNeighbour();
 
+
+        if (numNeighbours > 4) this.Kill();
         if (cellToClaim != null)
         {
             cellToClaim.Claim(this);
