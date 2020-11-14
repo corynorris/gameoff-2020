@@ -35099,8 +35099,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c168b28db5ffcb04d9e5623398dda75e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TilesWide: 83
-  TilesHigh: 41
+  TilesWide: 24
+  TilesHigh: 18
   BackgroundCellObj: {fileID: 1887254766}
   ForegroundCellObj: {fileID: 1323809805}
   turnManager: {fileID: 169603748}
