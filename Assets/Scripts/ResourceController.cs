@@ -124,8 +124,7 @@ public class ResourceController : MonoBehaviour
         return null;
     }
     void IncrementResourceCounts(int turnsElapsed)
-    {
-        // Debug.Log("here");
+    {        
         if (spawnButtons.Length > 0)
         {
             for (int buttonIndex = 0; buttonIndex < getButtonCount(); buttonIndex++)

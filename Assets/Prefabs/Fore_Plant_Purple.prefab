@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 1114722864346263330}
   - component: {fileID: 1114722864346263333}
   - component: {fileID: 6057260801372775483}
+  - component: {fileID: -3903255267400746959}
   m_Layer: 0
   m_Name: Fore_Plant_Purple
   m_TagString: Player
@@ -143,6 +144,19 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &-3903255267400746959
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1114722864346263335}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72a3a39203840ff4ea94b9dabc46ef03, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  priority: 0
 --- !u!1 &3997906524907272362
 GameObject:
   m_ObjectHideFlags: 0
