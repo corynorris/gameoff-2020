@@ -10,7 +10,7 @@ public class HorizontalPlant : Plant
 
     int turnsOld = 0;
 
-    public override void ClaimGrowth()
+    public override void MakeClaims()
     {
 
         turnsOld++;
