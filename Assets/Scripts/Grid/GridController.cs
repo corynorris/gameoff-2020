@@ -224,6 +224,14 @@ public class GridController : MonoBehaviour
     {
         cellsToUpdate.Sort();
 
+        for (int x = 0; x < TilesWide; x++)
+        {
+            for (int y = 0; y < TilesHigh; y++)
+            {
+                foregroundArray[x, y].RecalculateNeighbours();
+            }
+        }
+
         foreach (CellController cellController in cellsToUpdate)
         {
            cellController.MakeClaims();
@@ -258,7 +266,7 @@ public class GridController : MonoBehaviour
                     SpawnCell(x, y, EmptyCell);
                 }
 
-                foregroundArray[x, y].RecalculateNeighbours();
+               
             }
         }
 

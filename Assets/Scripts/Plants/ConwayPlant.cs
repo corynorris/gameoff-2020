@@ -10,7 +10,7 @@ public class ConwayPlant : Plant
     public override void MakeClaims()
     {
 
-        if (turnsPassed++ < 3) return;
+        if (turnsPassed++ < 2) return;
 
         
         if (numNeighbours <= 1 || numNeighbours >3)
