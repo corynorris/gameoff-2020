@@ -224,6 +224,7 @@ public class GridController : MonoBehaviour
     {
         cellsToUpdate.Sort();
 
+        // Technically only need to recalculate for cells that changed and their neighbours
         for (int x = 0; x < TilesWide; x++)
         {
             for (int y = 0; y < TilesHigh; y++)
@@ -247,7 +248,17 @@ public class GridController : MonoBehaviour
                 {
                     SpawnCell(x, y, foregroundArray[x, y].GetClaimant());
                     foregroundArray[x, y].Reset();
+                }
 
+                if (foregroundArray[x, y].IsDead())
+                {
+                    SpawnCell(x, y, EmptyCell);
+                    foregroundArray[x, y].Reset();
+                }
+                              
+
+                if (!(foregroundArray[x, y] is EmptyCell))
+                {
                     Type t = foregroundArray[x, y].GetType();
                     if (resourceTotals.ContainsKey(t))
                     {
@@ -257,16 +268,7 @@ public class GridController : MonoBehaviour
                     {
                         resourceTotals[t] = 1;
                     }
-
-
                 }
-
-                if (foregroundArray[x, y].IsDead())
-                {
-                    SpawnCell(x, y, EmptyCell);
-                }
-
-               
             }
         }
 
@@ -304,8 +306,6 @@ public class GridController : MonoBehaviour
 
             Destroy(foregroundArray[x, y].gameObject);
         }
-
-
 
 
         Vector3 scale = this.transform.localScale;
