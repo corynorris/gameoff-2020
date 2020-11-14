@@ -18,5 +18,8 @@ public class GasManager : MonoBehaviour
         GasTotals[(int)gas] = Mathf.Max(GasTotals[(int)gas] - amount, 0);
     }
 
+    public int GetTotalGas(Gas gas)
+    {
+        return GasTotals[(int)gas];
     }
 }
