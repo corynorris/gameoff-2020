@@ -12,6 +12,7 @@ public class GridController : MonoBehaviour
     public TurnManager turnManager;
     public CellController EmptyCell;
     public ResourceController ResourceController;
+    public GasManager gasManager;
     private CellController[,] backgroundArray;
     private CellController[,] foregroundArray;
     private static GridController _instance;
@@ -257,7 +258,8 @@ public class GridController : MonoBehaviour
                 }
                               
 
-                if (!(foregroundArray[x, y] is EmptyCell))
+                // Total of each plant type
+                if (foregroundArray[x, y] is Plant)
                 {
                     Type t = foregroundArray[x, y].GetType();
                     if (resourceTotals.ContainsKey(t))
@@ -269,6 +271,10 @@ public class GridController : MonoBehaviour
                         resourceTotals[t] = 1;
                     }
                 }
+
+                //gasManager.AddGas(foregroundArray[x, y].ProduceEffects))
+                foregroundArray[x, y].ProduceEffects();
+
             }
         }
 

@@ -111,8 +111,8 @@ public class CellController : MonoBehaviour, IComparable
 
     }
 
-    public virtual void MakeClaims()
-    {
+    // too late to make this abstract w/out refactoring
+    public virtual void MakeClaims() { }
+    public virtual void ProduceEffects() { }
 
-    }
 }

@@ -4,18 +4,14 @@ using System;
 
 public class ExpandPlant : Plant
 {
+    [Tooltip("Directions to expand.")]
+    public GridDirection[] directionsToExpand;
 
-    int turnsSinceLastGrowth = 0;
 
-    public override void MakeClaims()
+    public override void Grow()
     {
 
-        turnsSinceLastGrowth++;
-
-
-        //if (turnsSinceLastGrowth < numNeighbours) return;
-
-        foreach (GridDirection direction in GridDirectionHelpers.StraightDirections)
+        foreach (GridDirection direction in directionsToExpand)
         {
             CellController neighbour = this.Grid.GetCellInDirection(this.X, this.Y, direction);
 
@@ -26,8 +22,6 @@ public class ExpandPlant : Plant
             }
 
         }
-
-        turnsSinceLastGrowth = 0;
     }
 
 
