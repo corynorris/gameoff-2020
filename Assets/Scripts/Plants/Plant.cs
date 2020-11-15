@@ -45,7 +45,7 @@ public abstract class Plant : CellController
             return;
         }
 
-        if (numNeighbours > maxNeighboursBeforeOvercrowding)
+        if (maxNeighboursBeforeOvercrowding > 0 && numNeighbours > maxNeighboursBeforeOvercrowding)
         {
             Debug.Log("Died from overcrowding");
             this.Kill();
