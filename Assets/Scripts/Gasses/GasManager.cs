@@ -23,3 +23,4 @@ public class GasManager : MonoBehaviour
         return GasTotals[(int)gas];
     }
 }
+

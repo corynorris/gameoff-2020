@@ -4,7 +4,13 @@ using System;
 
 public class ClockwisePlant : Plant
 {
-    GridDirection lastDirection = GridDirection.N;
+    GridDirection initialDirection = GridDirection.N;
+    GridDirection lastDirection;
+
+    private void Start()
+    {
+        lastDirection = initialDirection;
+    }
 
 
     private CellController GetNextEmptyNeighbour()
@@ -23,12 +29,11 @@ public class ClockwisePlant : Plant
         }
         return null;
     }
-    public override void MakeClaims()
+    public override void Grow()
     {
         CellController cellToClaim = GetNextEmptyNeighbour();
 
 
-        if (numNeighbours > 4) this.Kill();
         if (cellToClaim != null)
         {
             cellToClaim.Claim(this);
