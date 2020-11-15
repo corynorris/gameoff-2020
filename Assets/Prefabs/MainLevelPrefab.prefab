@@ -115,6 +115,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameSpeed: 1
+  toolTipText: Normal Speed
 --- !u!1 &258375476
 GameObject:
   m_ObjectHideFlags: 0
@@ -381,6 +382,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameSpeed: 3
+  toolTipText: Triple speed
 --- !u!1 &1206760594
 GameObject:
   m_ObjectHideFlags: 0
@@ -757,6 +759,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameSpeed: 2
+  toolTipText: Double Speed
 --- !u!1 &1992900304
 GameObject:
   m_ObjectHideFlags: 0
@@ -872,6 +875,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameSpeed: 0
+  toolTipText: Pause
 --- !u!1 &2095306264
 GameObject:
   m_ObjectHideFlags: 0
@@ -1374,6 +1378,19 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 377204440}
     m_Modifications:
+    - target: {fileID: 421383109, guid: 7ab41b0579896a24cacf314ab9d4722f, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 225
+      objectReference: {fileID: 0}
+    - target: {fileID: 1830241703, guid: 7ab41b0579896a24cacf314ab9d4722f, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -25
+      objectReference: {fileID: 0}
+    - target: {fileID: 5512691851368162692, guid: 7ab41b0579896a24cacf314ab9d4722f,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -150
+      objectReference: {fileID: 0}
     - target: {fileID: 5512691853039389750, guid: 7ab41b0579896a24cacf314ab9d4722f,
         type: 3}
       propertyPath: m_LocalPosition.x
