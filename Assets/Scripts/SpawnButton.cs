@@ -45,9 +45,16 @@ public class SpawnButton : MonoBehaviour
         buttonImage.sprite = imageSprite;
 
         if (buttonStatus)
+        {
             buttonImage.color = Color.white;
+            resourceText.color = Color.white;
+        }
         else
+        {
             buttonImage.color = new Color32(100, 100, 100, 255);
+            resourceText.color = new Color32(100, 100, 100, 255);
+        }
+            
         
     }
 
