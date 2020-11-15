@@ -5,14 +5,9 @@ using System;
 public class ConwayPlant : Plant
 {
 
-    int turnsPassed = 0;
-
-    public override void MakeClaims()
+    public override void Grow()
     {
-
-        //if (turnsPassed++ <= 1) return;
-
-        
+       
         if (numNeighbours <= 1 || numNeighbours >3)
         {
             this.Kill();
