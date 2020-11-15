@@ -142,7 +142,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72a3a39203840ff4ea94b9dabc46ef03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  priority: 5
+  priority: 8
+  numNeighbours: 0
+  turnDelayBetweenGrowth: 1
+  rateOfGrowthDecay: 0
+  maxTurnsAlive: 0
+  maxTurnsOfGrowing: 0
+  maxNeighboursBeforeOvercrowding: 0
+  gasProduction: 1
+  gasType: 6
 --- !u!1 &7880294861586327171
 GameObject:
   m_ObjectHideFlags: 0

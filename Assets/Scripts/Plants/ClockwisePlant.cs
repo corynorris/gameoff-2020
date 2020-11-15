@@ -4,17 +4,19 @@ using System;
 
 public class ClockwisePlant : Plant
 {
-    GridDirection initialDirection = GridDirection.N;
+   public  GridDirection initialDirection = GridDirection.N;
     GridDirection lastDirection;
 
-    private void Start()
+    protected override void Start()
     {
+        base.Start();
         lastDirection = initialDirection;
     }
 
 
     private CellController GetNextEmptyNeighbour()
     {
+     
         for (int i = 0; i < 8; i++)
         {
             CellController neighbour = this.Grid.GetCellInDirection(this.X, this.Y, lastDirection);
@@ -22,6 +24,7 @@ public class ClockwisePlant : Plant
 
             if (CanClaim(neighbour))
             {
+             
                 return neighbour;
             }
 
@@ -35,9 +38,9 @@ public class ClockwisePlant : Plant
 
 
         if (cellToClaim != null)
-        {
+        {   
             cellToClaim.Claim(this);
-        }
+        } 
 
     }
 
