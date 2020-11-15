@@ -4,18 +4,9 @@ using System;
 
 public class VerticalPlant : Plant
 {
-    GridDirection lastDirection = GridDirection.N;
 
-    private int lastSpawn = 0;
-
-    int turnsOld = 0;
-
-    public override void MakeClaims()
+    public override void Grow()
     {
-
-        turnsOld++;
-        if (turnsOld > 1) return;
-
         foreach (GridDirection direction in GridDirectionHelpers.Vertical)
         {
 
