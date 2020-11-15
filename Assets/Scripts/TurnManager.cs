@@ -58,4 +58,5 @@ public class TurnManager : MonoBehaviour
     {
         Time.timeScale = speed;
     }
+
 }
