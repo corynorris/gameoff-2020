@@ -57,7 +57,6 @@ public class GridController : MonoBehaviour
     }
 
 
-
     void Destroy()
     {
         turnManager.TurnPassed -= RunSimulation;
@@ -198,6 +197,50 @@ public class GridController : MonoBehaviour
         return _instance;
     }
 
+    public void Clear()
+    {
+        this.backgroundArray = new CellController[TilesHigh, TilesWide];
+        this.foregroundArray = new CellController[TilesHigh, TilesWide];
+
+        foreach (CellController child in this.BackgroundCellObj.GetComponentsInChildren<CellController>())      
+        {
+            DestroyImmediate(child.gameObject);
+        }
+
+        foreach (CellController child in this.ForegroundCellObj.GetComponentsInChildren<CellController>())
+        {
+            DestroyImmediate(child.gameObject);
+        }
+        //this.BackgroundCellObj.Ch
+        //this.ForegroundCellObj
+
+    }
+
+
+    public CellController BackgroundCell;
+    [ExecuteInEditMode]
+    public void GenerateGrid()
+    {
+        Clear();
+
+      
+        for (int y = 0; y <  TilesHigh; y++)
+        {
+            for (int x = 0; x < TilesWide; x++)
+            {
+                Vector3 offset = new Vector3(x -(TilesWide/2), y-(TilesHigh/2)+1, 0);
+                Vector3 pos = BackgroundCellObj.transform.position + offset;
+
+                CellController cell = Instantiate(BackgroundCell, pos, new Quaternion());
+                cell.X = x;
+                cell.Y = y;
+                cell.Grid = this;
+                cell.transform.SetParent(BackgroundCellObj.transform, false);
+                
+            }
+            
+        }
+    }
 
 
     Vector2Int GetPointInDirection(int x, int y, GridDirection direction)
