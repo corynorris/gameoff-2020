@@ -58,4 +58,10 @@ public class TurnManager : MonoBehaviour
     {
         Time.timeScale = speed;
     }
+
+    public int getTurnNumber()
+    {
+        return turnsElapsed;
+    }
+
 }

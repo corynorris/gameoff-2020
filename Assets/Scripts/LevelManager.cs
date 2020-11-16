@@ -4,7 +4,7 @@ using UnityEngine.SceneManagement;
 
 public class LevelManager : MonoBehaviour
 {
-    private static LevelManager _instance = null;
+    private static LevelManager _instance = null;      
 
     void Awake()
     {
