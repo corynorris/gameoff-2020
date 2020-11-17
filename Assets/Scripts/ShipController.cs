@@ -25,4 +25,9 @@ public class ShipController : MonoBehaviour
         float rotationZ = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
         gun.transform.rotation = Quaternion.Euler(0.0f, 0.0f, rotationZ);
     }
+
+    public void fireGun()
+    {
+        gun.GetComponentInChildren<Animator>().SetTrigger("fire");
+    }
 }

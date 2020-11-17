@@ -45,6 +45,7 @@ public class AudioManager : MonoBehaviour
     void Start()
     {
         _instance.backgroundMusic = AddAudio(_instance.muisc, true, true, 1, 1);
+        _instance.backgroundMusic.Play();
     }
 
 
