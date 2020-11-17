@@ -17,14 +17,21 @@ public abstract class Plant : CellController
     public int maxNeighboursBeforeOvercrowding = 8;
 
     [Tooltip("Amount of gas produced each growth period")]
-    public int gasProduction = 1;
+    public int gasProduction = 2;
+
+    [Tooltip("Amount of gas consumed each growth period")]
+    public int gasConsumption = 1;
 
     [Tooltip("Amount of gas produced each growth period")]
-    public Gas gasType = Gas.Oxygen;
+    public Gas gasConsumptionType = Gas.Argon;
+
+    [Tooltip("Amount of gas produced each growth period")]
+    public Gas gasProductionType = Gas.Oxygen;
 
     protected int turnsAlive = 0;
     protected int turnsOfGrowth = 0;
     protected int turnsUntilGrowth = 0;
+
 
     public abstract void Grow();
 
@@ -66,7 +73,9 @@ public abstract class Plant : CellController
     public override void ProduceEffects()
     {
         // TODO: send the gas to be produced somewhere
-        this.Grid.gasManager.AddGas(this.gasType, this.gasProduction);
+        this.Grid.gasManager.ProduceGas(this.gasProductionType, this.gasProduction);
+        this.Grid.gasManager.ConsumeGas(this.gasConsumptionType, this.gasConsumption);
+
     }
 
 
