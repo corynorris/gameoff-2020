@@ -150,7 +150,10 @@ MonoBehaviour:
   maxTurnsOfGrowing: 0
   maxNeighboursBeforeOvercrowding: 0
   gasProduction: 1
-  gasType: 6
+  gasConsumption: 1
+  gasConsumptionType: 0
+  gasProductionType: 3
+  initialDirection: 0
 --- !u!1 &7880294861586327171
 GameObject:
   m_ObjectHideFlags: 0

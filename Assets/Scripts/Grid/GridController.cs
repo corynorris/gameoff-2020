@@ -12,7 +12,6 @@ public class GridController : MonoBehaviour
     public TurnManager turnManager;
     public CellController EmptyCell;
     public ResourceController ResourceController;
-    public GasManager gasManager;
     private CellController[,] backgroundArray;
     private CellController[,] foregroundArray;
     private static GridController _instance;

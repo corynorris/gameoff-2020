@@ -73,8 +73,8 @@ public abstract class Plant : CellController
     public override void ProduceEffects()
     {
         // TODO: send the gas to be produced somewhere
-        this.Grid.gasManager.ProduceGas(this.gasProductionType, this.gasProduction);
-        this.Grid.gasManager.ConsumeGas(this.gasConsumptionType, this.gasConsumption);
+        this.Grid.ResourceController.ProduceGas(this.gasProductionType, this.gasProduction);
+        this.Grid.ResourceController.ConsumeGas(this.gasConsumptionType, this.gasConsumption);
 
     }
 

@@ -54,10 +54,10 @@ public class ResourceController : MonoBehaviour
 
     void Start()
     {
-        AddGas(Gas.Argon, 100);
-        AddGas(Gas.Helium, 101);
-        AddGas(Gas.Neon, 102);
-        AddGas(Gas.Oxygen, 103);
+        ProduceGas(Gas.Argon, 100);
+        ProduceGas(Gas.Helium, 101);
+        ProduceGas(Gas.Neon, 102);
+        ProduceGas(Gas.Oxygen, 103);
 
        // turnManager.TurnPassed += IncrementResourceCounts;
     }
@@ -196,10 +196,10 @@ public class ResourceController : MonoBehaviour
             }
         }
 
-        RemoveGas(Gas.Argon, ArgonChargeRate * Time.deltaTime);
-        RemoveGas(Gas.Helium, HeliumChargeRate * Time.deltaTime);
-        RemoveGas(Gas.Neon, NeonChargeRate * Time.deltaTime);
-        RemoveGas(Gas.Oxygen, OxygenChargeRate * Time.deltaTime);
+        ConsumeGas(Gas.Argon, ArgonChargeRate * Time.deltaTime);
+        ConsumeGas(Gas.Helium, HeliumChargeRate * Time.deltaTime);
+        ConsumeGas(Gas.Neon, NeonChargeRate * Time.deltaTime);
+        ConsumeGas(Gas.Oxygen, OxygenChargeRate * Time.deltaTime);
 
         for (int displayIndex = 0; displayIndex < GasHelpers.AllGasses.Length; displayIndex++)
         {
@@ -208,12 +208,12 @@ public class ResourceController : MonoBehaviour
 
     }
 
-    public void AddGas(Gas gas, float amount)
+    public void ProduceGas(Gas gas, float amount)
     {
         GasTotals[(int)gas] = Mathf.Max(GasTotals[(int)gas] + amount, 0);
     }
 
-    public void RemoveGas(Gas gas, float amount)
+    public void ConsumeGas(Gas gas, float amount)
     {
         GasTotals[(int)gas] = Mathf.Max(GasTotals[(int)gas] - amount, 0);
     }

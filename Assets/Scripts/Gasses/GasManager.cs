@@ -24,7 +24,7 @@ public class GasManager : MonoBehaviour
         return GasTotals[(int)gas];
     }
 
-    internal void ConsumeGas(Gas gas, int amount)
+    public void ConsumeGas(Gas gas, int amount)
     {
         GasTotals[(int)gas] = Mathf.Max(GasTotals[(int)gas] - amount, 0);
     }
