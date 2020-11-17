@@ -3,32 +3,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class LevelManager : MonoBehaviour
-<<<<<<< HEAD
 {    
-=======
-{
-    private static LevelManager _instance = null;      
-
-    void Awake()
-    {
-        if (_instance != null && _instance != this)
-        {
-            Destroy(this.gameObject);
-            return;
-        }
-        else
-        {
-            _instance = this;
-        }
-
-        DontDestroyOnLoad(this.gameObject);
-    }
-
-    public static LevelManager getInstance()
-    {
-        return _instance;
-    }
->>>>>>> master
 
     // Start is called before the first frame update
     void Start()
