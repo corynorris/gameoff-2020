@@ -13,6 +13,7 @@ public class CameraController : MonoBehaviour
     private float height;
     private float width;
     private float moveSpeed;
+    private float moveRatio;
     private float zoomSpeed;
 
     private bool movingUp;
@@ -36,7 +37,8 @@ public class CameraController : MonoBehaviour
         height = Camera.main.orthographicSize * 2.0f;
         width = height * Screen.width / Screen.height;
         Debug.Log(width + " " + height);
-        moveSpeed = (Camera.main.orthographicSize) / 55;
+        moveRatio = 40;
+        moveSpeed = (Camera.main.orthographicSize) / moveRatio;
         zoomSpeed = 0.5f;
         movingUp = false;
         movingRight = false;
@@ -72,7 +74,7 @@ public class CameraController : MonoBehaviour
                 width = height * Screen.width / Screen.height;
                 horizontalMax = false;
                 verticalMax = false;
-                moveSpeed = (Camera.main.orthographicSize) / 55;
+                moveSpeed = (Camera.main.orthographicSize) / moveRatio;
             }
             else
             {
