@@ -3,28 +3,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class LevelManager : MonoBehaviour
-{
-    private static LevelManager _instance = null;
-
-    void Awake()
-    {
-        if (_instance != null && _instance != this)
-        {
-            Destroy(this.gameObject);
-            return;
-        }
-        else
-        {
-            _instance = this;
-        }
-
-        DontDestroyOnLoad(this.gameObject);
-    }
-
-    public static LevelManager getInstance()
-    {
-        return _instance;
-    }
+{    
 
     // Start is called before the first frame update
     void Start()
@@ -35,6 +14,7 @@ public class LevelManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
 
     }
 
@@ -49,5 +29,25 @@ public class LevelManager : MonoBehaviour
     {
         Debug.Log("Quit requested");
         Application.Quit();
+    }
+
+    public void LoadOptionsMenu()
+    {
+        SceneManager.LoadScene("Options", LoadSceneMode.Additive);
+    }
+
+    public void UnloadOptionsMenu()
+    {
+        SceneManager.UnloadSceneAsync("Options");
+    }
+
+    public void LoadLevelSelectMenu()
+    {
+        SceneManager.LoadScene("LevelSelect", LoadSceneMode.Additive);
+    }
+
+    public void UnloadLevelSelectMenu()
+    {
+        SceneManager.UnloadSceneAsync("LevelSelect");
     }
 }
