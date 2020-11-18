@@ -25,7 +25,7 @@ public abstract class Plant : CellController
 
     [Tooltip("Amount of gas produced each growth period")]
     public Gas gasProductionType = Gas.Oxygen;
-    
+
     [Tooltip("Amount of gas consumed each growth period")]
     public int gasConsumption = 1;
 
@@ -41,7 +41,7 @@ public abstract class Plant : CellController
 
     public abstract void Grow();
 
-  
+
     public enum NoResourceOptions
     {
         Die, StopGrowing, StopGrowingAndGasProduction, StopGrowingAndAllGas
@@ -53,7 +53,7 @@ public abstract class Plant : CellController
         turnsAlive++;
         parentTurnsAlive++;
 
-        if (maxTurnsAlive > 0 && turnsAlive > maxTurnsAlive )
+        if (maxTurnsAlive > 0 && turnsAlive > maxTurnsAlive)
         {
             Debug.Log("Died from age");
             this.Kill();
@@ -74,7 +74,7 @@ public abstract class Plant : CellController
         }
 
 
-        if (turnsUntilGrowth-- <= 0)
+        if (isAlive && turnsUntilGrowth-- <= 0)
         {
             turnsOfGrowth++;
             parentTurnsOfGrowth++;
@@ -82,7 +82,7 @@ public abstract class Plant : CellController
             Grow();
 
             CalculateTurnsUntilGrowth();
-        } 
+        }
     }
 
 
@@ -91,9 +91,10 @@ public abstract class Plant : CellController
         if (useParentsGrowthRate)
         {
             this.turnsUntilGrowth = Mathf.FloorToInt(turnDelayBetweenGrowth * Mathf.Exp(rateOfGrowthDecay * parentTurnsOfGrowth));
-        } else
+        }
+        else
         {
-            this.turnsUntilGrowth =  Mathf.FloorToInt(turnDelayBetweenGrowth * Mathf.Exp(rateOfGrowthDecay * turnsOfGrowth));
+            this.turnsUntilGrowth = Mathf.FloorToInt(turnDelayBetweenGrowth * Mathf.Exp(rateOfGrowthDecay * turnsOfGrowth));
         }
 
         this.turnsUntilGrowth = Mathf.Max(0, this.turnsUntilGrowth);
@@ -108,12 +109,12 @@ public abstract class Plant : CellController
             {
                 this.Kill();
             }
-            
+
             if (onResourceDepletion == NoResourceOptions.StopGrowingAndAllGas)
             {
                 this.turnsUntilGrowth++;
             }
-    
+
 
             if (onResourceDepletion == NoResourceOptions.StopGrowingAndGasProduction)
             {
@@ -129,8 +130,10 @@ public abstract class Plant : CellController
             }
 
 
-        } else { 
-             // TODO: send the gas to be produced somewhere
+        }
+        else
+        {
+            // TODO: send the gas to be produced somewhere
             this.Grid.ResourceController.ProduceGas(this.gasProductionType, this.gasProduction);
             this.Grid.ResourceController.ConsumeGas(this.gasConsumptionType, this.gasConsumption);
         }
@@ -142,17 +145,18 @@ public abstract class Plant : CellController
         base.Initialize(cellParent);
         Plant parent = cellParent as Plant;
 
-        if (parent) { 
+        if (parent)
+        {
             this.parentTurnsAlive = parent.turnsAlive;
             this.parentTurnsOfGrowth = parent.turnsOfGrowth;
             CalculateTurnsUntilGrowth();
         }
-     }
+    }
 
 
     protected bool CanClaim(CellController cellController)
     {
-       return cellController && cellController.IsFree();
+        return cellController && cellController.IsFree();
     }
 
 }

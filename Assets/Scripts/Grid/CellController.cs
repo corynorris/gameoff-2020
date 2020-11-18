@@ -5,13 +5,13 @@ public class CellController : MonoBehaviour, IComparable
 {
 
     public int priority = 0;
-    [HideInInspector] 
+    [HideInInspector]
     public int numNeighbours = 0;
 
     private int x;
     private int y;
 
-    private bool isAlive = true;
+    protected bool isAlive = true;
     private CellController claimant = null;
 
     private Animator animator;
@@ -89,7 +89,7 @@ public class CellController : MonoBehaviour, IComparable
         return other.GetPriority().CompareTo(this.GetPriority());
     }
 
- 
+
 
     public bool IsDead()
     {
