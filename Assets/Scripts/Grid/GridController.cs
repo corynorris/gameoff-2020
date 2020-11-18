@@ -279,7 +279,7 @@ public class GridController : MonoBehaviour
         foreach (CellController cellController in cellsToUpdate)
         {
            cellController.MakeClaims();
-           
+           cellController.ProduceEffects();
         }
 
         resourceTotals = new Dictionary<Type, int>();
@@ -289,14 +289,15 @@ public class GridController : MonoBehaviour
             {
                 if (foregroundArray[x, y].HasClaimant())
                 {
-                    SpawnCell(x, y, foregroundArray[x, y].GetClaimant());
-                    foregroundArray[x, y].Reset();
+
+                    CellController parent = foregroundArray[x, y].GetClaimant();
+                    CellController child =  SpawnCell(x, y, parent);
+                    foregroundArray[x, y].Initialize(parent);
                 }
 
                 if (foregroundArray[x, y].IsDead())
                 {
                     SpawnCell(x, y, EmptyCell);
-                    foregroundArray[x, y].Reset();
                 }
                               
 
@@ -315,7 +316,7 @@ public class GridController : MonoBehaviour
                 }
 
                 //gasManager.AddGas(foregroundArray[x, y].ProduceEffects))
-                foregroundArray[x, y].ProduceEffects();
+              
 
             }
         }
@@ -330,16 +331,11 @@ public class GridController : MonoBehaviour
     // Update is called once per frame
 
 
-    public void OnDestroy()
-    {
-
-    }
-
-    public void SpawnCell(int x, int y, CellController prefab)
+    public CellController SpawnCell(int x, int y, CellController prefab)
     {
         if (x > TilesWide - 1 || y > TilesHigh - 1 || x < 0 || y < 0)
         {
-            return;
+            return prefab;
         }
 
 
@@ -377,6 +373,8 @@ public class GridController : MonoBehaviour
             cellsToUpdate.Add(foregroundArray[x, y]);
 
         }
+
+        return cell;
 
 
     }
