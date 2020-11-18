@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class CellController : MonoBehaviour, IComparable
 {
+
     public int priority = 0;
     [HideInInspector] 
     public int numNeighbours = 0;
@@ -61,7 +62,7 @@ public class CellController : MonoBehaviour, IComparable
         return claimant;
     }
 
-    public void Reset()
+    public virtual void Initialize(CellController parent)
     {
         this.isAlive = true;
         this.claimant = null;
