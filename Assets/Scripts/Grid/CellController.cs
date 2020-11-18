@@ -102,9 +102,11 @@ public class CellController : MonoBehaviour, IComparable
         numNeighbours = 0;
         foreach (GridDirection direction in GridDirectionHelpers.AllDirections)
         {
+            
+            
             CellController neighbour = this.Grid.GetCellInDirection(this.X, this.Y, direction);
 
-            if (neighbour && !neighbour.IsEmpty())
+            if (neighbour != null && !neighbour.IsEmpty())
             {
                 numNeighbours++;
             }
