@@ -12,9 +12,9 @@ GameObject:
   - component: {fileID: 6151721565692981514}
   - component: {fileID: 6151721565692981515}
   - component: {fileID: 8406492372042285451}
-  - component: {fileID: -7017769470017943306}
+  - component: {fileID: 6864622422895259084}
   m_Layer: 0
-  m_Name: Temp Generic Red
+  m_Name: Red Clock
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -130,7 +130,7 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &-7017769470017943306
+--- !u!114 &6864622422895259084
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -139,24 +139,21 @@ MonoBehaviour:
   m_GameObject: {fileID: 6151721565692981518}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a386de2e9a5f73d458b3b04641256e58, type: 3}
+  m_Script: {fileID: 11500000, guid: 72a3a39203840ff4ea94b9dabc46ef03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  priority: 5
+  priority: 3
   numNeighbours: 0
   turnDelayBetweenGrowth: 1
   rateOfGrowthDecay: 0
   maxTurnsAlive: 0
   maxTurnsOfGrowing: 0
   maxNeighboursBeforeOvercrowding: 8
-  gasProduction: 1
-  gasConsumption: 1
+  gasProduction: 7
+  gasConsumption: 3
   gasConsumptionType: 1
-  gasProductionType: 3
-  actionPatterns:
-  - action: 1
-    pattern: 0000010000000000
-    expandDirection: 4
+  gasProductionType: 2
+  initialDirection: 0
 --- !u!1 &7880294861586327171
 GameObject:
   m_ObjectHideFlags: 0

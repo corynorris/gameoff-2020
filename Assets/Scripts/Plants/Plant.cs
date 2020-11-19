@@ -62,19 +62,28 @@ public abstract class Plant : CellController
 
         if (turnsUntilGrowth-- <= 0)
         {
-            turnsOfGrowth++;
-            
-            Grow();
+            if(this.Grid.ResourceController.GetTotalGas(this.gasConsumptionType) >= this.gasConsumption)
+            {
+                turnsOfGrowth++;
+                this.Grid.ResourceController.ConsumeGas(this.gasConsumptionType, this.gasConsumption);
+                Grow();
 
-            turnsUntilGrowth = Mathf.FloorToInt(turnDelayBetweenGrowth * Mathf.Exp(rateOfGrowthDecay * turnsOfGrowth));
+                turnsUntilGrowth = Mathf.FloorToInt(turnDelayBetweenGrowth * Mathf.Exp(rateOfGrowthDecay * turnsOfGrowth));
+            }
+            
         } 
     }
 
     public override void ProduceEffects()
     {
         // TODO: send the gas to be produced somewhere
-        this.Grid.ResourceController.ProduceGas(this.gasProductionType, this.gasProduction);
-        this.Grid.ResourceController.ConsumeGas(this.gasConsumptionType, this.gasConsumption);
+        if(this.Grid.ResourceController.GetTotalGas(this.gasConsumptionType) >= this.gasConsumption)
+        {
+            this.Grid.ResourceController.ConsumeGas(this.gasConsumptionType, this.gasConsumption);
+            this.Grid.ResourceController.ProduceGas(this.gasProductionType, this.gasProduction);
+        }
+        
+        
 
     }
 
