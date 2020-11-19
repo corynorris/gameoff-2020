@@ -97,8 +97,7 @@ public class GridController : MonoBehaviour
                 bottomLeft.y = y;
             }
         }
-        Debug.Log("bottom left");
-        Debug.Log(bottomLeft);
+
 
         foreach (CellController cell in backgroundCells)
         {
@@ -328,8 +327,8 @@ public class GridController : MonoBehaviour
 
         foreach (CellController cellController in cellsToUpdate)
         {
-           cellController.MakeClaims();
            cellController.ProduceEffects();
+           cellController.MakeClaims();
         }
 
         resourceTotals = new Dictionary<Type, int>();
@@ -363,17 +362,9 @@ public class GridController : MonoBehaviour
                         resourceTotals[t] = 1;
                     }
                 }
-
-                //gasManager.AddGas(foregroundArray[x, y].ProduceEffects))
-              
-
             }
         }
 
-        foreach (KeyValuePair<Type, int> entry in resourceTotals)
-        {
-            // Debug.Log(entry.Key + " " + entry.Value);
-        }
 
     }
 
