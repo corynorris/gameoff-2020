@@ -12,10 +12,9 @@ public class GridController : MonoBehaviour
     public TurnManager turnManager;
     public CellController EmptyCell;
     public ResourceController ResourceController;
-    private CellController[,] backgroundArray;
     private CellController[,] foregroundArray;
     private static GridController _instance;
-
+    private Vector3 bottomLeft;
     private float offsetX;
     private float offsetY;
 
@@ -45,6 +44,7 @@ public class GridController : MonoBehaviour
 
                     if (activeResource)
                     {
+               
                         SpawnCell(cell.X, cell.Y, activeResource);
                         // Recalculate neighbours for this cell and it's neighbours
                     }
@@ -64,129 +64,180 @@ public class GridController : MonoBehaviour
     void Awake()
     {
 
-        if (_instance == null)
+        List<CellController> backgroundCells = new List<CellController>(BackgroundCellObj.GetComponentsInChildren<CellController>());
+        List<CellController> foregroundCells = new List<CellController>(ForegroundCellObj.GetComponentsInChildren<CellController>());
+        foregroundArray = new CellController[TilesWide, TilesHigh];
+        bottomLeft = new Vector3(TilesWide, TilesHigh, 0);
+
+
+        foreach (CellController cell in foregroundCells)
         {
+            int x = (int)cell.transform.position.x;
+            int y = (int)cell.transform.position.y;
+            cell.X = x + (TilesWide / 2);
+            cell.Y = y + (TilesHigh / 2) - 1;
 
-            _instance = this;
-            DontDestroyOnLoad(this.gameObject);
-            // _instance.turnManager.TurnPassed += RunSimulation;
-            ///////////////////////
-            _instance.backgroundArray = new CellController[TilesWide, TilesHigh];
-            _instance.foregroundArray = new CellController[TilesWide, TilesHigh];
-            ///////////////////////
-            List<CellController> backgroundCells = new List<CellController>(BackgroundCellObj.GetComponentsInChildren<CellController>());
-            List<CellController> foregroundCells = new List<CellController>(ForegroundCellObj.GetComponentsInChildren<CellController>());
-
-
-            //Debug.Log("Iterating over background cells");
-            //foreach (CellController backgroundCell in backgroundCells)
-            //{
-            //    Vector3Int roundedPosition = Vector3Int.RoundToInt(backgroundCell.transform.position);
-            //    Debug.Log(roundedPosition);
-            //    backgroundCell.transform.position = roundedPosition;
-
-            //}
-
-
-            backgroundCells.Sort((p1, p2) =>
-            {
-                Vector3 p1Pos = p1.transform.position;
-                Vector3 p2Pos = p2.transform.position;
-
-                if (p1Pos.y > p2Pos.y)
-                {
-                    return 1;
-                }
-                else if (p1Pos.y < p2Pos.y)
-                {
-                    return -1;
-                }
-                else
-                {
-                    if (p1Pos.x > p2Pos.x)
-                    {
-                        return 1;
-                    }
-                    else if (p1Pos.x < p2Pos.x)
-                    {
-                        return -1;
-                    }
-                }
-
-                return 0;
-
-
-            });
-
-
-
-            int x = 0;
-            int y = 0;
-            float oldYPos = backgroundCells[0].transform.position.y;
-            _instance.offsetX = -backgroundCells[0].transform.position.x;
-            _instance.offsetY = -backgroundCells[0].transform.position.y;
-
-            foreach (CellController backgroundCell in backgroundCells)
-            {
-                //Debug.Log(backgroundCell.gameObject.transform.position);
-                if (backgroundCell.transform.position.y > oldYPos)
-                {
-                    oldYPos = backgroundCell.transform.position.y;
-                    y++;
-                    x = 0;
-                }
-                backgroundCell.Y = y;
-                backgroundCell.X = x;
-
-                _instance.backgroundArray[x, y] = backgroundCell;
-                x++;
-
-            }
-
-            foreach (CellController backgroundCell in backgroundCells)
-            {
-                bool hasForeground = false;
-                foreach (CellController foregroundCell in foregroundCells)
-                {
-                    if (foregroundCell.transform.position == backgroundCell.transform.position)
-                    {
-                        foregroundCell.X = backgroundCell.X;
-                        foregroundCell.Y = backgroundCell.Y;
-                        _instance.foregroundArray[backgroundCell.X, backgroundCell.Y] = foregroundCell;
-                        hasForeground = true;
-                        break;
-                    }
-                }
-
-                if (!hasForeground)
-                {
-                    SpawnCell(backgroundCell.X, backgroundCell.Y, EmptyCell);
-                }
-            }
-
-            foreach (CellController foregroundCell in foregroundCells)
-            {
-                foreach (CellController backgroundCell in backgroundCells)
-                {
-                    if (foregroundCell.transform.position == backgroundCell.transform.position)
-                    {
-                        foregroundCell.X = backgroundCell.X;
-                        foregroundCell.Y = backgroundCell.Y;
-                        foregroundCell.Grid = _instance;
-
-                        _instance.foregroundArray[backgroundCell.X, backgroundCell.Y] = foregroundCell;
-                        break;
-                    }
-                }
-            }
-
-            // Create and spawn empty tileset
-
+            AddCellToGrid(cell);
         }
-        else
+
+        foreach (CellController cell in backgroundCells)
         {
-            Destroy(this);
+            int x = Mathf.RoundToInt(cell.transform.position.x);
+            int y = Mathf.RoundToInt(cell.transform.position.y);
+            cell.X = x + (TilesWide / 2);
+            cell.Y = y + (TilesHigh / 2) - 1;
+
+            if (x < bottomLeft.x)
+            {
+                bottomLeft.x = x;
+            }
+
+            if (y < bottomLeft.y)
+            {
+                bottomLeft.y = y;
+            }
         }
+        Debug.Log("bottom left");
+        Debug.Log(bottomLeft);
+
+        foreach (CellController cell in backgroundCells)
+        {
+            if (foregroundArray[cell.X, cell.Y] == null)
+            {
+                SpawnCell(cell.X, cell.Y, EmptyCell);
+            }
+        }
+
+  
+
+        //foreach (CellController foregroundCell in foregroundCells)
+        //{
+
+        //}
+
+        //if (_instance == null)
+        //{
+
+        //    _instance = this;
+        //    DontDestroyOnLoad(this.gameObject);
+        //    // _instance.turnManager.TurnPassed += RunSimulation;
+        //    ///////////////////////
+        //    _instance.backgroundArray = new CellController[TilesWide, TilesHigh];
+        //    _instance.foregroundArray = new CellController[TilesWide, TilesHigh];
+        //    ///////////////////////
+        //    List<CellController> backgroundCells = new List<CellController>(BackgroundCellObj.GetComponentsInChildren<CellController>());
+        //    List<CellController> foregroundCells = new List<CellController>(ForegroundCellObj.GetComponentsInChildren<CellController>());
+
+
+        //    //Debug.Log("Iterating over background cells");
+        //    //foreach (CellController backgroundCell in backgroundCells)
+        //    //{
+        //    //    Vector3Int roundedPosition = Vector3Int.RoundToInt(backgroundCell.transform.position);
+        //    //    Debug.Log(roundedPosition);
+        //    //    backgroundCell.transform.position = roundedPosition;
+
+        //    //}
+
+
+        //backgroundCells.Sort((p1, p2) =>
+        //{
+        //    Vector3 p1Pos = p1.transform.position;
+        //    Vector3 p2Pos = p2.transform.position;
+
+        //    if (p1Pos.y > p2Pos.y)
+        //    {
+        //        return 1;
+        //    }
+        //    else if (p1Pos.y < p2Pos.y)
+        //    {
+        //        return -1;
+        //    }
+        //    else
+        //    {
+        //        if (p1Pos.x > p2Pos.x)
+        //        {
+        //            return 1;
+        //        }
+        //        else if (p1Pos.x < p2Pos.x)
+        //        {
+        //            return -1;
+        //        }
+        //    }
+
+        //    return 0;
+
+
+        //});
+
+
+
+        //    int x = 0;
+        //    int y = 0;
+        //    float oldYPos = backgroundCells[0].transform.position.y;
+        //    _instance.offsetX = -backgroundCells[0].transform.position.x;
+        //    _instance.offsetY = -backgroundCells[0].transform.position.y;
+
+        //    foreach (CellController backgroundCell in backgroundCells)
+        //    {
+        //        //Debug.Log(backgroundCell.gameObject.transform.position);
+        //        if (backgroundCell.transform.position.y > oldYPos)
+        //        {
+        //            oldYPos = backgroundCell.transform.position.y;
+        //            y++;
+        //            x = 0;
+        //        }
+        //        backgroundCell.Y = y;
+        //        backgroundCell.X = x;
+
+        //        _instance.backgroundArray[x, y] = backgroundCell;
+        //        x++;
+
+        //    }
+
+        //    foreach (CellController backgroundCell in backgroundCells)
+        //    {
+        //        bool hasForeground = false;
+        //        foreach (CellController foregroundCell in foregroundCells)
+        //        {
+        //            if (foregroundCell.transform.position == backgroundCell.transform.position)
+        //            {
+        //                foregroundCell.X = backgroundCell.X;
+        //                foregroundCell.Y = backgroundCell.Y;
+        //                _instance.foregroundArray[backgroundCell.X, backgroundCell.Y] = foregroundCell;
+        //                hasForeground = true;
+        //                break;
+        //            }
+        //        }
+
+        //        if (!hasForeground)
+        //        {
+        //            SpawnCell(backgroundCell.X, backgroundCell.Y, EmptyCell);
+        //        }
+        //    }
+
+        //    foreach (CellController foregroundCell in foregroundCells)
+        //    {
+        //        foreach (CellController backgroundCell in backgroundCells)
+        //        {
+        //            if (foregroundCell.transform.position == backgroundCell.transform.position)
+        //            {
+        //                foregroundCell.X = backgroundCell.X;
+        //                foregroundCell.Y = backgroundCell.Y;
+        //                foregroundCell.Grid = _instance;
+
+        //                _instance.foregroundArray[backgroundCell.X, backgroundCell.Y] = foregroundCell;
+        //                break;
+        //            }
+        //        }
+        //    }
+
+        //    // Create and spawn empty tileset
+
+        //}
+        //else
+        //{
+        //    Destroy(this);
+        //}
     }
 
 
@@ -198,7 +249,6 @@ public class GridController : MonoBehaviour
 
     public void Clear()
     {
-        this.backgroundArray = new CellController[TilesHigh, TilesWide];
         this.foregroundArray = new CellController[TilesHigh, TilesWide];
 
         foreach (CellController child in this.BackgroundCellObj.GetComponentsInChildren<CellController>())      
@@ -256,7 +306,7 @@ public class GridController : MonoBehaviour
             return null;
         }
 
-        return _instance.foregroundArray[point.x, point.y];
+        return foregroundArray[point.x, point.y];
 
     }
 
@@ -279,7 +329,7 @@ public class GridController : MonoBehaviour
         foreach (CellController cellController in cellsToUpdate)
         {
            cellController.MakeClaims();
-           
+           cellController.ProduceEffects();
         }
 
         resourceTotals = new Dictionary<Type, int>();
@@ -289,14 +339,14 @@ public class GridController : MonoBehaviour
             {
                 if (foregroundArray[x, y].HasClaimant())
                 {
-                    SpawnCell(x, y, foregroundArray[x, y].GetClaimant());
-                    foregroundArray[x, y].Reset();
+                    CellController parent = foregroundArray[x, y].GetClaimant();
+                    CellController child =  SpawnCell(x, y, parent);
+                    foregroundArray[x, y].Initialize(parent);
                 }
 
                 if (foregroundArray[x, y].IsDead())
                 {
                     SpawnCell(x, y, EmptyCell);
-                    foregroundArray[x, y].Reset();
                 }
                               
 
@@ -315,7 +365,7 @@ public class GridController : MonoBehaviour
                 }
 
                 //gasManager.AddGas(foregroundArray[x, y].ProduceEffects))
-                foregroundArray[x, y].ProduceEffects();
+              
 
             }
         }
@@ -329,17 +379,25 @@ public class GridController : MonoBehaviour
 
     // Update is called once per frame
 
+    private void AddCellToGrid(CellController cell) {
+        cell.transform.SetParent(ForegroundCellObj.transform, false);
 
-    public void OnDestroy()
-    {
+        cell.Grid = this;
 
+        foregroundArray[cell.X, cell.Y] = cell;
+        
+        if (cell.GetPriority() > 0)
+        {
+            cellsToUpdate.Add(cell);
+        }
     }
 
-    public void SpawnCell(int x, int y, CellController prefab)
+
+    public CellController SpawnCell(int x, int y, CellController prefab)
     {
         if (x > TilesWide - 1 || y > TilesHigh - 1 || x < 0 || y < 0)
         {
-            return;
+            return prefab;
         }
 
 
@@ -357,28 +415,17 @@ public class GridController : MonoBehaviour
 
 
         Vector3 scale = this.transform.localScale;
-        Vector3 bottomLeft = backgroundArray[0, 0].transform.position;
         Vector3 position = new Vector3((bottomLeft.x / scale.x) + x, (bottomLeft.y / scale.x) + y, 0.1f);
 
         CellController cell = Instantiate(prefab, position, new Quaternion());
 
         cell.X = x;
         cell.Y = y;
-        cell.Grid = this;
-        cell.transform.SetParent(ForegroundCellObj.transform, false);
+    
+             
+        AddCellToGrid(cell);
 
-        foregroundArray[x, y] = cell;
-
-        // Debug.Losg("prefab.GetPriority(): " + prefab.GetPriority());
-        int priority = prefab.GetPriority();
-
-        if (priority > 0)
-        {
-            cellsToUpdate.Add(foregroundArray[x, y]);
-
-        }
-
-
+        return cell;
     }
 
 }

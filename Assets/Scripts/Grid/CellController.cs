@@ -3,14 +3,15 @@ using UnityEngine;
 
 public class CellController : MonoBehaviour, IComparable
 {
+
     public int priority = 0;
-    [HideInInspector] 
+    [HideInInspector]
     public int numNeighbours = 0;
 
     private int x;
     private int y;
 
-    private bool isAlive = true;
+    protected bool isAlive = true;
     private CellController claimant = null;
 
     private Animator animator;
@@ -61,7 +62,7 @@ public class CellController : MonoBehaviour, IComparable
         return claimant;
     }
 
-    public void Reset()
+    public virtual void Initialize(CellController parent)
     {
         this.isAlive = true;
         this.claimant = null;
@@ -88,7 +89,7 @@ public class CellController : MonoBehaviour, IComparable
         return other.GetPriority().CompareTo(this.GetPriority());
     }
 
- 
+
 
     public bool IsDead()
     {
@@ -101,9 +102,11 @@ public class CellController : MonoBehaviour, IComparable
         numNeighbours = 0;
         foreach (GridDirection direction in GridDirectionHelpers.AllDirections)
         {
+            
+            
             CellController neighbour = this.Grid.GetCellInDirection(this.X, this.Y, direction);
 
-            if (neighbour && !neighbour.IsEmpty())
+            if (neighbour != null && !neighbour.IsEmpty())
             {
                 numNeighbours++;
             }
