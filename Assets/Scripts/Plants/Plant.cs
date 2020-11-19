@@ -83,11 +83,13 @@ public abstract class Plant : CellController
 
             CalculateTurnsUntilGrowth();
         }
+
     }
 
 
     private void CalculateTurnsUntilGrowth()
     {
+
         if (useParentsGrowthRate)
         {
             this.turnsUntilGrowth = Mathf.FloorToInt(turnDelayBetweenGrowth * Mathf.Exp(rateOfGrowthDecay * parentTurnsOfGrowth));
@@ -96,6 +98,7 @@ public abstract class Plant : CellController
         {
             this.turnsUntilGrowth = Mathf.FloorToInt(turnDelayBetweenGrowth * Mathf.Exp(rateOfGrowthDecay * turnsOfGrowth));
         }
+
 
         this.turnsUntilGrowth = Mathf.Max(0, this.turnsUntilGrowth);
     }

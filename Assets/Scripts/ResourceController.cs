@@ -54,10 +54,10 @@ public class ResourceController : MonoBehaviour
 
     void Start()
     {
-        ProduceGas(Gas.Argon, 100);
-        ProduceGas(Gas.Helium, 101);
-        ProduceGas(Gas.Neon, 102);
-        ProduceGas(Gas.Oxygen, 103);
+        ProduceGas(Gas.Argon, Argon);
+        ProduceGas(Gas.Helium, Helium);
+        ProduceGas(Gas.Neon, Neon);
+        ProduceGas(Gas.Oxygen, Oxygen);
 
        // turnManager.TurnPassed += IncrementResourceCounts;
     }

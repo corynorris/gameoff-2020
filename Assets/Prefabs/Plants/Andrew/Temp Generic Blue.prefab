@@ -152,10 +152,10 @@ MonoBehaviour:
   gasProduction: 1
   gasConsumption: 1
   gasConsumptionType: 0
-  gasProductionType: 3
+  gasProductionType: 1
   actionPatterns:
   - action: 1
-    pattern: 0000000000000100
+    pattern: 0000000000000000
     expandDirection: 0
 --- !u!1 &7880294861586327171
 GameObject:
