@@ -8,9 +8,9 @@ public class ExpandPlant : Plant
     public GridDirection[] directionsToExpand;
 
 
-    public override void Grow()
+    public override bool Grow()
     {
-
+        bool hasGrown = false;
         foreach (GridDirection direction in directionsToExpand)
         {
             CellController neighbour = this.Grid.GetCellInDirection(this.X, this.Y, direction);
@@ -19,9 +19,11 @@ public class ExpandPlant : Plant
             if (CanClaim(neighbour))
             {
                 neighbour.Claim(this);
+                hasGrown = true;
             }
 
         }
+        return hasGrown;
     }
 
 
