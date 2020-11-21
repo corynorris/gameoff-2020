@@ -12,9 +12,9 @@ GameObject:
   - component: {fileID: 6151721565692981514}
   - component: {fileID: 6151721565692981515}
   - component: {fileID: 8406492372042285451}
-  - component: {fileID: -7017769470017943306}
+  - component: {fileID: 7531423441342326417}
   m_Layer: 0
-  m_Name: Temp Generic Red
+  m_Name: Blue Clock
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -74,7 +74,7 @@ SpriteRenderer:
   m_SortingLayerID: -927284061
   m_SortingLayer: 4
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: 1189c403a0fc10d43951113413598373, type: 3}
+  m_Sprite: {fileID: 21300000, guid: f7672fd50c43f7b4a94be5ec8461f0da, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -121,7 +121,7 @@ Animator:
   m_GameObject: {fileID: 6151721565692981518}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: d7694ceaef6c29e4695df3eaf88e0b2f, type: 2}
+  m_Controller: {fileID: 9100000, guid: d5fb1616b5999284390a73398c2203b7, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -130,7 +130,7 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &-7017769470017943306
+--- !u!114 &7531423441342326417
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -139,24 +139,23 @@ MonoBehaviour:
   m_GameObject: {fileID: 6151721565692981518}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a386de2e9a5f73d458b3b04641256e58, type: 3}
+  m_Script: {fileID: 11500000, guid: 72a3a39203840ff4ea94b9dabc46ef03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  priority: 5
+  priority: 4
   numNeighbours: 0
   turnDelayBetweenGrowth: 1
+  useParentsGrowthRate: 0
   rateOfGrowthDecay: 0
   maxTurnsAlive: 0
   maxTurnsOfGrowing: 0
   maxNeighboursBeforeOvercrowding: 8
-  gasProduction: 1
-  gasConsumption: 1
-  gasConsumptionType: 1
-  gasProductionType: 3
-  actionPatterns:
-  - action: 1
-    pattern: 0000010000000000
-    expandDirection: 4
+  gasProduction: 3
+  gasProductionType: 1
+  gasConsumption: 0
+  gasConsumptionType: 0
+  onResourceDepletion: 0
+  initialDirection: 0
 --- !u!1 &7880294861586327171
 GameObject:
   m_ObjectHideFlags: 0
@@ -227,7 +226,7 @@ SpriteRenderer:
   m_SortingLayerID: 1247568493
   m_SortingLayer: 3
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 34fe858f18dc4cc48924c769223084b3, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 5fe865bf49280fd4ca0b7f8558fb63a4, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
