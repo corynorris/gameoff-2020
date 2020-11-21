@@ -4,14 +4,10 @@
 public class EmptyCell : CellController
 {
 
-    public override bool CanBeClaimed()
+    public override bool IsEmpty()
     {
         return true;
     }
 
-    public override bool IsAlive()
-    {
-        return false;
-    }
 }
 

@@ -48,6 +48,7 @@ public abstract class Plant : CellController
     [SerializeField]
     private int turnsUntilDecay;
 
+    private Animator animator;
 
 
     public enum NoResourceOptions
@@ -55,6 +56,13 @@ public abstract class Plant : CellController
         Die, StopGrowing, StopGrowingAndGasProduction, StopGrowingAndAllGas, Decay
     }
     public NoResourceOptions onResourceDepletion = NoResourceOptions.Die;
+
+    protected virtual void Start()
+    {
+        animator = GetComponent<Animator>();
+        animator.SetTrigger("spawn");
+    }
+
 
     public override void MakeClaims()
     {
@@ -93,13 +101,10 @@ public abstract class Plant : CellController
         {
             if (Grow())
             {
-                turnsOfGrowth++;
-                parentTurnsOfGrowth++;
+                TrackGrowth();
             }
 
-            CalculateTurnsUntilGrowth();
-
-            TrackGrowth();
+          
         }
 
     }

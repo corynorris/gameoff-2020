@@ -202,10 +202,26 @@ MonoBehaviour:
   m_GameObject: {fileID: 2616190819972875029}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b33c76f86c91eb048a938e0387a0952d, type: 3}
+  m_Script: {fileID: 11500000, guid: a386de2e9a5f73d458b3b04641256e58, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   priority: 0
+  numNeighbours: 0
+  turnDelayBetweenGrowth: 1
+  useParentsGrowthRate: 0
+  rateOfGrowthDecay: 0
+  maxTurnsAlive: 0
+  maxTurnsOfGrowing: 0
+  maxNeighboursBeforeOvercrowding: 8
+  gasProduction: 2
+  gasProductionType: 3
+  gasConsumption: 1
+  gasConsumptionType: 0
+  turnsAlive: 0
+  isDecaying: 0
+  turnsUntilDecay: 0
+  onResourceDepletion: 0
+  actionPatterns: []
 --- !u!95 &3847280532690446825
 Animator:
   serializedVersion: 3
@@ -238,3 +254,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   priority: 3
+  numNeighbours: 0
+  turnDelayBetweenGrowth: 1
+  useParentsGrowthRate: 0
+  rateOfGrowthDecay: 0
+  maxTurnsAlive: 0
+  maxTurnsOfGrowing: 0
+  maxNeighboursBeforeOvercrowding: 8
+  gasProduction: 2
+  gasProductionType: 3
+  gasConsumption: 1
+  gasConsumptionType: 0
+  turnsAlive: 0
+  isDecaying: 0
+  turnsUntilDecay: 0
+  onResourceDepletion: 0
+  initialDirection: 0
