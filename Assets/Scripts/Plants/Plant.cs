@@ -220,6 +220,7 @@ public abstract class Plant : CellController
         TrackGrowth();
     }
 
+
     protected override bool ShouldCountAsNeighbour(CellController neighbour)
     {
         if (neighbour is Plant)
@@ -229,6 +230,7 @@ public abstract class Plant : CellController
 
         return false;
     }
+
 
     protected bool CanClaim(CellController cellController)
     {
