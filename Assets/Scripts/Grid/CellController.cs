@@ -14,7 +14,6 @@ public class CellController : MonoBehaviour, IComparable
     protected bool isAlive = true;
     private CellController claimant = null;
 
-    private Animator animator;
 
     public GridController Grid { set; get; }
 
@@ -30,11 +29,9 @@ public class CellController : MonoBehaviour, IComparable
         set { y = value; }
     }
 
-
-    protected virtual void Start()
+    public Vector2Int GetPosVector2Int()
     {
-        animator = GetComponent<Animator>();
-        animator.SetTrigger("spawn");
+        return new Vector2Int(x, y);
     }
 
     public void Kill()

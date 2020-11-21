@@ -10676,22 +10676,26 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   resourcePrefabs:
-  - {fileID: 7681948133355184132, guid: ab45c0b7cfec99f488620e038ff6d028, type: 3}
-  - {fileID: 6619559625442135046, guid: fcb0061e479697b4f8da3b46be39e516, type: 3}
-  - {fileID: 5020771995090592729, guid: 7306110f9d6183d4380b28cfa2aee490, type: 3}
-  resourceMax: 0a0000000a0000000a000000
+  - {fileID: 7681948133355184132, guid: 16d1dd504bc0d024f890d88064ed368e, type: 3}
+  - {fileID: 7702830865275493993, guid: 814b6433aaee4bd46803c2f7626b4edc, type: 3}
+  - {fileID: 5020771995090592729, guid: f647e0824f33f6c499780cf3eb779c6e, type: 3}
+  - {fileID: 1114722864346263333, guid: 6a23e1bf333692044a4a59385e355253, type: 3}
+  resourceMax: 0a0000000a0000000a0000000a000000
   buttonSprites:
   - {fileID: 21300000, guid: f7672fd50c43f7b4a94be5ec8461f0da, type: 3}
   - {fileID: 21300000, guid: aff1e7071cdb81e4bae4ad954bbb9944, type: 3}
   - {fileID: 21300000, guid: e17bb705d5931d74ab5d856a4af21ac7, type: 3}
+  - {fileID: 21300000, guid: 88dd86f312f48c84ba2b99cb26b1760c, type: 3}
   resourceChargeRate:
   - 0.001
   - 0.001
   - 0.001
-  resourceCount: 080000000800000008000000
+  - 0.001
+  resourceCount: 08000000080000000800000008000000
   tooltipText:
   - tool tip 1
   - tool top 2
+  - 'tsdfadfa '
   - 'tsdfadfa '
   buttonPrefab: {fileID: 4231019901656266730, guid: a5257e5667199894aa6fe0523e36b44c,
     type: 3}
@@ -36777,40 +36781,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5930265702285050184, guid: dc539c649f2f6d1468aa0ec59fd02c03,
-        type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5930265702285050184, guid: dc539c649f2f6d1468aa0ec59fd02c03,
-        type: 3}
-      propertyPath: m_LocalScale.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5930265702285050184, guid: dc539c649f2f6d1468aa0ec59fd02c03,
-        type: 3}
-      propertyPath: m_LocalScale.z
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 5930265702285050185, guid: dc539c649f2f6d1468aa0ec59fd02c03,
         type: 3}
       propertyPath: m_Name
       value: MainLevelPrefab
-      objectReference: {fileID: 0}
-    - target: {fileID: 5930265702778731323, guid: dc539c649f2f6d1468aa0ec59fd02c03,
-        type: 3}
-      propertyPath: m_RenderMode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5930265702778731323, guid: dc539c649f2f6d1468aa0ec59fd02c03,
-        type: 3}
-      propertyPath: m_SortingOrder
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5930265702778731323, guid: dc539c649f2f6d1468aa0ec59fd02c03,
-        type: 3}
-      propertyPath: m_SortingLayerID
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dc539c649f2f6d1468aa0ec59fd02c03, type: 3}

@@ -38,14 +38,15 @@ public abstract class Plant : CellController
     protected int turnsOfGrowth = 0;
     protected int turnsUntilGrowth = 0;
 
+    protected bool bornFromParent = false;
     protected int parentTurnsAlive = 0;
     protected int parentTurnsOfGrowth = 0;
+    protected GridDirection spawnDirection;
+
 
     public abstract bool Grow();
 
-    [SerializeField]
     private bool isDecaying = false;
-    [SerializeField]
     private int turnsUntilDecay;
 
     private Animator animator;
@@ -114,7 +115,6 @@ public abstract class Plant : CellController
     {
         turnsAlive++;
         parentTurnsAlive++;
-
     }
 
     private bool HasGas()
@@ -203,6 +203,7 @@ public abstract class Plant : CellController
 
     }
 
+
     public override void Initialize(CellController cellParent)
     {
         base.Initialize(cellParent);
@@ -213,6 +214,7 @@ public abstract class Plant : CellController
 
         if (parent)
         {
+            this.bornFromParent = true;
             this.parentTurnsAlive = parent.turnsAlive;
             this.parentTurnsOfGrowth = parent.turnsOfGrowth;
         }
