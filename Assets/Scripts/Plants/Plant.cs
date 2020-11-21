@@ -41,13 +41,13 @@ public abstract class Plant : CellController
     protected int parentTurnsAlive = 0;
     protected int parentTurnsOfGrowth = 0;
 
+    public abstract bool Grow();
+
     [SerializeField]
     private bool isDecaying = false;
     [SerializeField]
     private int turnsUntilDecay;
 
-
-    public abstract void Grow();
 
 
     public enum NoResourceOptions
@@ -91,9 +91,15 @@ public abstract class Plant : CellController
 
         if (isAlive && turnsUntilGrowth-- <= 0)
         {
-            TrackGrowth();
+            if (Grow())
+            {
+                turnsOfGrowth++;
+                parentTurnsOfGrowth++;
+            }
 
-            Grow();
+            CalculateTurnsUntilGrowth();
+
+            TrackGrowth();
         }
 
     }

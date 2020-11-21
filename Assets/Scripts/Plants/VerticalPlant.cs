@@ -5,8 +5,9 @@ using System;
 public class VerticalPlant : Plant
 {
 
-    public override void Grow()
+    public override bool Grow()
     {
+        bool hasGrown = false;
         foreach (GridDirection direction in GridDirectionHelpers.Vertical)
         {
 
@@ -15,9 +16,11 @@ public class VerticalPlant : Plant
             if (CanClaim(neighbour))
             {
                 neighbour.Claim(this);
+                hasGrown = true;
             }
 
         }
+        return hasGrown;
 
     }
 

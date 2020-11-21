@@ -4,8 +4,9 @@ using System;
 
 public class HorizontalPlant : Plant
 {
-    public override void Grow()
+    public override bool Grow()
     {
+        bool hasGrown = false;
         foreach (GridDirection direction in GridDirectionHelpers.Horizontal)
         {
             CellController neighbour = this.Grid.GetCellInDirection(this.X, this.Y, direction);
@@ -13,9 +14,11 @@ public class HorizontalPlant : Plant
             if (CanClaim(neighbour))
             {
                 neighbour.Claim(this);
+                hasGrown = true;
             }
 
         }
+        return hasGrown;
     }
 
 }

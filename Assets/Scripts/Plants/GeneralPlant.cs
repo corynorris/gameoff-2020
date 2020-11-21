@@ -25,19 +25,20 @@ public class GeneralPlant : Plant
     }
 
 
-    public override void Grow()
+    public override bool Grow()
     {
+        bool hasGrown = false;
         foreach (ActionPattern actionPattern in actionPatterns)
         {
             if (MatchesPattern(actionPattern.GetPattern())) {
                 if (actionPattern.action == Action.Die)
                 {
                     this.Kill();
-                    return;
+                    return hasGrown;
                 }
             }
         }
-
+        
         foreach (ActionPattern actionPattern in actionPatterns)
         {
             if (MatchesPattern(actionPattern.GetPattern())) {
@@ -48,10 +49,12 @@ public class GeneralPlant : Plant
                     if (CanClaim(cell))
                     {
                         cell.Claim(this);
+                        hasGrown = true;
                     }
                 }
             }
         }
+        return hasGrown;
 
     }
 
