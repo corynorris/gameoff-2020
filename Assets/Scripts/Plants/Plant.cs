@@ -215,6 +215,15 @@ public abstract class Plant : CellController
         TrackGrowth();
     }
 
+    protected override bool ShouldCountAsNeighbour(CellController neighbour)
+    {
+        if (neighbour is Plant)
+        {
+            return true;
+        }
+
+        return false;
+    }
 
     protected bool CanClaim(CellController cellController)
     {

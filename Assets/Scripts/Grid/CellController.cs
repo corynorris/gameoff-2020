@@ -69,7 +69,6 @@ public class CellController : MonoBehaviour, IComparable
     }
 
 
-
     public virtual bool IsEmpty()
     {
         return false;
@@ -97,16 +96,20 @@ public class CellController : MonoBehaviour, IComparable
     }
 
 
+    protected virtual bool ShouldCountAsNeighbour(CellController neighbour)
+    {
+        return !neighbour.IsEmpty();
+    }
+
     public void RecalculateNeighbours()
     {
         numNeighbours = 0;
         foreach (GridDirection direction in GridDirectionHelpers.AllDirections)
         {
-            
-            
+                        
             CellController neighbour = this.Grid.GetCellInDirection(this.X, this.Y, direction);
 
-            if (neighbour != null && !neighbour.IsEmpty())
+            if (neighbour != null && ShouldCountAsNeighbour(neighbour))
             {
                 numNeighbours++;
             }
