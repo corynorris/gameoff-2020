@@ -106,7 +106,9 @@ public class CellController : MonoBehaviour, IComparable
                         
             CellController neighbour = this.Grid.GetCellInDirection(this.X, this.Y, direction);
 
+
             if (neighbour != null && ShouldCountAsNeighbour(neighbour))
+
             {
                 numNeighbours++;
             }
