@@ -36,7 +36,7 @@ public class CameraController : MonoBehaviour
         camera = GetComponent<Camera>();
         height = Camera.main.orthographicSize * 2.0f;
         width = height * Screen.width / Screen.height;
-        Debug.Log(width + " " + height);
+        //Debug.Log(width + " " + height);
         moveRatio = 40;
         moveSpeed = (Camera.main.orthographicSize) / moveRatio;
         zoomSpeed = 0.5f;
@@ -54,7 +54,7 @@ public class CameraController : MonoBehaviour
         
         foreach(Transform bound in boundList)
         {
-            Debug.Log(bound.position);
+            //Debug.Log(bound.position);
         }
     }
 

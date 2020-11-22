@@ -1,6 +1,9 @@
 using UnityEngine;
 public abstract class Plant : CellController
 {
+    [Tooltip("Plant name.")]
+    public string plantName;
+
     [Tooltip("Rate at which growth slows down based on age n^2.")]
     public float turnDelayBetweenGrowth = 1f;
 

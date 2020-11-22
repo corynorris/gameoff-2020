@@ -97,8 +97,8 @@ public class GridController : MonoBehaviour
                 bottomLeft.y = y;
             }
         }
-        Debug.Log("bottom left");
-        Debug.Log(bottomLeft);
+        //Debug.Log("bottom left");
+        //Debug.Log(bottomLeft);
 
         foreach (CellController cell in backgroundCells)
         {
@@ -426,6 +426,11 @@ public class GridController : MonoBehaviour
         AddCellToGrid(cell);
 
         return cell;
+    }
+
+    public Dictionary<Type, int> GetResourceTotals()
+    {
+        return resourceTotals;
     }
 
 }
