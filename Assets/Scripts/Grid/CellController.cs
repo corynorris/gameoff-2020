@@ -104,7 +104,7 @@ public class CellController : MonoBehaviour, IComparable
         {
             CellController neighbour = this.Grid.GetCellInDirection(this.X, this.Y, direction);
 
-            if (neighbour && !neighbour.IsEmpty())
+            if (neighbour && !neighbour.IsEmpty() && !(neighbour is Rock))
             {
                 numNeighbours++;
             }

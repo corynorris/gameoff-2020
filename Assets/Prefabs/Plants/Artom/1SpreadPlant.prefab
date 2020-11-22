@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 649195625840693150}
   - component: {fileID: -8637584033862806110}
   m_Layer: 0
-  m_Name: SpreadPlant
+  m_Name: 1SpreadPlant
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -142,7 +142,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a386de2e9a5f73d458b3b04641256e58, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  priority: 5
+  priority: 3
   numNeighbours: 0
   turnDelayBetweenGrowth: 2
   useParentsGrowthRate: 0

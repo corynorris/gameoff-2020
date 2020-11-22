@@ -11,7 +11,8 @@ GameObject:
   - component: {fileID: 856654882881250373}
   - component: {fileID: 856654882881250370}
   - component: {fileID: 856654882881250371}
-  - component: {fileID: 5472063242228731979}
+  - component: {fileID: 665018498084419549}
+  - component: {fileID: 5744962826168682722}
   m_Layer: 0
   m_Name: Fore_Rock_Blue
   m_TagString: Player
@@ -110,7 +111,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &5472063242228731979
+--- !u!114 &665018498084419549
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -119,23 +120,30 @@ MonoBehaviour:
   m_GameObject: {fileID: 856654882881250374}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a386de2e9a5f73d458b3b04641256e58, type: 3}
+  m_Script: {fileID: 11500000, guid: 8ab0ded9e1b4ea74382d202942f5b474, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   priority: 0
   numNeighbours: 0
-  turnDelayBetweenGrowth: 1
-  useParentsGrowthRate: 0
-  rateOfGrowthDecay: 0
-  maxTurnsAlive: 0
-  maxTurnsOfGrowing: 0
-  maxNeighboursBeforeOvercrowding: 8
-  gasProduction: 2
-  gasProductionType: 3
-  gasConsumption: 0
-  gasConsumptionType: 0
-  onResourceDepletion: 0
-  actionPatterns: []
+--- !u!95 &5744962826168682722
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 856654882881250374}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &3738079313966183371
 GameObject:
   m_ObjectHideFlags: 0
