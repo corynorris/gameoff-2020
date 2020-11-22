@@ -15,7 +15,7 @@ public class GeneralPlant : Plant
         {
             CellController cell = this.Grid.GetCellInDirection(this.X, this.Y, direction);
 
-            if (cell is EmptyCell || cell is Rock)
+            if (!(cell is Plant))
             {
                 return false;
             }

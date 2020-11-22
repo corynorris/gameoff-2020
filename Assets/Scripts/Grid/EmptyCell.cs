@@ -8,5 +8,6 @@ public class EmptyCell : CellController
     {
         return true;
     }
+
 }
 

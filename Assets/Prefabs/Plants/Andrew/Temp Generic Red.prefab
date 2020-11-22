@@ -151,7 +151,7 @@ MonoBehaviour:
   maxNeighboursBeforeOvercrowding: 8
   gasProduction: 1
   gasConsumption: 1
-  gasConsumptionType: 0
+  gasConsumptionType: 1
   gasProductionType: 3
   actionPatterns:
   - action: 1

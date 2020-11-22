@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 public abstract class Plant : CellController
 {
@@ -32,26 +33,48 @@ public abstract class Plant : CellController
     [Tooltip("Amount of gas produced each growth period")]
     public Gas gasConsumptionType = Gas.Argon;
 
+    [SerializeField]
     protected int turnsAlive = 0;
     protected int turnsOfGrowth = 0;
     protected int turnsUntilGrowth = 0;
 
+    protected bool bornFromParent = false;
     protected int parentTurnsAlive = 0;
     protected int parentTurnsOfGrowth = 0;
+    protected GridDirection spawnDirection;
+
 
     public abstract bool Grow();
+
+    private bool isDecaying = false;
+    private int turnsUntilDecay;
+
+    private Animator animator;
 
 
     public enum NoResourceOptions
     {
-        Die, StopGrowing, StopGrowingAndGasProduction, StopGrowingAndAllGas
+        Die, StopGrowing, StopGrowingAndGasProduction, StopGrowingAndAllGas, Decay
     }
     public NoResourceOptions onResourceDepletion = NoResourceOptions.Die;
 
+    protected virtual void Start()
+    {
+        animator = GetComponent<Animator>();
+        animator.SetTrigger("spawn");
+    }
+
+
     public override void MakeClaims()
     {
-        turnsAlive++;
-        parentTurnsAlive++;
+        Age();
+
+        if (isDecaying)
+        {
+            Debug.Log("Decaying, won't age");
+            return;
+        }
+
 
         if (maxTurnsAlive > 0 && turnsAlive > maxTurnsAlive)
         {
@@ -74,24 +97,38 @@ public abstract class Plant : CellController
         }
 
 
+
         if (isAlive && turnsUntilGrowth-- <= 0)
         {
-            
-            
-
             if (Grow())
             {
-                turnsOfGrowth++;
-                parentTurnsOfGrowth++;
+                TrackGrowth();
             }
 
-            CalculateTurnsUntilGrowth();
+          
         }
+
     }
 
 
-    private void CalculateTurnsUntilGrowth()
+    private void Age()
     {
+        turnsAlive++;
+        parentTurnsAlive++;
+    }
+
+    private bool HasGas()
+    {
+        return this.Grid.ResourceController.GetTotalGas(this.gasConsumptionType) > 0;
+    }
+
+    private void TrackGrowth()
+    {
+
+        turnsOfGrowth++;
+        parentTurnsOfGrowth++;
+
+
         if (useParentsGrowthRate)
         {
             this.turnsUntilGrowth = Mathf.FloorToInt(turnDelayBetweenGrowth * Mathf.Exp(rateOfGrowthDecay * parentTurnsOfGrowth));
@@ -100,6 +137,7 @@ public abstract class Plant : CellController
         {
             this.turnsUntilGrowth = Mathf.FloorToInt(turnDelayBetweenGrowth * Mathf.Exp(rateOfGrowthDecay * turnsOfGrowth));
         }
+
 
         this.turnsUntilGrowth = Mathf.Max(0, this.turnsUntilGrowth);
     }
@@ -128,15 +166,36 @@ public abstract class Plant : CellController
 
             if (onResourceDepletion == NoResourceOptions.StopGrowing)
             {
-                this.turnsUntilGrowth++;
+                this.turnsUntilGrowth = 2;
                 this.Grid.ResourceController.ProduceGas(this.gasProductionType, this.gasProduction);
                 this.Grid.ResourceController.ConsumeGas(this.gasConsumptionType, this.gasConsumption);
+            }
+
+            if (onResourceDepletion == NoResourceOptions.Decay)
+            {
+                this.turnsUntilGrowth = 2;
+
+                if (!isDecaying)
+                {
+                    isDecaying = true;
+                    turnsUntilDecay = turnsAlive;
+                }
+                else
+                {
+                    turnsUntilDecay -= 2;
+                }
+
+                if (turnsUntilDecay <= 0)
+                {
+                    this.Kill();
+                }
             }
 
 
         }
         else
         {
+            isDecaying = false;
             // TODO: send the gas to be produced somewhere
             this.Grid.ResourceController.ProduceGas(this.gasProductionType, this.gasProduction);
             this.Grid.ResourceController.ConsumeGas(this.gasConsumptionType, this.gasConsumption);
@@ -144,17 +203,34 @@ public abstract class Plant : CellController
 
     }
 
+
     public override void Initialize(CellController cellParent)
     {
         base.Initialize(cellParent);
+        this.turnsAlive = 0;
+        this.turnsOfGrowth = 0;
+
         Plant parent = cellParent as Plant;
 
         if (parent)
         {
+            this.bornFromParent = true;
             this.parentTurnsAlive = parent.turnsAlive;
             this.parentTurnsOfGrowth = parent.turnsOfGrowth;
-            CalculateTurnsUntilGrowth();
         }
+
+        TrackGrowth();
+    }
+
+
+    protected override bool ShouldCountAsNeighbour(CellController neighbour)
+    {
+        if (neighbour is Plant)
+        {
+            return true;
+        }
+
+        return false;
     }
 
 
