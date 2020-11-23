@@ -28,7 +28,7 @@ public class CameraController : MonoBehaviour
     private bool zoomOutFull;
     private bool zoomInFull;
 
-    private enum Direction {Top, Right, Bottom, Left }
+    private enum Direction { Top, Right, Bottom, Left }
 
     // Start is called before the first frame update
     void Start()
@@ -36,7 +36,7 @@ public class CameraController : MonoBehaviour
         camera = GetComponent<Camera>();
         height = Camera.main.orthographicSize * 2.0f;
         width = height * Screen.width / Screen.height;
-        //Debug.Log(width + " " + height);
+        // Debug.Log(width + " " + height);
         moveRatio = 40;
         moveSpeed = (Camera.main.orthographicSize) / moveRatio;
         zoomSpeed = 0.5f;
@@ -50,9 +50,9 @@ public class CameraController : MonoBehaviour
 
         zoomOutFull = false;
         zoomInFull = false;
-        sortBounds();       
-        
-        foreach(Transform bound in boundList)
+        sortBounds();
+
+        foreach (Transform bound in boundList)
         {
             //Debug.Log(bound.position);
         }
@@ -114,10 +114,13 @@ public class CameraController : MonoBehaviour
         {
             zoomCamera(false);
 
-        } else if (zoomInFull) {
+        }
+        else if (zoomInFull)
+        {
             zoomCamera(true);
         }
-        else {
+        else
+        {
             if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow))
             {
                 movingUp = true;
@@ -161,7 +164,7 @@ public class CameraController : MonoBehaviour
                 zoomCamera(true);
             }
 
-            if (Input.GetKeyDown(KeyCode.Equals)) 
+            if (Input.GetKeyDown(KeyCode.Equals))
             {
                 zoomInFull = true;
             }
@@ -178,13 +181,14 @@ public class CameraController : MonoBehaviour
         if (movingUp && !verticalMax)
         {
             moveCamera(0, moveSpeed);
-        }else if (movingBottom && !verticalMax)
+        }
+        else if (movingBottom && !verticalMax)
         {
             moveCamera(0, -moveSpeed);
         }
         if (movingRight && !horizontalMax)
         {
-            moveCamera(moveSpeed,0);
+            moveCamera(moveSpeed, 0);
         }
         else if (movingLeft && !horizontalMax)
         {
@@ -193,7 +197,7 @@ public class CameraController : MonoBehaviour
     }
 
     void LateUpdate()
-    {        
+    {
         transform.position = new Vector3(boundXaxis(transform.position.x), boundYaxis(transform.position.y), transform.position.z);
     }
 

@@ -5,19 +5,23 @@ using System;
 public class VerticalPlant : Plant
 {
 
-    public override void Grow()
+    public override bool Grow()
     {
-        foreach (GridDirection direction in GridDirectionHelpers.Vertical)
-        {
+        bool hasGrown = false;
 
+        foreach (GridDirection direction in GridDirectionHelpers.AllDirections)
+        {
             CellController neighbour = this.Grid.GetCellInDirection(this.X, this.Y, direction);
 
             if (CanClaim(neighbour))
             {
                 neighbour.Claim(this);
+                hasGrown = true;
             }
 
         }
+        
+        return hasGrown;
 
     }
 

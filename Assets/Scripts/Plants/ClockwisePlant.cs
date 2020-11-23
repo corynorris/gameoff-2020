@@ -32,16 +32,18 @@ public class ClockwisePlant : Plant
         }
         return null;
     }
-    public override void Grow()
+    public override bool Grow()
     {
+        bool hasGrown = false;
         CellController cellToClaim = GetNextEmptyNeighbour();
 
 
         if (cellToClaim != null)
         {   
             cellToClaim.Claim(this);
-        } 
-
+            hasGrown = true;
+        }
+        return hasGrown;
     }
 
 

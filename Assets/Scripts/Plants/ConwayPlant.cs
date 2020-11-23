@@ -5,9 +5,9 @@ using System;
 public class ConwayPlant : Plant
 {
 
-    public override void Grow()
+    public override bool Grow()
     {
-       
+        bool hasGrown = false;
         if (numNeighbours <= 1 || numNeighbours >3)
         {
             this.Kill();
@@ -22,11 +22,12 @@ public class ConwayPlant : Plant
                 if (neighbour.numNeighbours == 3 && CanClaim(neighbour))
                 {
                     neighbour.Claim(this);
+                    hasGrown = true;
                 }
 
             }
         }
-
+        return hasGrown;
 
     }
 
