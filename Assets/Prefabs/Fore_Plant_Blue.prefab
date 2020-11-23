@@ -144,17 +144,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   priority: 5
   numNeighbours: 0
+  plantName: 
   turnDelayBetweenGrowth: 4
   useParentsGrowthRate: 1
   rateOfGrowthDecay: 0.2
   maxTurnsAlive: 0
-  maxTurnsOfGrowing: 1
-  maxNeighboursBeforeOvercrowding: 8
-  gasProduction: 1
+  maxTurnsOfGrowing: 0
+  maxNeighboursBeforeOvercrowding: 0
+  gasProduction: 0
   gasProductionType: 3
-  gasConsumption: 1
+  gasConsumption: 0
   gasConsumptionType: 0
-  onResourceDepletion: 2
+  onResourceDepletion: 1
   directionsToExpand: 00000000020000000400000006000000
 --- !u!1 &9180595502641301201
 GameObject:

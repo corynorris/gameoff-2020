@@ -157,7 +157,7 @@ GameObject:
   - component: {fileID: 4231019901656266730}
   - component: {fileID: 5894648731825842475}
   m_Layer: 5
-  m_Name: Resource Button
+  m_Name: Spawn Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

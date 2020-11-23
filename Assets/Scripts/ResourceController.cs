@@ -43,7 +43,7 @@ public class ResourceController : MonoBehaviour
     public TurnManager turnManager;
 
     SpawnButton[] spawnButtons;
-    GameObject[] gasDisplys;
+    GameObject[] gasDisplays;
     Transform[] buttonPositions;
     Transform[] gasDisplayPositions;
     float[] rechargeProgress;
@@ -72,10 +72,10 @@ public class ResourceController : MonoBehaviour
         if (_instance == null)
         {
             _instance = this;
-            DontDestroyOnLoad(this.gameObject);
+            //DontDestroyOnLoad(this.gameObject);
             rechargeProgress = new float[getButtonCount()];
             spawnButtons = new SpawnButton[getButtonCount()];
-            gasDisplys = new GameObject[getGasLength()];
+            gasDisplays = new GameObject[getGasLength()];
             buttonPositions = buttonFrame.GetComponentsInChildren<Transform>();
             gasDisplayPositions = gasDisplayFrame.GetComponentsInChildren<Transform>();
             initializeButtons();
@@ -92,10 +92,10 @@ public class ResourceController : MonoBehaviour
 
         for (int displayIndex = 0; displayIndex < getGasLength(); displayIndex++)
         {
-            gasDisplys[displayIndex] = Instantiate(gasDisplayPrefab, gasDisplayPositions[displayIndex + 1].position, gasDisplayPositions[displayIndex + 1].rotation) as GameObject;
-            gasDisplys[displayIndex].transform.parent = gasDisplayFrame.transform;
-            gasDisplys[displayIndex].transform.localScale = gasDisplayPrefab.transform.localScale;
-            gasDisplys[displayIndex].transform.localPosition = gasDisplayPositions[displayIndex + 1].localPosition;
+            gasDisplays[displayIndex] = Instantiate(gasDisplayPrefab, gasDisplayPositions[displayIndex + 1].position, gasDisplayPositions[displayIndex + 1].rotation) as GameObject;
+            gasDisplays[displayIndex].transform.parent = gasDisplayFrame.transform;
+            gasDisplays[displayIndex].transform.localScale = gasDisplayPrefab.transform.localScale;
+            gasDisplays[displayIndex].transform.localPosition = gasDisplayPositions[displayIndex + 1].localPosition;
         }
     }
 
@@ -203,7 +203,7 @@ public class ResourceController : MonoBehaviour
 
         for (int displayIndex = 0; displayIndex < GasHelpers.AllGasses.Length; displayIndex++)
         {
-            gasDisplys[displayIndex].GetComponent<Text>().text = ((Gas)displayIndex).ToString() + " : " + Math.Round(GetTotalGas((Gas)displayIndex),1);
+            gasDisplays[displayIndex].GetComponent<Text>().text = ((Gas)displayIndex).ToString() + " : " + Math.Round(GetTotalGas((Gas)displayIndex),1);
         }
 
     }
