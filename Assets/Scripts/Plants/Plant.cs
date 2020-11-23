@@ -41,6 +41,7 @@ public abstract class Plant : CellController
     protected int turnsOfGrowth = 0;
     protected int turnsUntilGrowth = 0;
 
+    [SerializeField]
     protected bool bornFromParent = false;
     protected int parentTurnsAlive = 0;
     protected int parentTurnsOfGrowth = 0;
@@ -217,7 +218,7 @@ public abstract class Plant : CellController
 
         if (parent)
         {
-            this.bornFromParent = true;
+             this.bornFromParent = true;
             this.parentTurnsAlive = parent.turnsAlive;
             this.parentTurnsOfGrowth = parent.turnsOfGrowth;
         }
