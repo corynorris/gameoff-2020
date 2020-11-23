@@ -25,7 +25,7 @@ RectTransform:
   m_GameObject: {fileID: 30317427}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.29, y: 0.29, z: 1}
+  m_LocalScale: {x: 0.46111768, y: 0.46111768, z: 1.5900611}
   m_Children:
   - {fileID: 460697113}
   - {fileID: 940350614}
@@ -38,7 +38,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -5.9, y: -0.7}
+  m_AnchoredPosition: {x: 21.2, y: -3.4}
   m_SizeDelta: {x: 92.46277, y: 113.47711}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &62212506
@@ -582,7 +582,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 55.9, y: 13.5}
+  m_AnchoredPosition: {x: 55.9, y: 29.5}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &721822968
@@ -675,7 +675,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 1
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: -1.9695512, y: 0, z: 109.5573, w: 36.929417}
+  m_margin: {x: -3.2783513, y: 0, z: 108.24854, w: 36.929417}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -1248,8 +1248,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -352.70004, y: 116.2}
-  m_SizeDelta: {x: 94.81213, y: 85.56117}
+  m_AnchoredPosition: {x: -352.70004, y: 103.97}
+  m_SizeDelta: {x: 94.81213, y: 110.01857}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1374723762
 CanvasRenderer:
@@ -1303,7 +1303,7 @@ MonoBehaviour:
   messageTextField: {fileID: 721822967}
   messageText: Objective Progress
   progressDisplayFrame: {fileID: 30317427}
-  progressDisplayPrefab: {fileID: 8683925434175067795, guid: 64244732685dc4341a6cd06a8068810d,
+  progressDisplayPrefab: {fileID: 8683925434175067795, guid: 813d8ad8300ad6a43b43a5e26c8b2cec,
     type: 3}
 --- !u!1 &1643353378
 GameObject:
@@ -3634,22 +3634,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   levelText: {fileID: 2132698776}
   turnText: {fileID: 1206760596}
-  turnLimit: 10
+  turnLimit: 30
   argonTarget: 1
   heliumTarget: 1
   neonTarget: 1
   oxygenTarget: 1
   objectiveResourcePrefabs:
-  - {fileID: 7531423441342326417, guid: adb9427dd5eae01458af8532f4f4ea91, type: 3}
-  - {fileID: 6864622422895259084, guid: 7a9221d8e6d3cc948923f7fcae093ad4, type: 3}
-  - {fileID: 6864622422895259084, guid: 7a9221d8e6d3cc948923f7fcae093ad4, type: 3}
-  - {fileID: 6864622422895259084, guid: 7a9221d8e6d3cc948923f7fcae093ad4, type: 3}
-  - {fileID: 6864622422895259084, guid: 7a9221d8e6d3cc948923f7fcae093ad4, type: 3}
-  - {fileID: 6864622422895259084, guid: 7a9221d8e6d3cc948923f7fcae093ad4, type: 3}
-  resourceObjectiveTargets: 190000000400000004000000040000000400000004000000
-  resourceObjectivesProgressTestResults: 180000000300000003000000030000000300000003000000
+  - {fileID: 7681948133355184132, guid: ab45c0b7cfec99f488620e038ff6d028, type: 3}
+  - {fileID: 6619559625442135046, guid: fcb0061e479697b4f8da3b46be39e516, type: 3}
+  resourceObjectiveTargets: 0f0000000a000000
+  resourceObjectivesProgressTestResults: 0000000000000000
   losePannel: {fileID: 994770840}
   wonPannel: {fileID: 7604564697322996113}
+  objectivePannel: {fileID: 1374723760}
 --- !u!1 &5930265702778731327
 GameObject:
   m_ObjectHideFlags: 0
