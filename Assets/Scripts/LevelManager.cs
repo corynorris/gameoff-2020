@@ -50,4 +50,19 @@ public class LevelManager : MonoBehaviour
     {
         SceneManager.UnloadSceneAsync("LevelSelect");
     }
+
+    public void ReloadLevel()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+
+    public string GetSceneName()
+    {
+        return SceneManager.GetActiveScene().name;
+    }
+
+    public void LoadNextLevel()
+    {
+
+    }
 }

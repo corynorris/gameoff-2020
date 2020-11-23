@@ -74,7 +74,7 @@ SpriteRenderer:
   m_SortingLayerID: -927284061
   m_SortingLayer: 4
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: c4936d9b17e84734ab052b0f9269dcef, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 88dd86f312f48c84ba2b99cb26b1760c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -121,7 +121,7 @@ Animator:
   m_GameObject: {fileID: 6151721565692981518}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: f58b9aa01dea6304490c38b147bf55de, type: 2}
+  m_Controller: {fileID: 9100000, guid: 0ade872ce9bf4324dba80428c8551a54, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -145,14 +145,16 @@ MonoBehaviour:
   priority: 2
   numNeighbours: 0
   turnDelayBetweenGrowth: 1
+  useParentsGrowthRate: 0
   rateOfGrowthDecay: 0
   maxTurnsAlive: 0
   maxTurnsOfGrowing: 0
   maxNeighboursBeforeOvercrowding: 8
   gasProduction: 4
+  gasProductionType: 0
   gasConsumption: 4
   gasConsumptionType: 2
-  gasProductionType: 0
+  onResourceDepletion: 0
   initialDirection: 0
 --- !u!1 &7880294861586327171
 GameObject:
@@ -224,7 +226,7 @@ SpriteRenderer:
   m_SortingLayerID: 1247568493
   m_SortingLayer: 3
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 2c25ce8e302b0274cab0b38fba9635ec, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 3420e8bb724e6bb489ce70e7ad5073de, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

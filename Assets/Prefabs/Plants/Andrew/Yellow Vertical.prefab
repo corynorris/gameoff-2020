@@ -145,14 +145,16 @@ MonoBehaviour:
   priority: 6
   numNeighbours: 0
   turnDelayBetweenGrowth: 1
+  useParentsGrowthRate: 0
   rateOfGrowthDecay: 0
   maxTurnsAlive: 0
   maxTurnsOfGrowing: 0
   maxNeighboursBeforeOvercrowding: 8
-  gasProduction: 0
-  gasConsumption: 0
-  gasConsumptionType: 0
+  gasProduction: 1
   gasProductionType: 3
+  gasConsumption: 2
+  gasConsumptionType: 0
+  onResourceDepletion: 0
 --- !u!1 &3364928400028676050
 GameObject:
   m_ObjectHideFlags: 0

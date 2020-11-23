@@ -54,7 +54,7 @@ public class CameraController : MonoBehaviour
 
         foreach (Transform bound in boundList)
         {
-            Debug.Log(bound.position);
+            //Debug.Log(bound.position);
         }
     }
 

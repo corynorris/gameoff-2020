@@ -144,15 +144,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   priority: 4
   numNeighbours: 0
+  plantName: Blue Plant
   turnDelayBetweenGrowth: 1
   useParentsGrowthRate: 0
   rateOfGrowthDecay: 0
-  maxTurnsAlive: 0
+  maxTurnsAlive: 99
   maxTurnsOfGrowing: 0
   maxNeighboursBeforeOvercrowding: 8
-  gasProduction: 3
+  gasProduction: 4
   gasProductionType: 1
-  gasConsumption: 0
+  gasConsumption: 3
   gasConsumptionType: 0
   onResourceDepletion: 0
   initialDirection: 0

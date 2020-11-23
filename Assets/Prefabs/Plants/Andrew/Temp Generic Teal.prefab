@@ -145,14 +145,16 @@ MonoBehaviour:
   priority: 5
   numNeighbours: 0
   turnDelayBetweenGrowth: 1
+  useParentsGrowthRate: 0
   rateOfGrowthDecay: 0
   maxTurnsAlive: 0
   maxTurnsOfGrowing: 0
   maxNeighboursBeforeOvercrowding: 8
   gasProduction: 1
+  gasProductionType: 2
   gasConsumption: 1
-  gasConsumptionType: 0
-  gasProductionType: 3
+  gasConsumptionType: 3
+  onResourceDepletion: 0
   actionPatterns:
   - action: 1
     pattern: 0000000001000000

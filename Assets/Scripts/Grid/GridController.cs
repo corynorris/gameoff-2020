@@ -98,7 +98,6 @@ public class GridController : MonoBehaviour
             }
         }
 
-
         foreach (CellController cell in backgroundCells)
         {
             if (foregroundArray[cell.X, cell.Y] == null)
@@ -417,6 +416,11 @@ public class GridController : MonoBehaviour
         AddCellToGrid(cell);
 
         return cell;
+    }
+
+    public Dictionary<Type, int> GetResourceTotals()
+    {
+        return resourceTotals;
     }
 
 }
