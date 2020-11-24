@@ -49,7 +49,7 @@ public class ProgressPannel : MonoBehaviour
             progressDisplays[displayIndex].transform.localPosition = progressDisplayPositions[displayIndex + 1].localPosition;            
             progressDisplays[displayIndex].GetComponent<ProgressBlockHelper>().SetObjectiveString(levelController.GetObjectiveResourcePrefabs()[displayIndex].plantName);
             progressDisplays[displayIndex].GetComponent<ProgressBlockHelper>().SetObjectiveTarget(levelController.GetResourceObjectiveTargets()[displayIndex]);
-            progressDisplays[displayIndex].GetComponent<ProgressBlockHelper>().SetObjectiveProgress(levelController.GetResourceObjectiveProgress()[displayIndex]);
+           // progressDisplays[displayIndex].GetComponent<ProgressBlockHelper>().SetObjectiveProgress(gridController.GetResourceTotals()[levelController.GetObjectiveResourcePrefabs()[displayIndex].GetType()]);
             progressDisplays[displayIndex].GetComponent<ProgressBlockHelper>().SetResourceImage(levelController.GetObjectiveResourcePrefabs()[displayIndex].GetComponent<SpriteRenderer>().sprite);
             progressDisplays[displayIndex].GetComponent<ProgressBlockHelper>().UpdateDisplay();
 
