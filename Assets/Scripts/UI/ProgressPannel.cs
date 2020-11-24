@@ -12,14 +12,14 @@ public class ProgressPannel : MonoBehaviour
     [Header("Frame for placing goal progress")]
     [SerializeField] GameObject progressDisplayFrame;
 
-    [SerializeField] GameObject progressDisplayPrefab;
-
+    [SerializeField] GameObject progressDisplayPrefab;       
 
     private GridController gridController;
     private LevelController levelController;
 
     private Transform[] progressDisplayPositions;
     GameObject[] progressDisplays;
+    Color[] progressColors;
 
     // Start is called before the first frame update
     void Start()
@@ -28,6 +28,7 @@ public class ProgressPannel : MonoBehaviour
         levelController = FindObjectOfType<LevelController>();
         progressDisplayPositions = progressDisplayFrame.GetComponentsInChildren<Transform>();
         progressDisplays = new GameObject[levelController.GetObjectiveResourcePrefabs().Length];
+        progressColors = levelController.GetObjectiveResourceColors();
         gridController = FindObjectOfType<GridController>();
         InitializeObjectiveBlocks();
 
@@ -49,9 +50,10 @@ public class ProgressPannel : MonoBehaviour
             progressDisplays[displayIndex].transform.localPosition = progressDisplayPositions[displayIndex + 1].localPosition;            
             progressDisplays[displayIndex].GetComponent<ProgressBlockHelper>().SetObjectiveString(levelController.GetObjectiveResourcePrefabs()[displayIndex].plantName);
             progressDisplays[displayIndex].GetComponent<ProgressBlockHelper>().SetObjectiveTarget(levelController.GetResourceObjectiveTargets()[displayIndex]);
-           // progressDisplays[displayIndex].GetComponent<ProgressBlockHelper>().SetObjectiveProgress(gridController.GetResourceTotals()[levelController.GetObjectiveResourcePrefabs()[displayIndex].GetType()]);
+            progressDisplays[displayIndex].GetComponent<ProgressBlockHelper>().SetObjectiveProgress(0);
             progressDisplays[displayIndex].GetComponent<ProgressBlockHelper>().SetResourceImage(levelController.GetObjectiveResourcePrefabs()[displayIndex].GetComponent<SpriteRenderer>().sprite);
             progressDisplays[displayIndex].GetComponent<ProgressBlockHelper>().UpdateDisplay();
+            progressDisplays[displayIndex].GetComponent<ProgressBlockHelper>().SetColor(progressColors[displayIndex]);
 
 
         }
