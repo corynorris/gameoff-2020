@@ -3,6 +3,8 @@ using UnityEngine;
 
 public class CellController : MonoBehaviour, IComparable
 {
+    [Tooltip("Cell name.")]
+    public string cellName = "";
 
     public int priority = 0;
     [HideInInspector]
@@ -14,9 +16,14 @@ public class CellController : MonoBehaviour, IComparable
     protected bool isAlive = true;
     private CellController claimant = null;
 
-
+    protected bool clickable = true ;
     public GridController Grid { set; get; }
 
+    public bool IsClickable()
+    {
+        return clickable;
+
+    }
     public int X
     {
         get { return x; }

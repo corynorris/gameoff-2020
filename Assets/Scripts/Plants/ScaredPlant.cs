@@ -33,6 +33,7 @@ public class ScaredPlant : Plant
             runningDirection = scaredParent.runningDirection;
         }
 
+ 
     }
 
     public override bool Grow()
