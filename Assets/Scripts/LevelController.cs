@@ -19,8 +19,7 @@ public class LevelController : MonoBehaviour
 
     [SerializeField] Plant[] objectiveResourcePrefabs;
     [SerializeField] int[] resourceObjectiveTargets;
-    [SerializeField] int[] resourceObjectivesProgressTestResults;
-
+    
     [SerializeField] ProgressPannel losePannel;
     [SerializeField] ProgressPannel wonPannel;
     [SerializeField] ProgressPannel objectivePannel;
@@ -64,9 +63,8 @@ public class LevelController : MonoBehaviour
     }
 
     void EndGame()
-    {
-        Debug.Log("Game Over");
-        if (argonTarget < 0 || resourceController.GetTotalGas(Gas.Argon) >= argonTarget)
+    {        
+        /*if (argonTarget < 0 || resourceController.GetTotalGas(Gas.Argon) >= argonTarget)
         {
             if (heliumTarget < 0 || resourceController.GetTotalGas(Gas.Helium) >= heliumTarget)
             {
@@ -74,21 +72,24 @@ public class LevelController : MonoBehaviour
                 {
                     if (oxygenTarget < 0 || resourceController.GetTotalGas(Gas.Oxygen) >= oxygenTarget)
                     {
+                        Debug.Log("Game won2");
                         GameWon();
                         return;
                     }
                 }
             }
-        }
+        }*/
 
         if (CheckPlantWinCondition())
         {
             GameWon();
+            Debug.Log("Game won");
             return;
         }
 
-
+        Debug.Log("Game lost");
         GameLost();
+        return;
     }
 
     void GameLost()
@@ -148,10 +149,6 @@ public class LevelController : MonoBehaviour
     {
         return resourceObjectiveTargets;
     }
-
-    public int[] GetResourceObjectiveProgress()
-    {
-        return resourceObjectivesProgressTestResults;
-    }
+        
 
 }

@@ -25,7 +25,7 @@ RectTransform:
   m_GameObject: {fileID: 30317427}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.46111768, y: 0.46111768, z: 1.5900611}
+  m_LocalScale: {x: 0.6, y: 0.6, z: 1.5900611}
   m_Children:
   - {fileID: 460697113}
   - {fileID: 940350614}
@@ -38,8 +38,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 21.2, y: -3.4}
-  m_SizeDelta: {x: 92.46277, y: 113.47711}
+  m_AnchoredPosition: {x: 25.5, y: -10}
+  m_SizeDelta: {x: 198.38336, y: 155.2843}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &62212506
 GameObject:
@@ -582,7 +582,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 55.9, y: 29.5}
+  m_AnchoredPosition: {x: 55.9, y: 53.8}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &721822968
@@ -612,7 +612,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Objective Progress
+  m_text: "Sector Terraformation \nProgress"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -639,8 +639,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 10
-  m_fontSizeBase: 10
+  m_fontSize: 12
+  m_fontSizeBase: 12
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -675,7 +675,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 1
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: -3.2783513, y: 0, z: 108.24854, w: 36.929417}
+  m_margin: {x: -26.026423, y: 0, z: 85.88601, w: 22.663668}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -1248,8 +1248,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -352.70004, y: 103.97}
-  m_SizeDelta: {x: 94.81213, y: 110.01857}
+  m_AnchoredPosition: {x: -337.66, y: 73.51}
+  m_SizeDelta: {x: 124.88591, y: 170.92805}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1374723762
 CanvasRenderer:
@@ -1301,7 +1301,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   messageTextField: {fileID: 721822967}
-  messageText: Objective Progress
+  messageText: Sector Terraformation Progress
   progressDisplayFrame: {fileID: 30317427}
   progressDisplayPrefab: {fileID: 8683925434175067795, guid: 813d8ad8300ad6a43b43a5e26c8b2cec,
     type: 3}
@@ -3643,7 +3643,6 @@ MonoBehaviour:
   - {fileID: 7681948133355184132, guid: ab45c0b7cfec99f488620e038ff6d028, type: 3}
   - {fileID: 6619559625442135046, guid: fcb0061e479697b4f8da3b46be39e516, type: 3}
   resourceObjectiveTargets: 0f0000000a000000
-  resourceObjectivesProgressTestResults: 0000000000000000
   losePannel: {fileID: 994770840}
   wonPannel: {fileID: 7604564697322996113}
   objectivePannel: {fileID: 1374723760}
