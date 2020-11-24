@@ -10703,10 +10703,10 @@ MonoBehaviour:
   gasDisplayFrame: {fileID: 918755455}
   gasDisplayPrefab: {fileID: 4234007794714168585, guid: a6791892dd0fd5747bf37fd393193d9d,
     type: 3}
-  Argon: 100
-  Helium: 100
-  Neon: 100
-  Oxygen: 100
+  Argon: 1000
+  Helium: 1000
+  Neon: 1000
+  Oxygen: 1000
   ArgonChargeRate: 0.1
   HeliumChargeRate: 0.2
   NeonChargeRate: -0.1
