@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Rock : CellController
+public class Barren : CellController
 {
     // Start is called before the first frame update
     void Start()
@@ -13,7 +13,9 @@ public class Rock : CellController
 
     public override bool IsEmpty()
     {
-        return false;
+        return true;
     }
+
+
 
 }

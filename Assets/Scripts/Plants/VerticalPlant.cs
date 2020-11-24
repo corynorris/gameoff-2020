@@ -4,12 +4,10 @@ using System;
 
 public class VerticalPlant : Plant
 {
-
     public override bool Grow()
     {
         bool hasGrown = false;
-
-        foreach (GridDirection direction in GridDirectionHelpers.AllDirections)
+        foreach (GridDirection direction in GridDirectionHelpers.Vertical)
         {
             CellController neighbour = this.Grid.GetCellInDirection(this.X, this.Y, direction);
 
@@ -20,10 +18,7 @@ public class VerticalPlant : Plant
             }
 
         }
-        
         return hasGrown;
-
     }
-
 
 }

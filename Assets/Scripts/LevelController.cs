@@ -117,9 +117,9 @@ public class LevelController : MonoBehaviour
         }
         for (int i = 0; i < resourceObjectiveTargets.Length; i++)
         {
-            if(gridController.GetResourceTotals().ContainsKey(objectiveResourcePrefabs[i].GetType()))
+            if(gridController.GetResourceTotals().ContainsKey(objectiveResourcePrefabs[i].cellName))
             {
-                if (resourceObjectiveTargets[i] > gridController.GetResourceTotals()[objectiveResourcePrefabs[i].GetType()])
+                if (resourceObjectiveTargets[i] > gridController.GetResourceTotals()[objectiveResourcePrefabs[i].cellName])
                 {
                     return false;
                 }
