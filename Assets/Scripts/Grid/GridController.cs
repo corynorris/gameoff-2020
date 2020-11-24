@@ -38,15 +38,14 @@ public class GridController : MonoBehaviour
             {
 
                 CellController cell = hit.collider.gameObject.GetComponent<CellController>();
-
-
-                if (cell && cell.IsClickable())
-                {
+                if (cell) {                    
+                
                     if (foregroundArray[cell.X, cell.Y].IsClickable())
                     {
                         CellController activeResource = ResourceController.getActiveResource();
 
-                        if (activeResource) { 
+                        if (activeResource) {
+                            SoundManager.PlaySound(SoundManager.Sound.Shoot);
                             SpawnCell(cell.X, cell.Y, activeResource);
                             // Recalculate neighbours for this cell and it's neighbours
                             if (firstClick)
@@ -55,9 +54,17 @@ public class GridController : MonoBehaviour
                                 firstClick = false;
                             }
                         }
+                        else
+                        {
+                            SoundManager.PlaySound(SoundManager.Sound.CantPlace);
+                        }
+                    } else
+                    {
+                        SoundManager.PlaySound(SoundManager.Sound.CantPlace);
                     }
-
-
+                } else
+                {
+                    SoundManager.PlaySound(SoundManager.Sound.Click);
                 }
             }
         }
