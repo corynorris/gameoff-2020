@@ -1670,7 +1670,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1992900305
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3646,6 +3646,9 @@ MonoBehaviour:
   - {fileID: 7681948133355184132, guid: ab45c0b7cfec99f488620e038ff6d028, type: 3}
   - {fileID: 6619559625442135046, guid: fcb0061e479697b4f8da3b46be39e516, type: 3}
   resourceObjectiveTargets: 0f0000000a000000
+  objectiveResourceColors:
+  - {r: 0, g: 0.2906773, b: 1, a: 1}
+  - {r: 0, g: 0.8301887, b: 0.09270125, a: 1}
   losePannel: {fileID: 994770840}
   wonPannel: {fileID: 7604564697322996113}
   objectivePannel: {fileID: 1374723760}
