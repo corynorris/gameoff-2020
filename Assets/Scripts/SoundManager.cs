@@ -9,6 +9,7 @@ public static class SoundManager
         Background, 
         Shoot,
         Win,
+        Lose,
         Click,
         CantPlace
     }

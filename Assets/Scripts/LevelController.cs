@@ -96,12 +96,14 @@ public class LevelController : MonoBehaviour
     {
         Debug.Log("You Lost");
         turnManager.SetSpeed(0);
-        losePannel.Activate();        
+        losePannel.Activate();
+        SoundManager.PlaySound(SoundManager.Sound.Lose);
     }
 
     void GameWon()
     {
         Debug.Log("You Win");
+        SoundManager.PlaySound(SoundManager.Sound.Win);
         turnManager.SetSpeed(0);
         wonPannel.Activate();
     }
