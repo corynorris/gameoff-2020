@@ -31,6 +31,7 @@ public class LevelController : MonoBehaviour
     private GridController gridController;
 
     private bool hasWon;
+    private bool hasLost;
     private bool finishWin;
     private float winDelayTimer;
     private float winTimer;
@@ -48,6 +49,7 @@ public class LevelController : MonoBehaviour
         levelText.text = "Level: " + levelManager.GetSceneName();
 
         hasWon = false;
+        hasLost = false;
         finishWin = false;
         winDelayTimer = 1.5f;
         winTimer = 0;
@@ -60,7 +62,12 @@ public class LevelController : MonoBehaviour
             turnText.text = "Turn " + turnManager.getTurnNumber().ToString();
             if (turnManager.getTurnNumber() >= turnLimit && !hasWon)
             {
-                EndGame();
+                if (!hasLost)
+                {
+                    EndGame();
+                    hasLost = true;
+                }
+                
             }
 
             if (CheckPlantWinCondition())
@@ -73,7 +80,7 @@ public class LevelController : MonoBehaviour
         else if(Time.time > winTimer+winDelayTimer)
         {
             wonPannel.Activate();
-            finishWin = true;
+            finishWin = true;            
         }
         
 
@@ -125,8 +132,8 @@ public class LevelController : MonoBehaviour
         hasWon = true;
         winTimer = Time.time;
         SoundManager.PlaySound(SoundManager.Sound.Win);
-        turnManager.SetSpeed(0);
-        wonPannel.Activate();
+        //turnManager.SetSpeed(0);
+        //wonPannel.Activate();
     }
 
     private bool CheckPlantWinCondition()
