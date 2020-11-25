@@ -12,6 +12,7 @@ public class GridController : MonoBehaviour
     public TurnManager turnManager;
     public CellController EmptyCell;
     public ResourceController ResourceController;
+    public ShipController ship;
     private CellController[,] foregroundArray;
     private static GridController _instance;
     private Vector3 bottomLeft;
@@ -25,6 +26,7 @@ public class GridController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        SoundManager.PlaySound(SoundManager.Sound.Background);
         turnManager.TurnPassed += RunSimulation;
         turnManager.Pause();
     }
@@ -38,15 +40,14 @@ public class GridController : MonoBehaviour
             {
 
                 CellController cell = hit.collider.gameObject.GetComponent<CellController>();
-
-
-                if (cell && cell.IsClickable())
-                {
+                if (cell) {                    
+                
                     if (foregroundArray[cell.X, cell.Y].IsClickable())
                     {
                         CellController activeResource = ResourceController.getActiveResource();
 
-                        if (activeResource) { 
+                        if (activeResource) {
+                            ship.FireGun();
                             SpawnCell(cell.X, cell.Y, activeResource);
                             // Recalculate neighbours for this cell and it's neighbours
                             if (firstClick)
@@ -55,9 +56,18 @@ public class GridController : MonoBehaviour
                                 firstClick = false;
                             }
                         }
+                        else
+                        {
+                            
+                            SoundManager.PlaySound(SoundManager.Sound.CantPlace);
+                        }
+                    } else
+                    {
+                        SoundManager.PlaySound(SoundManager.Sound.CantPlace);
                     }
-
-
+                } else
+                {
+                    SoundManager.PlaySound(SoundManager.Sound.Click);
                 }
             }
         }
