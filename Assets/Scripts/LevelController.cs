@@ -30,9 +30,14 @@ public class LevelController : MonoBehaviour
     private LevelManager levelManager;
     private GridController gridController;
 
+    private bool hasWon;
+    private bool finishWin;
+    private float winDelayTimer;
+    private float winTimer;
     // Start is called before the first frame update
     void Start()
     {
+
         turnManager = FindObjectOfType<TurnManager>();
         resourceController = FindObjectOfType<ResourceController>();
         gridController = FindObjectOfType<GridController>();
@@ -42,24 +47,37 @@ public class LevelController : MonoBehaviour
         turnManager.SetSpeed(1);
         levelText.text = "Level: " + levelManager.GetSceneName();
 
+        hasWon = false;
+        finishWin = false;
+        winDelayTimer = 1.5f;
+        winTimer = 0;
     }
 
     // Update is called once per frame
     void Update()
     {
-        turnText.text = "Turn " + turnManager.getTurnNumber().ToString();
+        if (!hasWon) {
+            turnText.text = "Turn " + turnManager.getTurnNumber().ToString();
+            if (turnManager.getTurnNumber() >= turnLimit && !hasWon)
+            {
+                EndGame();
+            }
 
-        if (turnManager.getTurnNumber() >= turnLimit)
-        {
-            EndGame();
+            if (CheckPlantWinCondition())
+            {
+                GameWon();
+            }
+
+            objectivePannel.Refresh();
         }
-
-        if (CheckPlantWinCondition())
+        else if(Time.time > winTimer+winDelayTimer)
         {
-            GameWon();
+            wonPannel.Activate();
+            finishWin = true;
         }
+        
 
-        objectivePannel.Refresh();
+
     }
 
     void EndGame()
@@ -103,6 +121,9 @@ public class LevelController : MonoBehaviour
     void GameWon()
     {
         Debug.Log("You Win");
+        //turnManager.SetSpeed(0);
+        hasWon = true;
+        winTimer = Time.time;
         SoundManager.PlaySound(SoundManager.Sound.Win);
         turnManager.SetSpeed(0);
         wonPannel.Activate();
