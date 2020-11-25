@@ -12,6 +12,7 @@ public class GridController : MonoBehaviour
     public TurnManager turnManager;
     public CellController EmptyCell;
     public ResourceController ResourceController;
+    public ShipController ship;
     private CellController[,] foregroundArray;
     private static GridController _instance;
     private Vector3 bottomLeft;
@@ -46,7 +47,7 @@ public class GridController : MonoBehaviour
                         CellController activeResource = ResourceController.getActiveResource();
 
                         if (activeResource) {
-                            SoundManager.PlaySound(SoundManager.Sound.Shoot);
+                            ship.FireGun();
                             SpawnCell(cell.X, cell.Y, activeResource);
                             // Recalculate neighbours for this cell and it's neighbours
                             if (firstClick)
@@ -57,6 +58,7 @@ public class GridController : MonoBehaviour
                         }
                         else
                         {
+                            
                             SoundManager.PlaySound(SoundManager.Sound.CantPlace);
                         }
                     } else
