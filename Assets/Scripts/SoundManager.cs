@@ -28,11 +28,11 @@ public static class SoundManager
         return null;
     }
 
-    public static void PlaySound(Sound sound)
+    public static void PlaySound(Sound sound,int speed)
     {
         GameObject soundGameObject = new GameObject("Sound");
         AudioSource audioSource = soundGameObject.AddComponent<AudioSource>();
         audioSource.PlayOneShot(GetAudioClip(sound));
-        GameObject.Destroy(soundGameObject, GetAudioClip(sound).length);
+        GameObject.Destroy(soundGameObject, GetAudioClip(sound).length*speed);
     }
 }

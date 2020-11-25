@@ -26,7 +26,7 @@ public class GridController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        SoundManager.PlaySound(SoundManager.Sound.Background);
+        SoundManager.PlaySound(SoundManager.Sound.Background, turnManager.getSpeed());
         turnManager.TurnPassed += RunSimulation;
         turnManager.Pause();
     }
@@ -59,15 +59,15 @@ public class GridController : MonoBehaviour
                         else
                         {
                             
-                            SoundManager.PlaySound(SoundManager.Sound.CantPlace);
+                            SoundManager.PlaySound(SoundManager.Sound.CantPlace,turnManager.getSpeed());
                         }
                     } else
                     {
-                        SoundManager.PlaySound(SoundManager.Sound.CantPlace);
+                        SoundManager.PlaySound(SoundManager.Sound.CantPlace, turnManager.getSpeed());
                     }
                 } else
                 {
-                    SoundManager.PlaySound(SoundManager.Sound.Click);
+                    SoundManager.PlaySound(SoundManager.Sound.Click, turnManager.getSpeed());
                 }
             }
         }

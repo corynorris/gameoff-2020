@@ -6,9 +6,10 @@ public class ShipController : MonoBehaviour
 {
     [SerializeField] GameObject gun;
     // Start is called before the first frame update
+    private TurnManager turnManager;
     void Start()
     {
-        
+        turnManager = FindObjectOfType<TurnManager>();
     }
 
     // Update is called once per frame
@@ -28,7 +29,7 @@ public class ShipController : MonoBehaviour
 
     public void FireGun()
     {
-        SoundManager.PlaySound(SoundManager.Sound.Shoot);
+        SoundManager.PlaySound(SoundManager.Sound.Shoot, turnManager.getSpeed());
         gun.GetComponentInChildren<Animator>().SetTrigger("fire");
     }
 }
