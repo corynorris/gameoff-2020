@@ -25,6 +25,7 @@ public class GridController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        SoundManager.PlaySound(SoundManager.Sound.Background);
         turnManager.TurnPassed += RunSimulation;
         turnManager.Pause();
     }
