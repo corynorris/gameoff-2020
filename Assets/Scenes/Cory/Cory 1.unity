@@ -684,5 +684,10 @@ PrefabInstance:
       propertyPath: ship
       value: 
       objectReference: {fileID: 703899907}
+    - target: {fileID: 6376911571061051767, guid: acc7e766f112e0a449d9f978b9ca2126,
+        type: 3}
+      propertyPath: TilesWide
+      value: 16
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: acc7e766f112e0a449d9f978b9ca2126, type: 3}
