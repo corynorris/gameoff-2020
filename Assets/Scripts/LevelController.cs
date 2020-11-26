@@ -51,7 +51,7 @@ public class LevelController : MonoBehaviour
         hasWon = false;
         hasLost = false;
         finishWin = false;
-        winDelayTimer = 1.5f;
+        winDelayTimer = 0.6f;
         winTimer = 0;
     }
 
