@@ -53,4 +53,10 @@ public class ProgressBlockHelper : MonoBehaviour
     {
         resourceImage.sprite = img;
     }
+
+    public void SetColor(Color c)
+    {
+        resourceSlider.gameObject.transform.Find("Fill Area").Find("Fill").GetComponent<Image>().color = c;
+        
+    }
 }

@@ -40,7 +40,7 @@ public class SpawnButton : MonoBehaviour
     private void updateDisplay()
     {
         resourceTextValue = resourceCount.ToString() + "/" + resourceMax.ToString();
-        resourceSlider.value = rechargeProgress;
+        //resourceSlider.value = rechargeProgress;
         resourceText.text = resourceTextValue;
         buttonImage.sprite = imageSprite;
 

@@ -22,7 +22,7 @@ public class LevelManager : MonoBehaviour
     {
         Debug.Log("Load level requested for: " + name);
         PlayerPrefs.Save();
-        SceneManager.LoadScene("name");
+        SceneManager.LoadScene(name);
     }
 
     public void QuitRequest()

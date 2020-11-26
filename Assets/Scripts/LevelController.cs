@@ -19,7 +19,8 @@ public class LevelController : MonoBehaviour
 
     [SerializeField] Plant[] objectiveResourcePrefabs;
     [SerializeField] int[] resourceObjectiveTargets;
-    
+    [SerializeField] Color[] objectiveResourceColors;
+
     [SerializeField] ProgressPannel losePannel;
     [SerializeField] ProgressPannel wonPannel;
     [SerializeField] ProgressPannel objectivePannel;
@@ -180,5 +181,10 @@ public class LevelController : MonoBehaviour
         return resourceObjectiveTargets;
     }
         
+
+    public Color[] GetObjectiveResourceColors()
+    {
+        return objectiveResourceColors;
+    }
 
 }
