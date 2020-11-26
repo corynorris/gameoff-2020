@@ -54,9 +54,14 @@ public class TurnManager : MonoBehaviour
         running = false;
     }
 
-    public void SetSpeed(int speed)
+    public void SetSpeed(float speed)
     {
         Time.timeScale = speed;
+    }
+
+    public float GetSpeed()
+    {
+        return Time.timeScale;
     }
 
     public int getTurnNumber()

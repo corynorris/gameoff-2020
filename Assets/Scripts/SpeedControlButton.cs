@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class SpeedControlButton : MonoBehaviour
 {
-    [SerializeField] int gameSpeed = 1;
+    [SerializeField] float gameSpeed = 1;
     [SerializeField] string toolTipText;
 
 
