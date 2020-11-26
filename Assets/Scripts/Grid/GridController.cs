@@ -12,19 +12,23 @@ public class GridController : MonoBehaviour
     public TurnManager turnManager;
     public CellController EmptyCell;
     public ResourceController ResourceController;
+    public ShipController ship;
     private CellController[,] foregroundArray;
     private static GridController _instance;
     private Vector3 bottomLeft;
     private float offsetX;
     private float offsetY;
 
-    public Dictionary<Type, int> resourceTotals;
+    public Dictionary<string, int> resourceTotals = new Dictionary<string, int>();
 
+    private bool firstClick = true;
     List<CellController> cellsToUpdate = new List<CellController>();
     // Start is called before the first frame update
     void Start()
     {
+        SoundManager.PlaySound(SoundManager.Sound.Background, turnManager.getSpeed());
         turnManager.TurnPassed += RunSimulation;
+        turnManager.Pause();
     }
 
     void Update()
@@ -36,20 +40,34 @@ public class GridController : MonoBehaviour
             {
 
                 CellController cell = hit.collider.gameObject.GetComponent<CellController>();
-
-
-                if (cell)
-                {
-                    CellController activeResource = ResourceController.getActiveResource();
-
-                    if (activeResource)
+                if (cell) {                    
+                
+                    if (foregroundArray[cell.X, cell.Y].IsClickable())
                     {
-               
-                        SpawnCell(cell.X, cell.Y, activeResource);
-                        // Recalculate neighbours for this cell and it's neighbours
+                        CellController activeResource = ResourceController.getActiveResource();
+
+                        if (activeResource) {
+                            ship.FireGun();
+                            SpawnCell(cell.X, cell.Y, activeResource);
+                            // Recalculate neighbours for this cell and it's neighbours
+                            if (firstClick)
+                            {
+                                turnManager.Resume();
+                                firstClick = false;
+                            }
+                        }
+                        else
+                        {
+                            
+                            SoundManager.PlaySound(SoundManager.Sound.CantPlace,turnManager.getSpeed());
+                        }
+                    } else
+                    {
+                        SoundManager.PlaySound(SoundManager.Sound.CantPlace, turnManager.getSpeed());
                     }
-
-
+                } else
+                {
+                    SoundManager.PlaySound(SoundManager.Sound.Click, turnManager.getSpeed());
                 }
             }
         }
@@ -247,19 +265,12 @@ public class GridController : MonoBehaviour
 
     public void Clear()
     {
-        this.foregroundArray = new CellController[TilesHigh, TilesWide];
 
         foreach (CellController child in this.BackgroundCellObj.GetComponentsInChildren<CellController>())      
         {
             DestroyImmediate(child.gameObject);
         }
 
-        foreach (CellController child in this.ForegroundCellObj.GetComponentsInChildren<CellController>())
-        {
-            DestroyImmediate(child.gameObject);
-        }
-        //this.BackgroundCellObj.Ch
-        //this.ForegroundCellObj
 
     }
 
@@ -330,7 +341,7 @@ public class GridController : MonoBehaviour
            cellController.MakeClaims();
         }
 
-        resourceTotals = new Dictionary<Type, int>();
+        resourceTotals.Clear();
         for (int x = 0; x < TilesWide; x++)
         {
             for (int y = 0; y < TilesHigh; y++)
@@ -346,19 +357,20 @@ public class GridController : MonoBehaviour
                 {
                     SpawnCell(x, y, EmptyCell);
                 }
-                              
+
 
                 // Total of each plant type
-                if (foregroundArray[x, y] is Plant)
-                {
-                    Type t = foregroundArray[x, y].GetType();
-                    if (resourceTotals.ContainsKey(t))
+                String name = foregroundArray[x, y].cellName;
+
+                if (name.Length > 0)
+                {                   
+                    if (resourceTotals.ContainsKey(name))
                     {
-                        resourceTotals[t]++;
+                        resourceTotals[name]++;
                     }
                     else
                     {
-                        resourceTotals[t] = 1;
+                        resourceTotals[name] = 1;
                     }
                 }
             }
@@ -418,7 +430,7 @@ public class GridController : MonoBehaviour
         return cell;
     }
 
-    public Dictionary<Type, int> GetResourceTotals()
+    public Dictionary<string, int> GetResourceTotals()
     {
         return resourceTotals;
     }

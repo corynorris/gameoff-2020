@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 5269317600537434020}
   - component: {fileID: 5020771995090592729}
   m_Layer: 0
-  m_Name: Fore_Plant_Orange
+  m_Name: Fore_Plant_Orange 1
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -144,7 +144,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   priority: 12
   numNeighbours: 0
-  turnDelayBetweenGrowth: 1
+  turnDelayBetweenGrowth: 0
   useParentsGrowthRate: 0
   rateOfGrowthDecay: 0
   maxTurnsAlive: 0
@@ -155,8 +155,6 @@ MonoBehaviour:
   gasConsumption: 1
   gasConsumptionType: 3
   turnsAlive: 0
-  isDecaying: 0
-  turnsUntilDecay: 0
   onResourceDepletion: 4
 --- !u!1 &3364928400028676050
 GameObject:

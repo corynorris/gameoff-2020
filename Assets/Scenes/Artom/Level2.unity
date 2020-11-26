@@ -5765,13 +5765,13 @@ MonoBehaviour:
   gasDisplayFrame: {fileID: 131042217}
   gasDisplayPrefab: {fileID: 4234007794714168585, guid: a6791892dd0fd5747bf37fd393193d9d,
     type: 3}
-  Argon: 0
-  Helium: 0
-  Neon: 0
-  Oxygen: 0
-  ArgonChargeRate: 0.1
-  HeliumChargeRate: 0.2
-  NeonChargeRate: -0.1
+  Argon: 1
+  Helium: 1
+  Neon: 1
+  Oxygen: 1
+  ArgonChargeRate: 0
+  HeliumChargeRate: 0
+  NeonChargeRate: 0
   OxygenChargeRate: 0
   turnManager: {fileID: 1122589688}
 --- !u!4 &357144920

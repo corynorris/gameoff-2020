@@ -12256,7 +12256,7 @@ MonoBehaviour:
   Helium: 0
   Neon: 0
   Oxygen: 0
-  ArgonChargeRate: 0.1
+  ArgonChargeRate: -0.1
   HeliumChargeRate: 0.2
   NeonChargeRate: -0.1
   OxygenChargeRate: 0

@@ -142,9 +142,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f3bf6bcd7fc5494cb736dbee90eca1a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  priority: 20
+  priority: 2
   numNeighbours: 0
-  turnDelayBetweenGrowth: 1
+  turnDelayBetweenGrowth: 0
   useParentsGrowthRate: 0
   rateOfGrowthDecay: 0
   maxTurnsAlive: 0

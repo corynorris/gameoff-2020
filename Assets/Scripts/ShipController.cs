@@ -6,18 +6,19 @@ public class ShipController : MonoBehaviour
 {
     [SerializeField] GameObject gun;
     // Start is called before the first frame update
+    private TurnManager turnManager;
     void Start()
     {
-        
+        turnManager = FindObjectOfType<TurnManager>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        pointGun();
+        PointGun();
     }
 
-    private void pointGun()
+    private void PointGun()
     {
         Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         Vector3 direction = gun.transform.position - mousePos;
@@ -26,8 +27,9 @@ public class ShipController : MonoBehaviour
         gun.transform.rotation = Quaternion.Euler(0.0f, 0.0f, rotationZ);
     }
 
-    public void fireGun()
+    public void FireGun()
     {
+        SoundManager.PlaySound(SoundManager.Sound.Shoot, turnManager.getSpeed());
         gun.GetComponentInChildren<Animator>().SetTrigger("fire");
     }
 }

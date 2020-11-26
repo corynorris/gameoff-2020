@@ -31,9 +31,15 @@ public class LevelController : MonoBehaviour
     private LevelManager levelManager;
     private GridController gridController;
 
+    private bool hasWon;
+    private bool hasLost;
+    private bool finishWin;
+    private float winDelayTimer;
+    private float winTimer;
     // Start is called before the first frame update
     void Start()
     {
+
         turnManager = FindObjectOfType<TurnManager>();
         resourceController = FindObjectOfType<ResourceController>();
         gridController = FindObjectOfType<GridController>();
@@ -43,24 +49,43 @@ public class LevelController : MonoBehaviour
         turnManager.SetSpeed(1);
         levelText.text = "Level: " + levelManager.GetSceneName();
 
+        hasWon = false;
+        hasLost = false;
+        finishWin = false;
+        winDelayTimer = 0.6f;
+        winTimer = 0;
     }
 
     // Update is called once per frame
     void Update()
     {
-        turnText.text = "Turn " + turnManager.getTurnNumber().ToString();
+        if (!hasWon) {
+            turnText.text = "Turn " + turnManager.getTurnNumber().ToString();
+            if (turnManager.getTurnNumber() >= turnLimit && !hasWon)
+            {
+                if (!hasLost)
+                {
+                    EndGame();
+                    hasLost = true;
+                }
+                
+            }
 
-        if (turnManager.getTurnNumber() >= turnLimit)
-        {
-            EndGame();
+            if (CheckPlantWinCondition())
+            {
+                GameWon();
+            }
+
+            objectivePannel.Refresh();
         }
-
-        if (CheckPlantWinCondition())
+        else if(Time.time > winTimer+winDelayTimer)
         {
-            GameWon();
+            wonPannel.Activate();
+            finishWin = true;            
         }
+        
 
-        objectivePannel.Refresh();
+
     }
 
     void EndGame()
@@ -97,14 +122,19 @@ public class LevelController : MonoBehaviour
     {
         Debug.Log("You Lost");
         turnManager.SetSpeed(0);
-        losePannel.Activate();        
+        losePannel.Activate();
+        SoundManager.PlaySound(SoundManager.Sound.Lose, turnManager.getSpeed());
     }
 
     void GameWon()
     {
         Debug.Log("You Win");
-        turnManager.SetSpeed(0);
-        wonPannel.Activate();
+        //turnManager.SetSpeed(0);
+        hasWon = true;
+        winTimer = Time.time;
+        SoundManager.PlaySound(SoundManager.Sound.Win, turnManager.getSpeed());
+        //turnManager.SetSpeed(0);
+        //wonPannel.Activate();
     }
 
     private bool CheckPlantWinCondition()
@@ -119,9 +149,9 @@ public class LevelController : MonoBehaviour
         }
         for (int i = 0; i < resourceObjectiveTargets.Length; i++)
         {
-            if(gridController.GetResourceTotals().ContainsKey(objectiveResourcePrefabs[i].GetType()))
+            if(gridController.GetResourceTotals().ContainsKey(objectiveResourcePrefabs[i].cellName))
             {
-                if (resourceObjectiveTargets[i] > gridController.GetResourceTotals()[objectiveResourcePrefabs[i].GetType()])
+                if (resourceObjectiveTargets[i] > gridController.GetResourceTotals()[objectiveResourcePrefabs[i].cellName])
                 {
                     return false;
                 }

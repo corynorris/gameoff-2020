@@ -29,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 3077130317928751286}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 0}
   m_Children:
   - {fileID: 2153468247306575260}
   m_Father: {fileID: 0}
@@ -123,8 +123,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 967f2643b1400a24ea0346777cf2bcf2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cellName: 
   priority: 0
   numNeighbours: 0
+  clickable: 1
 --- !u!95 &5342419086971399853
 Animator:
   serializedVersion: 3

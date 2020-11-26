@@ -2,8 +2,7 @@ using System;
 using UnityEngine;
 public abstract class Plant : CellController
 {
-    [Tooltip("Plant name.")]
-    public string plantName;
+
 
     [Tooltip("Rate at which growth slows down based on age n^2.")]
     public float turnDelayBetweenGrowth = 1f;
@@ -41,6 +40,7 @@ public abstract class Plant : CellController
     protected int turnsOfGrowth = 0;
     protected int turnsUntilGrowth = 0;
 
+    [SerializeField]
     protected bool bornFromParent = false;
     protected int parentTurnsAlive = 0;
     protected int parentTurnsOfGrowth = 0;
@@ -217,7 +217,7 @@ public abstract class Plant : CellController
 
         if (parent)
         {
-            this.bornFromParent = true;
+             this.bornFromParent = true;
             this.parentTurnsAlive = parent.turnsAlive;
             this.parentTurnsOfGrowth = parent.turnsOfGrowth;
         }

@@ -126,7 +126,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   priority: 10
   numNeighbours: 0
-  turnDelayBetweenGrowth: 1
+  turnDelayBetweenGrowth: 0
   useParentsGrowthRate: 0
   rateOfGrowthDecay: 0
   maxTurnsAlive: 0
@@ -141,6 +141,7 @@ MonoBehaviour:
   onResourceDepletion: 0
   DirectionsToRunFrom: 00000000020000000400000006000000
   KeepRunning: 1
+  runningDirection: 0
 --- !u!95 &6057260801372775483
 Animator:
   serializedVersion: 3
@@ -189,6 +190,7 @@ MonoBehaviour:
   onResourceDepletion: 0
   DirectionsToRunFrom: 00000000020000000400000006000000
   KeepRunning: 1
+  runningDirection: 0
 --- !u!1 &3997906524907272362
 GameObject:
   m_ObjectHideFlags: 0

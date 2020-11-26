@@ -10,6 +10,7 @@ public class TurnManager : MonoBehaviour
 
     [SerializeField] int[] timingOptions = {1, 2, 3, 4};
     [SerializeField] float turnFrequency = 1f;
+    private int speed;
     public float TurnFrequency
     {
         get { return turnFrequency; }
@@ -56,12 +57,16 @@ public class TurnManager : MonoBehaviour
 
     public void SetSpeed(float speed)
     {
+        this.speed = speed;
         Time.timeScale = speed;
     }
+
 
     public float GetSpeed()
     {
         return Time.timeScale;
+
+
     }
 
     public int getTurnNumber()
