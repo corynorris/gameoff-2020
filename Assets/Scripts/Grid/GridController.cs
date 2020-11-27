@@ -88,22 +88,18 @@ public class GridController : MonoBehaviour
         bottomLeft = new Vector3(TilesWide, TilesHigh, 0);
 
 
-        foreach (CellController cell in foregroundCells)
-        {
-            int x = (int)cell.transform.position.x;
-            int y = (int)cell.transform.position.y;
-            cell.X = x + (TilesWide / 2);
-            cell.Y = y + (TilesHigh / 2) - 1;
-
-            AddCellToGrid(cell);
-        }
+ 
 
         foreach (CellController cell in backgroundCells)
         {
-            int x = Mathf.RoundToInt(cell.transform.position.x);
-            int y = Mathf.RoundToInt(cell.transform.position.y);
+
+            int x = Mathf.FloorToInt(cell.transform.localPosition.x);
+            int y = Mathf.FloorToInt(cell.transform.localPosition.y);
             cell.X = x + (TilesWide / 2);
             cell.Y = y + (TilesHigh / 2) - 1;
+
+
+            Debug.Log("Background: " + cell.ToString());
 
             if (x < bottomLeft.x)
             {
@@ -114,6 +110,17 @@ public class GridController : MonoBehaviour
             {
                 bottomLeft.y = y;
             }
+        }
+
+        foreach (CellController cell in foregroundCells)
+        {
+            int x = (int)cell.transform.localPosition.x;
+            int y = (int)cell.transform.localPosition.y;
+            cell.X = x + (TilesWide / 2);
+            cell.Y = y + (TilesHigh / 2) - 1;
+
+        
+            AddCellToGrid(cell);
         }
 
         foreach (CellController cell in backgroundCells)
