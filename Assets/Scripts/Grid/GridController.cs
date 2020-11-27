@@ -99,7 +99,7 @@ public class GridController : MonoBehaviour
             cell.Y = y + (TilesHigh / 2) - 1;
 
 
-            Debug.Log("Background: " + cell.ToString());
+            //Debug.Log("Background: " + cell.ToString());
 
             if (x < bottomLeft.x)
             {

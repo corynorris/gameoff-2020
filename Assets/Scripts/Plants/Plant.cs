@@ -63,6 +63,7 @@ public abstract class Plant : CellController
 
     protected virtual void Start()
     {
+        clickable = false;
         animator = GetComponent<Animator>();
         animator.SetTrigger("spawn");
     }
