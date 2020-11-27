@@ -28,7 +28,7 @@ public static class SoundManager
         return null;
     }
 
-    public static void PlaySound(Sound sound,int speed)
+    public static void PlaySound(Sound sound,float speed)
     {
         GameObject soundGameObject = new GameObject("Sound");
         AudioSource audioSource = soundGameObject.AddComponent<AudioSource>();
