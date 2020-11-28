@@ -12,10 +12,13 @@ public class ProgressPannel : MonoBehaviour
     [Header("Frame for placing goal progress")]
     [SerializeField] GameObject progressDisplayFrame;
 
-    [SerializeField] GameObject progressDisplayPrefab;       
+    [SerializeField] GameObject progressDisplayPrefab;
+
+    [SerializeField] bool startActive = true;
 
     private GridController gridController;
     private LevelController levelController;
+
 
     private Transform[] progressDisplayPositions;
     GameObject[] progressDisplays;
@@ -24,6 +27,8 @@ public class ProgressPannel : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        if (!startActive)
+            Deactivate();
         messageTextField.text = messageText;
         levelController = FindObjectOfType<LevelController>();
         progressDisplayPositions = progressDisplayFrame.GetComponentsInChildren<Transform>();
@@ -62,23 +67,22 @@ public class ProgressPannel : MonoBehaviour
     public void Activate()
     {
         Refresh();
-        gameObject.SetActive(true);
-        
+        gameObject.SetActive(true);        
     }
 
     public void Deactivate()
     {
-        Refresh();
+        Debug.Log("deactivated");
         gameObject.SetActive(false);
         
     }
 
     public void Refresh()
-    {
+    {        
         if(levelController != null && gridController != null && gridController.GetResourceTotals() != null)
         {
             for (int displayIndex = 0; displayIndex < levelController.GetObjectiveResourcePrefabs().Length; displayIndex++)
-            {
+            {                
                 if (gridController.GetResourceTotals().ContainsKey(levelController.GetObjectiveResourcePrefabs()[displayIndex].cellName))
                 {
                     progressDisplays[displayIndex].GetComponent<ProgressBlockHelper>().SetObjectiveProgress(gridController.GetResourceTotals()[levelController.GetObjectiveResourcePrefabs()[displayIndex].cellName]);
