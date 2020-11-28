@@ -10,9 +10,9 @@ public class SpawnButton : MonoBehaviour
     int resourceCount = 1;
     int resourceMax = 5;    
 
-    int resourceIndex = -1;    
+    int resourceIndex = -1;
 
-    Text resourceText;
+    TextMeshProUGUI resourceText;
     Slider resourceSlider;
     float rechargeProgress;
     Sprite imageSprite;
@@ -28,7 +28,7 @@ public class SpawnButton : MonoBehaviour
     private void Start()
     {
         resourceController = ResourceController.getInstance();
-        resourceText = GetComponentInChildren<Text>();
+        resourceText = GetComponentInChildren<TextMeshProUGUI>();
         resourceSlider = GetComponentInChildren<Slider>();
         //buttonImage = GetComponentInChildren<Image>();
         buttonImage = gameObject.transform.Find("Button Image").GetComponent<Image>();
@@ -39,7 +39,7 @@ public class SpawnButton : MonoBehaviour
 
     private void updateDisplay()
     {
-        resourceTextValue = resourceCount.ToString() + "/" + resourceMax.ToString();
+        resourceTextValue = resourceCount.ToString();
         //resourceSlider.value = rechargeProgress;
         resourceText.text = resourceTextValue;
         buttonImage.sprite = imageSprite;

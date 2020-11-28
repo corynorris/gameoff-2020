@@ -27,22 +27,19 @@ public class ProgressPannel : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        if (!startActive)
-            Deactivate();
         messageTextField.text = messageText;
         levelController = FindObjectOfType<LevelController>();
         progressDisplayPositions = progressDisplayFrame.GetComponentsInChildren<Transform>();
         progressDisplays = new GameObject[levelController.GetObjectiveResourcePrefabs().Length];
         progressColors = levelController.GetObjectiveResourceColors();
-        gridController = FindObjectOfType<GridController>();
+        gridController = FindObjectOfType<GridController>();        
         InitializeObjectiveBlocks();
 
     }
 
     // Update is called once per frame
     void Update()
-    {
-        
+    {        
     }
 
     private void InitializeObjectiveBlocks()
@@ -66,19 +63,22 @@ public class ProgressPannel : MonoBehaviour
 
     public void Activate()
     {
-        Refresh();
+        Refresh();        
         gameObject.SetActive(true);        
     }
 
     public void Deactivate()
     {
-        Debug.Log("deactivated");
         gameObject.SetActive(false);
         
     }
 
     public void Refresh()
-    {        
+    {
+
+        
+        Debug.Log(levelController);
+        Debug.Log(gridController);
         if(levelController != null && gridController != null && gridController.GetResourceTotals() != null)
         {
             for (int displayIndex = 0; displayIndex < levelController.GetObjectiveResourcePrefabs().Length; displayIndex++)

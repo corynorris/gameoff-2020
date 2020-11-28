@@ -17,7 +17,7 @@ public class SpeedControlButton : MonoBehaviour
         turnManager = FindObjectOfType<TurnManager>();
         
     }
-
+   /* 
     private void OnMouseDown()
     {
         turnManager.SetSpeed(gameSpeed);
@@ -25,6 +25,20 @@ public class SpeedControlButton : MonoBehaviour
         {
             turnManager.Pause();
         } else
+        {
+            turnManager.Resume();
+        }
+        UpdateColors();
+    }*/
+
+    public void UpdateSpeed()
+    {
+        turnManager.SetSpeed(gameSpeed);
+        if (pauseGame)
+        {
+            turnManager.Pause();
+        }
+        else
         {
             turnManager.Resume();
         }

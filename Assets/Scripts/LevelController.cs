@@ -42,9 +42,10 @@ public class LevelController : MonoBehaviour
 
         turnManager = FindObjectOfType<TurnManager>();
         resourceController = FindObjectOfType<ResourceController>();
-        gridController = FindObjectOfType<GridController>();
-        losePannel.Deactivate();
+        gridController = FindObjectOfType<GridController>();      
+        
         wonPannel.Deactivate();
+        losePannel.Deactivate();
         levelManager = FindObjectOfType<LevelManager>();
         turnManager.SetSpeed(1);
         levelText.text = levelManager.GetSceneName();
