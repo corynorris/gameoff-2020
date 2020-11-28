@@ -17,19 +17,28 @@ public class SpeedControlButton : MonoBehaviour
         turnManager = FindObjectOfType<TurnManager>();
         
     }
-   /* 
-    private void OnMouseDown()
+
+    private void Update()
     {
-        turnManager.SetSpeed(gameSpeed);
-        if (pauseGame)
+        if (turnManager.getTurnNumber() > 0)
         {
-            turnManager.Pause();
-        } else
-        {
-            turnManager.Resume();
+            gameObject.SetActive(false);
         }
-        UpdateColors();
-    }*/
+    }
+
+    /* 
+     private void OnMouseDown()
+     {
+         turnManager.SetSpeed(gameSpeed);
+         if (pauseGame)
+         {
+             turnManager.Pause();
+         } else
+         {
+             turnManager.Resume();
+         }
+         UpdateColors();
+     }*/
 
     public void UpdateSpeed()
     {
@@ -42,7 +51,8 @@ public class SpeedControlButton : MonoBehaviour
         {
             turnManager.Resume();
         }
-        UpdateColors();
+        gameObject.SetActive(false);
+        //UpdateColors();
     }
 
     private void UpdateColors()
@@ -50,14 +60,14 @@ public class SpeedControlButton : MonoBehaviour
         SpeedControlButton[] buttons = FindObjectsOfType<SpeedControlButton>();
         foreach (SpeedControlButton button in buttons)
         {
-            if (button.gameSpeed == gameSpeed)
+            if (button.gameSpeed != gameSpeed)
             {
-                button.GetComponent<Image>().color = Color.white;
+                button.GetComponent<Image>().color = Color.white;                
 
             }
             else
             {
-                button.GetComponent<Image>().color = new Color32(100, 100, 100, 255);
+                button.GetComponent<Image>().color = new Color32(100, 100, 100, 255);                
             }
         }
     }
