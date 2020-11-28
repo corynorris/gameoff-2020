@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class ProgressPannel : MonoBehaviour
 {
     [SerializeField] TextMeshProUGUI messageTextField;
-    [SerializeField] string messageText;     
+    [SerializeField] string messageText;
 
     [Header("Frame for placing goal progress")]
     [SerializeField] GameObject progressDisplayFrame;
@@ -32,24 +32,27 @@ public class ProgressPannel : MonoBehaviour
         progressDisplayPositions = progressDisplayFrame.GetComponentsInChildren<Transform>();
         progressDisplays = new GameObject[levelController.GetObjectiveResourcePrefabs().Length];
         progressColors = levelController.GetObjectiveResourceColors();
-        gridController = FindObjectOfType<GridController>();        
+        gridController = FindObjectOfType<GridController>();
         InitializeObjectiveBlocks();
 
     }
 
     // Update is called once per frame
     void Update()
-    {        
+    {
+        Debug.Log(gameObject.GetInstanceID());
+        Debug.Log(levelController);
+        Debug.Log(gridController);
     }
 
     private void InitializeObjectiveBlocks()
     {
         for (int displayIndex = 0; displayIndex < levelController.GetObjectiveResourcePrefabs().Length; displayIndex++)
-        {            
+        {
             progressDisplays[displayIndex] = Instantiate(progressDisplayPrefab, progressDisplayPositions[displayIndex + 1].position, progressDisplayPositions[displayIndex + 1].rotation) as GameObject;
             progressDisplays[displayIndex].transform.parent = progressDisplayFrame.transform;
             progressDisplays[displayIndex].transform.localScale = progressDisplayPrefab.transform.localScale;
-            progressDisplays[displayIndex].transform.localPosition = progressDisplayPositions[displayIndex + 1].localPosition;            
+            progressDisplays[displayIndex].transform.localPosition = progressDisplayPositions[displayIndex + 1].localPosition;
             progressDisplays[displayIndex].GetComponent<ProgressBlockHelper>().SetObjectiveString(levelController.GetObjectiveResourcePrefabs()[displayIndex].cellName);
             progressDisplays[displayIndex].GetComponent<ProgressBlockHelper>().SetObjectiveTarget(levelController.GetResourceObjectiveTargets()[displayIndex]);
             progressDisplays[displayIndex].GetComponent<ProgressBlockHelper>().SetObjectiveProgress(0);
@@ -63,39 +66,61 @@ public class ProgressPannel : MonoBehaviour
 
     public void Activate()
     {
-        Refresh();        
-        gameObject.SetActive(true);        
+        gameObject.SetActive(true);
+        Refresh();
+
     }
 
     public void Deactivate()
     {
         gameObject.SetActive(false);
-        
+
     }
 
     public void Refresh()
     {
 
-        
+
+
+        if (levelController == null)
+        {
+            levelController = FindObjectOfType<LevelController>();
+
+            progressDisplays = new GameObject[levelController.GetObjectiveResourcePrefabs().Length];
+            progressColors = levelController.GetObjectiveResourceColors();
+            InitializeObjectiveBlocks();
+
+        }
+        if (gridController == null)
+        {
+            gridController = FindObjectOfType<GridController>();
+        }
         Debug.Log(levelController);
         Debug.Log(gridController);
-        if(levelController != null && gridController != null && gridController.GetResourceTotals() != null)
+
+        if (levelController == null)
+        {
+            Debug.Log(gameObject.GetInstanceID());
+        }
+        if (levelController != null && gridController != null && gridController.GetResourceTotals() != null)
         {
             for (int displayIndex = 0; displayIndex < levelController.GetObjectiveResourcePrefabs().Length; displayIndex++)
-            {                
+            {
                 if (gridController.GetResourceTotals().ContainsKey(levelController.GetObjectiveResourcePrefabs()[displayIndex].cellName))
                 {
-                    progressDisplays[displayIndex].GetComponent<ProgressBlockHelper>().SetObjectiveProgress(gridController.GetResourceTotals()[levelController.GetObjectiveResourcePrefabs()[displayIndex].cellName]);
+                  //  if(progressDisplays != null)
+                        progressDisplays[displayIndex].GetComponent<ProgressBlockHelper>().SetObjectiveProgress(gridController.GetResourceTotals()[levelController.GetObjectiveResourcePrefabs()[displayIndex].cellName]);
                 }
                 else
                 {
-                    progressDisplays[displayIndex].GetComponent<ProgressBlockHelper>().SetObjectiveProgress(0);
+                   // if (progressDisplays != null)
+                        progressDisplays[displayIndex].GetComponent<ProgressBlockHelper>().SetObjectiveProgress(0);
                 }
-
-                progressDisplays[displayIndex].GetComponent<ProgressBlockHelper>().UpdateDisplay();
+                //if (progressDisplays != null)
+                    progressDisplays[displayIndex].GetComponent<ProgressBlockHelper>().UpdateDisplay();
             }
         }
-        
+
     }
 
 }
