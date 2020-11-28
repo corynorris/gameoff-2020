@@ -39,9 +39,6 @@ public class ResourceController : MonoBehaviour
 
     private float[] GasTotals = new float[GasHelpers.AllGasses.Length];
 
-    [Header("Turn Manager")]
-    public TurnManager turnManager;
-
     SpawnButton[] spawnButtons;
     GameObject[] gasDisplays;
     Transform[] buttonPositions;
@@ -59,13 +56,9 @@ public class ResourceController : MonoBehaviour
         ProduceGas(Gas.Neon, Neon);
         ProduceGas(Gas.Oxygen, Oxygen);
 
-       // turnManager.TurnPassed += IncrementResourceCounts;
+        activeResourceIndex = NextAvailableResource();
     }
 
-    void Destroy()
-    {
-        //turnManager.TurnPassed -= IncrementResourceCounts;
-    }
 
     void Awake()
     {
@@ -73,13 +66,13 @@ public class ResourceController : MonoBehaviour
         {
             _instance = this;
             //DontDestroyOnLoad(this.gameObject);
-            rechargeProgress = new float[getButtonCount()];
-            spawnButtons = new SpawnButton[getButtonCount()];
-            gasDisplays = new GameObject[getGasLength()];
+            rechargeProgress = new float[GetButtonCount()];
+            spawnButtons = new SpawnButton[GetButtonCount()];
+            gasDisplays = new GameObject[GetGasLength()];
             buttonPositions = buttonFrame.GetComponentsInChildren<Transform>();
             gasDisplayPositions = gasDisplayFrame.GetComponentsInChildren<Transform>();
-            initializeButtons();
-            initializeGasDisplay();
+            InitializeButtons();
+            InitializeGasDisplay();
         }
         else
         {
@@ -87,10 +80,10 @@ public class ResourceController : MonoBehaviour
         }
     }
 
-    private void initializeGasDisplay()
+    private void InitializeGasDisplay()
     {
 
-        for (int displayIndex = 0; displayIndex < getGasLength(); displayIndex++)
+        for (int displayIndex = 0; displayIndex < GetGasLength(); displayIndex++)
         {
             gasDisplays[displayIndex] = Instantiate(gasDisplayPrefab, gasDisplayPositions[displayIndex + 1].position, gasDisplayPositions[displayIndex + 1].rotation) as GameObject;
             gasDisplays[displayIndex].transform.parent = gasDisplayFrame.transform;
@@ -99,10 +92,10 @@ public class ResourceController : MonoBehaviour
         }
     }
 
-    private void initializeButtons()
+    private void InitializeButtons()
     {
 
-        for (int buttonIndex = 0; buttonIndex < getButtonCount(); buttonIndex++)
+        for (int buttonIndex = 0; buttonIndex < GetButtonCount(); buttonIndex++)
         {
 
             spawnButtons[buttonIndex] = Instantiate(buttonPrefab, buttonPositions[buttonIndex + 1].position, buttonPositions[buttonIndex + 1].rotation) as SpawnButton;
@@ -119,19 +112,19 @@ public class ResourceController : MonoBehaviour
         }
     }
 
-    // Update is called once per frame
+    // Update is called once per frame ... this is for physics wat wat
     void FixedUpdate()
     {
         IncrementResourceCounts(1);
 
     }
 
-    private int getButtonCount()
+    private int GetButtonCount()
     {
         return resourceCount.Length;
     }
 
-    private int getGasLength()
+    private int GetGasLength()
     {
         return GasHelpers.AllGasses.Length;
     }
@@ -141,11 +134,33 @@ public class ResourceController : MonoBehaviour
         return _instance;
     }
 
-    public void setActiveResource(int index)
+
+    
+    public int NextAvailableResource()
+    {
+        int t = activeResourceIndex > 0 ? activeResourceIndex : 0;
+        spawnButtons[t].setActive(false);
+
+        for (int i = 0; i < resourceCount.Length; i++)
+        {
+            if (resourceCount[t] > 0)
+            {
+                
+                spawnButtons[t].setActive(true);
+                return t;
+            }
+            t = t > (resourceCount.Length - 2) ? 0 : t + 1;
+
+        }
+
+        return -1;
+    }
+
+    public void SetActiveResource(int index)
     {
 
         activeResourceIndex = index;
-        for (int buttonIndex = 0; buttonIndex < getButtonCount(); buttonIndex++)
+        for (int buttonIndex = 0; buttonIndex < GetButtonCount(); buttonIndex++)
         {
             if (buttonIndex != activeResourceIndex)
                 spawnButtons[buttonIndex].setActive(false);
@@ -154,13 +169,15 @@ public class ResourceController : MonoBehaviour
         }
     }
 
-    public void clearActiveResource()
+    public void ClearActiveResource()
     {
         activeResourceIndex = -1;
     }
 
-    public CellController getActiveResource()
+    public CellController GetActiveResource()
     {
+        activeResourceIndex = NextAvailableResource();
+
         if (activeResourceIndex >= 0)
         {
             if (resourceCount[activeResourceIndex] > 0)
@@ -172,13 +189,14 @@ public class ResourceController : MonoBehaviour
                 return resourcePrefabs[activeResourceIndex];
             }
         }
+
         return null;
     }
     void IncrementResourceCounts(int turnsElapsed)
     {        
         if (spawnButtons.Length > 0)
         {
-            for (int buttonIndex = 0; buttonIndex < getButtonCount(); buttonIndex++)
+            for (int buttonIndex = 0; buttonIndex < GetButtonCount(); buttonIndex++)
             {
                 if (resourceCount[buttonIndex] != resourceMax[buttonIndex])
                 {

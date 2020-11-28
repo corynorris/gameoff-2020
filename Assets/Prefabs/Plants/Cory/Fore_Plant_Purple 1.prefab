@@ -124,6 +124,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3eb00a97a8c417e49bff67b1732c9e67, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cellName: ScaredPlant
   priority: 10
   numNeighbours: 0
   turnDelayBetweenGrowth: 0
@@ -141,7 +142,6 @@ MonoBehaviour:
   onResourceDepletion: 0
   DirectionsToRunFrom: 00000000020000000400000006000000
   KeepRunning: 1
-  runningDirection: 0
 --- !u!95 &6057260801372775483
 Animator:
   serializedVersion: 3
@@ -173,6 +173,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3eb00a97a8c417e49bff67b1732c9e67, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cellName: 
   priority: 5
   numNeighbours: 0
   turnDelayBetweenGrowth: 1
@@ -190,7 +191,6 @@ MonoBehaviour:
   onResourceDepletion: 0
   DirectionsToRunFrom: 00000000020000000400000006000000
   KeepRunning: 1
-  runningDirection: 0
 --- !u!1 &3997906524907272362
 GameObject:
   m_ObjectHideFlags: 0

@@ -18,10 +18,10 @@ public class GridController : MonoBehaviour
     private Vector3 bottomLeft;
     private float offsetX;
     private float offsetY;
+    private bool isFirst = true;
 
     public Dictionary<string, int> resourceTotals = new Dictionary<string, int>();
 
-    private bool firstClick = true;
     List<CellController> cellsToUpdate = new List<CellController>();
     // Start is called before the first frame update
     void Start()
@@ -44,21 +44,19 @@ public class GridController : MonoBehaviour
                 
                     if (foregroundArray[cell.X, cell.Y].IsClickable())
                     {
-                        CellController activeResource = ResourceController.getActiveResource();
+                        CellController activeResource = ResourceController.GetActiveResource();
 
                         if (activeResource) {
                             ship.FireGun();
                             SpawnCell(cell.X, cell.Y, activeResource);
-                            // Recalculate neighbours for this cell and it's neighbours
-                            if (firstClick)
-                            {
-                                turnManager.Resume();
-                                firstClick = false;
-                            }
                         }
                         else
                         {
-                            
+                            if (isFirst) {
+                                isFirst = false;
+                                turnManager.Resume();
+                            }
+
                             SoundManager.PlaySound(SoundManager.Sound.CantPlace,turnManager.GetSpeed());
                         }
                     } else
@@ -88,22 +86,18 @@ public class GridController : MonoBehaviour
         bottomLeft = new Vector3(TilesWide, TilesHigh, 0);
 
 
-        foreach (CellController cell in foregroundCells)
-        {
-            int x = (int)cell.transform.position.x;
-            int y = (int)cell.transform.position.y;
-            cell.X = x + (TilesWide / 2);
-            cell.Y = y + (TilesHigh / 2) - 1;
-
-            AddCellToGrid(cell);
-        }
+ 
 
         foreach (CellController cell in backgroundCells)
         {
-            int x = Mathf.RoundToInt(cell.transform.position.x);
-            int y = Mathf.RoundToInt(cell.transform.position.y);
+
+            int x = Mathf.FloorToInt(cell.transform.localPosition.x);
+            int y = Mathf.FloorToInt(cell.transform.localPosition.y);
             cell.X = x + (TilesWide / 2);
             cell.Y = y + (TilesHigh / 2) - 1;
+
+
+            //Debug.Log("Background: " + cell.ToString());
 
             if (x < bottomLeft.x)
             {
@@ -114,6 +108,17 @@ public class GridController : MonoBehaviour
             {
                 bottomLeft.y = y;
             }
+        }
+
+        foreach (CellController cell in foregroundCells)
+        {
+            int x = (int)cell.transform.localPosition.x;
+            int y = (int)cell.transform.localPosition.y;
+            cell.X = x + (TilesWide / 2);
+            cell.Y = y + (TilesHigh / 2) - 1;
+
+        
+            AddCellToGrid(cell);
         }
 
         foreach (CellController cell in backgroundCells)
