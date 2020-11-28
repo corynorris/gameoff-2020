@@ -8,7 +8,7 @@ public class SpeedControlButton : MonoBehaviour
     [SerializeField] float gameSpeed = 1;
     [SerializeField] string toolTipText;
 
-
+    public bool pauseGame = false;
     private TurnManager turnManager;
 
     // Start is called before the first frame update
@@ -21,6 +21,13 @@ public class SpeedControlButton : MonoBehaviour
     private void OnMouseDown()
     {
         turnManager.SetSpeed(gameSpeed);
+        if (pauseGame)
+        {
+            turnManager.Pause();
+        } else
+        {
+            turnManager.Resume();
+        }
         UpdateColors();
     }
 

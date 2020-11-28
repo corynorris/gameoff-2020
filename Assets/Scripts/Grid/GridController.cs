@@ -21,7 +21,6 @@ public class GridController : MonoBehaviour
 
     public Dictionary<string, int> resourceTotals = new Dictionary<string, int>();
 
-    private bool firstClick = true;
     List<CellController> cellsToUpdate = new List<CellController>();
     // Start is called before the first frame update
     void Start()
@@ -49,12 +48,9 @@ public class GridController : MonoBehaviour
                         if (activeResource) {
                             ship.FireGun();
                             SpawnCell(cell.X, cell.Y, activeResource);
-                            // Recalculate neighbours for this cell and it's neighbours
-                            if (firstClick)
-                            {
-                                turnManager.Resume();
-                                firstClick = false;
-                            }
+                  
+                            
+                    
                         }
                         else
                         {
