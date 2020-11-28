@@ -47,7 +47,7 @@ public class LevelController : MonoBehaviour
         wonPannel.Deactivate();
         levelManager = FindObjectOfType<LevelManager>();
         turnManager.SetSpeed(1);
-        levelText.text = "Level: " + levelManager.GetSceneName();
+        levelText.text = levelManager.GetSceneName();
 
         hasWon = false;
         hasLost = false;
@@ -60,7 +60,8 @@ public class LevelController : MonoBehaviour
     void Update()
     {
         if (!hasWon) {
-            turnText.text = "Turn " + turnManager.getTurnNumber().ToString();
+            if(!hasLost)
+                turnText.text = (turnLimit - turnManager.getTurnNumber()).ToString();
             if (turnManager.getTurnNumber() >= turnLimit && !hasWon)
             {
                 if (!hasLost)
@@ -69,16 +70,18 @@ public class LevelController : MonoBehaviour
                     hasLost = true;
                 }
                 
-            }
 
-            if (CheckPlantWinCondition())
+            }
+           
+
+            if (CheckPlantWinCondition() && !hasLost)
             {
                 GameWon();
             }
 
             objectivePannel.Refresh();
         }
-        else if(Time.time > winTimer+winDelayTimer)
+        else if(Time.time > winTimer+winDelayTimer && !hasLost)
         {
             wonPannel.Activate();
             finishWin = true;            
@@ -121,18 +124,20 @@ public class LevelController : MonoBehaviour
     void GameLost()
     {
         Debug.Log("You Lost");
-        turnManager.SetSpeed(0);
+        //turnManager.SetSpeed(0);
+        turnManager.Pause();
         losePannel.Activate();
-        SoundManager.PlaySound(SoundManager.Sound.Lose, turnManager.getSpeed());
+        SoundManager.PlaySound(SoundManager.Sound.Lose, turnManager.GetSpeed());
     }
 
     void GameWon()
     {
         Debug.Log("You Win");
         //turnManager.SetSpeed(0);
+        turnManager.Pause();
         hasWon = true;
         winTimer = Time.time;
-        SoundManager.PlaySound(SoundManager.Sound.Win, turnManager.getSpeed());
+        SoundManager.PlaySound(SoundManager.Sound.Win, turnManager.GetSpeed());
         //turnManager.SetSpeed(0);
         //wonPannel.Activate();
     }
