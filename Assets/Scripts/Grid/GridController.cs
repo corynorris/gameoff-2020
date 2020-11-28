@@ -56,6 +56,7 @@ public class GridController : MonoBehaviour
                                 isFirst = false;
                                 turnManager.Resume();
                             }
+
                             SoundManager.PlaySound(SoundManager.Sound.CantPlace,turnManager.GetSpeed());
                         }
                     } else

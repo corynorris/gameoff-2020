@@ -10,7 +10,7 @@ PrefabInstance:
     - target: {fileID: 8132740005260444600, guid: ad23b62d949ba16449d82b3e133d0447,
         type: 3}
       propertyPath: m_Name
-      value: Particle System 2
+      value: Particle System 2 Variant
       objectReference: {fileID: 0}
     - target: {fileID: 8132740005260444601, guid: ad23b62d949ba16449d82b3e133d0447,
         type: 3}
@@ -20,17 +20,22 @@ PrefabInstance:
     - target: {fileID: 8132740005260444602, guid: ad23b62d949ba16449d82b3e133d0447,
         type: 3}
       propertyPath: simulationSpeed
-      value: 0.4
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 8132740005260444602, guid: ad23b62d949ba16449d82b3e133d0447,
         type: 3}
       propertyPath: EmissionModule.rateOverTime.scalar
-      value: 30
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8132740005260444602, guid: ad23b62d949ba16449d82b3e133d0447,
         type: 3}
       propertyPath: ShapeModule.radius.value
       value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 8132740005260444602, guid: ad23b62d949ba16449d82b3e133d0447,
+        type: 3}
+      propertyPath: InitialModule.startSpeed.scalar
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8132740005260444603, guid: ad23b62d949ba16449d82b3e133d0447,
         type: 3}

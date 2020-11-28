@@ -9,18 +9,6 @@ EditorBuildSettings:
     path: Assets/Scenes/MainMenu.unity
     guid: 1e20390a1e82e7749a14aac7144e4183
   - enabled: 1
-    path: Assets/Scenes/LargeTestLevel.unity
-    guid: cfd916c2cc1402543bea371a9fd64b4f
-  - enabled: 1
-    path: Assets/Scenes/Menu.unity
-    guid: f386c53c802d894408442b2ef2a5e74f
-  - enabled: 1
-    path: Assets/Scenes/Options.unity
-    guid: b972f37a9868ca44d9e55b47945cb5f2
-  - enabled: 1
-    path: Assets/Scenes/LevelSelect.unity
-    guid: fe9a61c14f6958342aa8548f32a38b9a
-  - enabled: 1
-    path: Assets/Scenes/Andrew/3.unity
-    guid: a57712cc76b3ea14a91456ec56670fcc
+    path: Assets/Scenes/Final/SECTOR 1.unity
+    guid: 1aba79521a0937541b647f787b2c51ba
   m_configObjects: {}

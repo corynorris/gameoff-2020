@@ -12,10 +12,13 @@ public class ProgressPannel : MonoBehaviour
     [Header("Frame for placing goal progress")]
     [SerializeField] GameObject progressDisplayFrame;
 
-    [SerializeField] GameObject progressDisplayPrefab;       
+    [SerializeField] GameObject progressDisplayPrefab;
+
+    [SerializeField] bool startActive = true;
 
     private GridController gridController;
     private LevelController levelController;
+
 
     private Transform[] progressDisplayPositions;
     GameObject[] progressDisplays;
@@ -29,15 +32,14 @@ public class ProgressPannel : MonoBehaviour
         progressDisplayPositions = progressDisplayFrame.GetComponentsInChildren<Transform>();
         progressDisplays = new GameObject[levelController.GetObjectiveResourcePrefabs().Length];
         progressColors = levelController.GetObjectiveResourceColors();
-        gridController = FindObjectOfType<GridController>();
+        gridController = FindObjectOfType<GridController>();        
         InitializeObjectiveBlocks();
 
     }
 
     // Update is called once per frame
     void Update()
-    {
-        
+    {        
     }
 
     private void InitializeObjectiveBlocks()
@@ -61,24 +63,26 @@ public class ProgressPannel : MonoBehaviour
 
     public void Activate()
     {
-        Refresh();
-        gameObject.SetActive(true);
-        
+        Refresh();        
+        gameObject.SetActive(true);        
     }
 
     public void Deactivate()
     {
-        Refresh();
         gameObject.SetActive(false);
         
     }
 
     public void Refresh()
     {
+
+        
+        Debug.Log(levelController);
+        Debug.Log(gridController);
         if(levelController != null && gridController != null && gridController.GetResourceTotals() != null)
         {
             for (int displayIndex = 0; displayIndex < levelController.GetObjectiveResourcePrefabs().Length; displayIndex++)
-            {
+            {                
                 if (gridController.GetResourceTotals().ContainsKey(levelController.GetObjectiveResourcePrefabs()[displayIndex].cellName))
                 {
                     progressDisplays[displayIndex].GetComponent<ProgressBlockHelper>().SetObjectiveProgress(gridController.GetResourceTotals()[levelController.GetObjectiveResourcePrefabs()[displayIndex].cellName]);
