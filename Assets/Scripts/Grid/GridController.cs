@@ -18,6 +18,7 @@ public class GridController : MonoBehaviour
     private Vector3 bottomLeft;
     private float offsetX;
     private float offsetY;
+    private bool isFirst = true;
 
     public Dictionary<string, int> resourceTotals = new Dictionary<string, int>();
 
@@ -43,18 +44,18 @@ public class GridController : MonoBehaviour
                 
                     if (foregroundArray[cell.X, cell.Y].IsClickable())
                     {
-                        CellController activeResource = ResourceController.getActiveResource();
+                        CellController activeResource = ResourceController.GetActiveResource();
 
                         if (activeResource) {
                             ship.FireGun();
                             SpawnCell(cell.X, cell.Y, activeResource);
-                  
-                            
-                    
                         }
                         else
                         {
-                            
+                            if (isFirst) {
+                                isFirst = false;
+                                turnManager.Resume();
+                            }
                             SoundManager.PlaySound(SoundManager.Sound.CantPlace,turnManager.GetSpeed());
                         }
                     } else
