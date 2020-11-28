@@ -37,6 +37,8 @@ public class ResourceController : MonoBehaviour
     [SerializeField] float NeonChargeRate = -0.1f;
     [SerializeField] float OxygenChargeRate = 0.0f;
 
+    private ShipController ship;
+
     private float[] GasTotals = new float[GasHelpers.AllGasses.Length];
 
     SpawnButton[] spawnButtons;
@@ -57,6 +59,9 @@ public class ResourceController : MonoBehaviour
         ProduceGas(Gas.Oxygen, Oxygen);
 
         activeResourceIndex = NextAvailableResource();
+
+        ship = FindObjectOfType<ShipController>();
+        ship.LoadGun(resourcePrefabs[activeResourceIndex]);
     }
 
 
@@ -158,7 +163,7 @@ public class ResourceController : MonoBehaviour
 
     public void SetActiveResource(int index)
     {
-
+        
         activeResourceIndex = index;
         for (int buttonIndex = 0; buttonIndex < GetButtonCount(); buttonIndex++)
         {
@@ -167,6 +172,7 @@ public class ResourceController : MonoBehaviour
             if (buttonIndex == activeResourceIndex)
                 spawnButtons[buttonIndex].setActive(true);
         }
+        ship.LoadGun(resourcePrefabs[activeResourceIndex]);
     }
 
     public void ClearActiveResource()
