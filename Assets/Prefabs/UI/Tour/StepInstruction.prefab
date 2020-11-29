@@ -129,8 +129,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 24
-  m_fontSizeBase: 24
+  m_fontSize: 34
+  m_fontSizeBase: 34
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -196,16 +196,16 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8208699130852822119}
-  m_LocalRotation: {x: -0, y: -0, z: 0.35881585, w: 0.93340844}
+  m_LocalRotation: {x: -0, y: -0, z: -0.6923393, w: 0.72157216}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.36637977, y: 0.2607372, z: 1}
   m_Children: []
   m_Father: {fileID: 117889309086565884}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 42.055}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -87.631004}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -137, y: -151.1}
+  m_AnchoredPosition: {x: -137, y: -160.5}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3284861909534807153
@@ -235,7 +235,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Texture: {fileID: 2800000, guid: 5d4be752101baa84eade81995c597c0a, type: 3}
+  m_Texture: {fileID: 2800000, guid: 1a65222ff9482eb46a5242b256eada01, type: 3}
   m_UVRect:
     serializedVersion: 2
     x: 0
