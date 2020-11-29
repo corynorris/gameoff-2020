@@ -7506,6 +7506,11 @@ PrefabInstance:
       propertyPath: eventSystem
       value: 
       objectReference: {fileID: 1940513795}
+    - target: {fileID: 3087225401772741660, guid: d9651a0fdc6f9364f9c97d13d4f23bba,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3244173602526156909, guid: d9651a0fdc6f9364f9c97d13d4f23bba,
         type: 3}
       propertyPath: m_Name
@@ -7571,6 +7576,26 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 516272036}
+    - target: {fileID: 3263613241517638978, guid: d9651a0fdc6f9364f9c97d13d4f23bba,
+        type: 3}
+      propertyPath: m_margin.z
+      value: 370.31342
+      objectReference: {fileID: 0}
+    - target: {fileID: 3263613241517638978, guid: d9651a0fdc6f9364f9c97d13d4f23bba,
+        type: 3}
+      propertyPath: m_lineSpacing
+      value: -20
+      objectReference: {fileID: 0}
+    - target: {fileID: 8061895364517594473, guid: d9651a0fdc6f9364f9c97d13d4f23bba,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9075553479561366947, guid: d9651a0fdc6f9364f9c97d13d4f23bba,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d9651a0fdc6f9364f9c97d13d4f23bba, type: 3}
 --- !u!1001 &7118396986081402062
