@@ -10,7 +10,7 @@ public class Tour : MonoBehaviour
     private int currentStop = 0;
     public void Start()
     {
-        eventSystem.SetActive(false);
+        ToggleEventSystem(false);
 
         foreach (TourStop stop in tourStops)
         {
@@ -43,7 +43,15 @@ public class Tour : MonoBehaviour
             tourStops[currentStop].instructions.SetActive(true);
         } else
         {
-            eventSystem.SetActive(true);
+            ToggleEventSystem(true);
+        }
+    }
+
+    public void ToggleEventSystem(bool state)
+    {
+        if (eventSystem)
+        {
+            eventSystem.SetActive(state);
         }
     }
 
