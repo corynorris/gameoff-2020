@@ -238,5 +238,6 @@ MonoBehaviour:
   gasConsumptionType: 0
   turnsAlive: 0
   bornFromParent: 0
+  image: {fileID: 21300000, guid: 6a3ee1f370a284d4d81d0000ae39caa6, type: 3}
   onResourceDepletion: 0
   directionsToExpand: 01000000030000000500000007000000

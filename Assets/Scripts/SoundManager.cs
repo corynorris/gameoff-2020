@@ -28,6 +28,10 @@ public static class SoundManager
         return null;
     }
 
+    public static void PlaySound(Sound sound)
+    {
+        PlaySound(sound, Time.timeScale);
+    }
 
     public static void PlaySound(Sound sound,float speed,float volume, float pitch)
     {
@@ -36,6 +40,6 @@ public static class SoundManager
         audioSource.volume = volume;
         audioSource.pitch = pitch;
         audioSource.PlayOneShot(GetAudioClip(sound));
-        GameObject.Destroy(soundGameObject, GetAudioClip(sound).length*speed);
+        GameObject.Destroy(soundGameObject, GetAudioClip(sound).length* speed);
     }
 }
