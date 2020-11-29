@@ -4380,6 +4380,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: -256
       objectReference: {fileID: 0}
+    - target: {fileID: 303918262, guid: dc539c649f2f6d1468aa0ec59fd02c03, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -2
+      objectReference: {fileID: 0}
     - target: {fileID: 650573311, guid: dc539c649f2f6d1468aa0ec59fd02c03, type: 3}
       propertyPath: turnManager
       value: 
@@ -4470,6 +4474,26 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: MainLevelPrefab
+      objectReference: {fileID: 0}
+    - target: {fileID: 6144315968484509120, guid: dc539c649f2f6d1468aa0ec59fd02c03,
+        type: 3}
+      propertyPath: resourceObjectiveTargets.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6144315968484509120, guid: dc539c649f2f6d1468aa0ec59fd02c03,
+        type: 3}
+      propertyPath: objectiveResourcePrefabs.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6144315968484509120, guid: dc539c649f2f6d1468aa0ec59fd02c03,
+        type: 3}
+      propertyPath: turnLimit
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 6144315968484509120, guid: dc539c649f2f6d1468aa0ec59fd02c03,
+        type: 3}
+      propertyPath: resourceObjectiveTargets.Array.data[0]
+      value: 12
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dc539c649f2f6d1468aa0ec59fd02c03, type: 3}

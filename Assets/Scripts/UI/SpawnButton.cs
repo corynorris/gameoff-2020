@@ -22,16 +22,21 @@ public class SpawnButton : MonoBehaviour
     string resourceTextValue;
     bool buttonStatus = false;
 
-    ResourceController resourceController;
-    Image buttonImage;
+    [SerializeField] Sprite buttonDownSprite;
+    [SerializeField] Sprite buttonUpSprite;
+
+    [SerializeField] Image buttonImage;    
+    [SerializeField] Image iconImage;
+
+
+    ResourceController resourceController;    
 
     private void Start()
     {
         resourceController = ResourceController.getInstance();
         resourceText = GetComponentInChildren<TextMeshProUGUI>();
         resourceSlider = GetComponentInChildren<Slider>();
-        //buttonImage = GetComponentInChildren<Image>();
-        buttonImage = gameObject.transform.Find("Button Image").GetComponent<Image>();
+        //buttonImage = GetComponentInChildren<Image>();        
         updateDisplay();
 
 
@@ -42,17 +47,19 @@ public class SpawnButton : MonoBehaviour
         resourceTextValue = resourceCount.ToString();
         //resourceSlider.value = rechargeProgress;
         resourceText.text = resourceTextValue;
-        buttonImage.sprite = imageSprite;
+        iconImage.sprite = imageSprite;
 
         if (buttonStatus)
         {
-            buttonImage.color = Color.white;
+            iconImage.color = Color.white;
             resourceText.color = Color.white;
+            buttonImage.sprite = buttonDownSprite;
         }
         else
         {
-            buttonImage.color = new Color32(100, 100, 100, 255);
+            iconImage.color = new Color32(100, 100, 100, 255);
             resourceText.color = new Color32(100, 100, 100, 255);
+            buttonImage.sprite = buttonUpSprite;
         }
             
         
@@ -71,7 +78,11 @@ public class SpawnButton : MonoBehaviour
         {
             
             if(resourceCount > 0)
+            {
                 resourceController.SetActiveResource(resourceIndex);
+                buttonImage.sprite = buttonDownSprite;
+            }
+                
         }
             
     }
@@ -127,4 +138,5 @@ public class SpawnButton : MonoBehaviour
     {
         Tooltip.hideTooltipStatic();
     }
+
 }
