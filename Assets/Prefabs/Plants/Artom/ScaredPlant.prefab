@@ -96,7 +96,7 @@ GameObject:
   - component: {fileID: 8600447216487876698}
   - component: {fileID: 5425331334288924837}
   m_Layer: 0
-  m_Name: Fore_Plant_Purple 1
+  m_Name: ScaredPlant
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -220,9 +220,11 @@ MonoBehaviour:
   gasConsumptionType: 0
   turnsAlive: 0
   bornFromParent: 0
+  image: {fileID: 0}
   onResourceDepletion: 0
   DirectionsToRunFrom: 00000000020000000400000006000000
   KeepRunning: 1
+  isRunning: 0
   runningDirection: 0
 --- !u!95 &8600447216487876698
 Animator:
@@ -270,7 +272,9 @@ MonoBehaviour:
   gasConsumptionType: 0
   turnsAlive: 0
   bornFromParent: 0
+  image: {fileID: 21300000, guid: f53efad5982b7894185479028fd67d5d, type: 3}
   onResourceDepletion: 0
   DirectionsToRunFrom: 00000000020000000400000006000000
   KeepRunning: 1
+  isRunning: 0
   runningDirection: 0

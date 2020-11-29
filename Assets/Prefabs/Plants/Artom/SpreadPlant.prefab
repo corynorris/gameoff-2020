@@ -157,6 +157,7 @@ MonoBehaviour:
   gasConsumptionType: 0
   turnsAlive: 0
   bornFromParent: 0
+  image: {fileID: 21300000, guid: 5aa433b0e1faf77469810c0b69155eaf, type: 3}
   onResourceDepletion: 0
   actionPatterns:
   - action: 1

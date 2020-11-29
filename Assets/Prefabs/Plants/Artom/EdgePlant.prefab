@@ -157,6 +157,7 @@ MonoBehaviour:
   gasConsumptionType: 0
   turnsAlive: 0
   bornFromParent: 0
+  image: {fileID: 21300000, guid: e2916e96d8423f443b9f48de872d175f, type: 3}
   onResourceDepletion: 0
 --- !u!1 &7796777798396318560
 GameObject:
