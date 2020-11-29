@@ -485,7 +485,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: b9d86521f6ebd274b89574d54ed466d5, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 20742cbc02ec0aa42aec4ebec863ff3c, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -535,8 +535,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameSpeed: 1
   toolTipText: Start
-  enabled: {fileID: 21300000, guid: 8ab7a8bd4d90b374d981803a703601db, type: 3}
-  diabled: {fileID: 21300000, guid: b9d86521f6ebd274b89574d54ed466d5, type: 3}
+  enabled: {fileID: 21300000, guid: e6e42f71dffe91145a8f345f145e8b2f, type: 3}
+  diabled: {fileID: 21300000, guid: 20742cbc02ec0aa42aec4ebec863ff3c, type: 3}
   pauseGame: 0
 --- !u!114 &1407229725823098043
 MonoBehaviour:
