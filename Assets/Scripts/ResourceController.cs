@@ -246,4 +246,9 @@ public class ResourceController : MonoBehaviour
     {
         return GasTotals[(int)gas];
     }
+
+    public bool HopperEmpty()
+    {
+        return false;
+    }
 }

@@ -45,8 +45,7 @@ public abstract class Plant : CellController
     protected int parentTurnsAlive = 0;
     protected int parentTurnsOfGrowth = 0;
     protected GridDirection spawnDirection;
-
-
+    
     public abstract bool Grow();
 
     private bool isDecaying = false;

@@ -21,9 +21,12 @@ public class LevelController : MonoBehaviour
     [SerializeField] int[] resourceObjectiveTargets;
     [SerializeField] Color[] objectiveResourceColors;
 
-    [SerializeField] ProgressPannel losePannel;
-    [SerializeField] ProgressPannel wonPannel;
-    [SerializeField] ProgressPannel objectivePannel;
+    [SerializeField] ProgressPannel losePanel;
+    [SerializeField] ProgressPannel wonPanel;
+    [SerializeField] ProgressPannel objectivePanel;
+    [SerializeField] GameObject helpScreenPanel;
+
+    [SerializeField] bool openHelpOnLoad;
 
 
     private TurnManager turnManager;
@@ -44,8 +47,8 @@ public class LevelController : MonoBehaviour
         resourceController = FindObjectOfType<ResourceController>();
         gridController = FindObjectOfType<GridController>();      
         
-        wonPannel.Deactivate();
-        losePannel.Deactivate();
+        wonPanel.Deactivate();
+        losePanel.Deactivate();
         levelManager = FindObjectOfType<LevelManager>();
         turnManager.SetSpeed(1);
         levelText.text = levelManager.GetSceneName();
@@ -55,6 +58,9 @@ public class LevelController : MonoBehaviour
         finishWin = false;
         winDelayTimer = 0.6f;
         winTimer = 0;
+
+        if (openHelpOnLoad)
+            OpenHelpPanel();
     }
 
     // Update is called once per frame
@@ -80,11 +86,11 @@ public class LevelController : MonoBehaviour
                 GameWon();
             }
 
-            objectivePannel.Refresh();
+            objectivePanel.Refresh();
         }
         else if(Time.time > winTimer+winDelayTimer && !hasLost)
         {
-            wonPannel.Activate();
+            wonPanel.Activate();
             finishWin = true;            
         }
         
@@ -127,7 +133,7 @@ public class LevelController : MonoBehaviour
         Debug.Log("You Lost");
         //turnManager.SetSpeed(0);
         turnManager.Pause();
-        losePannel.Activate();
+        losePanel.Activate();
         SoundManager.PlaySound(SoundManager.Sound.Lose, turnManager.GetSpeed());
     }
 
@@ -191,6 +197,18 @@ public class LevelController : MonoBehaviour
     public Color[] GetObjectiveResourceColors()
     {
         return objectiveResourceColors;
+    }
+
+    public void OpenHelpPanel()
+    {
+        helpScreenPanel.SetActive(true);
+        turnManager.Pause();
+    }
+
+    public void CloseHelpPanel()
+    {
+        helpScreenPanel.SetActive(false);
+        turnManager.Resume();
     }
 
 }
