@@ -114,8 +114,8 @@ public class LevelController : MonoBehaviour
         Debug.Log("You Lost");
         //turnManager.SetSpeed(0);
         turnManager.Pause();
-        losePanel.Activate();
-        SoundManager.PlaySound(SoundManager.Sound.Lose, turnManager.GetSpeed());
+        losePannel.Activate();
+        SoundManager.PlaySound(SoundManager.Sound.Lose, turnManager.GetSpeed(),0.38f,1f);
     }
 
     void GameWon()
@@ -125,7 +125,7 @@ public class LevelController : MonoBehaviour
         turnManager.Pause();
         hasWon = true;
         winTimer = Time.time;
-        SoundManager.PlaySound(SoundManager.Sound.Win, turnManager.GetSpeed());
+        SoundManager.PlaySound(SoundManager.Sound.Win, turnManager.GetSpeed(), 0.45f, 1.2f);
         //turnManager.SetSpeed(0);
         //wonPannel.Activate();
     }

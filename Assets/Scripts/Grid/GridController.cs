@@ -22,10 +22,10 @@ public class GridController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        //SoundManager.PlaySound(SoundManager.Sound.Background, turnManager.GetSpeed());
         Vector3 fgPos = ForegroundCellObj.transform.position;
         Vector3 bgPos = BackgroundCellObj.transform.position;
         ForegroundCellObj.transform.SetPositionAndRotation(new Vector3(fgPos.x, fgPos.y, bgPos.z - 0.1f), ForegroundCellObj.transform.rotation);
-        SoundManager.PlaySound(SoundManager.Sound.Background, turnManager.GetSpeed());
         turnManager.TurnPassed += RunSimulation;
         turnManager.Pause();
     }
