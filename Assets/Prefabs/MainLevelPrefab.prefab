@@ -448,14 +448,14 @@ RectTransform:
   m_GameObject: {fileID: 191049113}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.22633, y: 0.22633, z: 0.22633}
+  m_LocalScale: {x: 0.34840813, y: 0.34840813, z: 0.19713804}
   m_Children: []
   m_Father: {fileID: 2095306265}
-  m_RootOrder: 0
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 303.2, y: 0}
+  m_AnchoredPosition: {x: 125, y: 9.9}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &191049116
@@ -485,7 +485,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 451507b1632c60246aa9b8ee41fc28a2, type: 3}
+  m_Sprite: {fileID: 21300000, guid: b9d86521f6ebd274b89574d54ed466d5, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -534,7 +534,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameSpeed: 1
-  toolTipText: Normal Speed
+  toolTipText: Start
+  enabled: {fileID: 21300000, guid: 8ab7a8bd4d90b374d981803a703601db, type: 3}
+  diabled: {fileID: 21300000, guid: b9d86521f6ebd274b89574d54ed466d5, type: 3}
   pauseGame: 0
 --- !u!114 &1407229725823098043
 MonoBehaviour:
@@ -887,7 +889,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 303918260}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: -2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 5930265702285050184}
@@ -2594,7 +2596,7 @@ RectTransform:
   m_LocalScale: {x: 0.22633, y: 0.22633, z: 0.22633}
   m_Children: []
   m_Father: {fileID: 2095306265}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -2678,6 +2680,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameSpeed: 3
   toolTipText: Triple speed
+  enabled: {fileID: 0}
+  diabled: {fileID: 0}
   pauseGame: 0
 --- !u!114 &5058678681195019916
 MonoBehaviour:
@@ -5602,7 +5606,7 @@ RectTransform:
   m_LocalScale: {x: 0.22633, y: 0.22633, z: 0.22633}
   m_Children: []
   m_Father: {fileID: 2095306265}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -5686,6 +5690,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameSpeed: 2
   toolTipText: Double Speed
+  enabled: {fileID: 0}
+  diabled: {fileID: 0}
   pauseGame: 0
 --- !u!114 &6548786512816039916
 MonoBehaviour:
@@ -6310,9 +6316,9 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 191049114}
   - {fileID: 1865677430}
   - {fileID: 742151531}
+  - {fileID: 191049114}
   - {fileID: 5930265703027049534}
   m_Father: {fileID: 5930265702778731326}
   m_RootOrder: 2
@@ -8343,12 +8349,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   levelText: {fileID: 2132698776}
   turnText: {fileID: 1206760596}
-  turnLimit: 20
+  turnLimit: 9
   objectiveResourcePrefabs:
   - {fileID: -8637584033862806110, guid: 5e136cf56c74ca84bb7eda7bbc7a8afb, type: 3}
-  - {fileID: 330614273167916891, guid: ba802a4ddd47d3940901bffab0fddf1a, type: 3}
-  - {fileID: -1346845524776363284, guid: a6a66392f6dbf98408bcfe1a094e4615, type: 3}
-  resourceObjectiveTargets: 140000001800000008000000
+  resourceObjectiveTargets: 0c000000
   objectiveResourceColors:
   - {r: 0.64705884, g: 0.19215688, b: 0.19215688, a: 1}
   losePanel: {fileID: 994770840}
@@ -9186,8 +9190,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 34.5, y: 1}
-  m_SizeDelta: {x: 5746.484, y: 777}
+  m_AnchoredPosition: {x: -8.32, y: 1}
+  m_SizeDelta: {x: 4604.5913, y: 777}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5824383173794990236
 CanvasRenderer:
