@@ -16,7 +16,7 @@ public class TourStop : MonoBehaviour {
     void OnEnable()
     {
         if (this.Tour) { 
-            this.Tour.ToggleEventSystem(true);
+            this.Tour.ToggleEventSystem(enableEventSystem);
         }
     }
 

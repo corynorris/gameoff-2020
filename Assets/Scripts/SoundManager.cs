@@ -30,7 +30,7 @@ public static class SoundManager
 
     public static void PlaySound(Sound sound)
     {
-        PlaySound(sound, Time.timeScale);
+        PlaySound(sound, Time.timeScale, 1.0f, 1.0f);
     }
 
     public static void PlaySound(Sound sound,float speed,float volume = 1, float pitch = 1)

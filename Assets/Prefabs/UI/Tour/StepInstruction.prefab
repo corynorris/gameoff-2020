@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 117889309086565884}
   m_Layer: 0
-  m_Name: Hopper
+  m_Name: StepInstruction
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -103,8 +103,9 @@ MonoBehaviour:
       m_Calls: []
   m_text: You can select the type of plant to launc here
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: bd8a1fc0eb283aa44938f46154af1d43, type: 2}
+  m_sharedMaterial: {fileID: -3798943163961671121, guid: bd8a1fc0eb283aa44938f46154af1d43,
+    type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -140,7 +141,7 @@ MonoBehaviour:
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
-  m_lineSpacing: 0
+  m_lineSpacing: -20
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
