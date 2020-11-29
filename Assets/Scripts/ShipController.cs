@@ -22,6 +22,8 @@ public class ShipController : MonoBehaviour
         colorDict.Add("horizontal", new Color(30 / 255f, 110 / 255f, 140 / 255f));
         colorDict.Add("vertical", new Color(30 / 255f, 110 / 255f, 140 / 255f));
         colorDict.Add("spread", new Color(165 / 255f, 50 / 255f, 50 / 255f));
+        colorDict.Add("static", new Color(165 / 255f, 50 / 255f, 50 / 255f));
+
     }
 
     void Start()
