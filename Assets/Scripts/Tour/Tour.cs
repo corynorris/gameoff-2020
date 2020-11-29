@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class Tour : MonoBehaviour
 {
-    public GameObject eventSytem;
+    public GameObject eventSystem;
     public TourStop[] tourStops;
 
     private int currentStop = 0;
     public void Start()
     {
-        eventSytem.SetActive(false);
+        eventSystem.SetActive(false);
 
         foreach (TourStop stop in tourStops)
         {
@@ -43,7 +43,7 @@ public class Tour : MonoBehaviour
             tourStops[currentStop].instructions.SetActive(true);
         } else
         {
-            eventSytem.SetActive(true);
+            eventSystem.SetActive(true);
         }
     }
 
