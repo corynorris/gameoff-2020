@@ -90,6 +90,7 @@ public class LevelController : MonoBehaviour
         else if(Time.time > winTimer+winDelayTimer && !hasLost)
         {
             wonPanel.Activate();
+            BlockGrid();
             finishWin = true;            
         }
         
@@ -119,6 +120,7 @@ public class LevelController : MonoBehaviour
         //turnManager.SetSpeed(0);
         turnManager.Pause();
         losePanel.Activate();
+        BlockGrid();
         SoundManager.PlaySound(SoundManager.Sound.Lose, turnManager.GetSpeed(),0.38f,1f);
     }
 
