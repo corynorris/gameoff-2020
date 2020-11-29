@@ -33,7 +33,7 @@ public static class SoundManager
         PlaySound(sound, Time.timeScale, 1.0f, 1.0f);
     }
 
-    public static void PlaySound(Sound sound,float speed,float volume, float pitch)
+    public static void PlaySound(Sound sound,float speed,float volume = 1, float pitch = 1)
     {
         GameObject soundGameObject = new GameObject("Sound");
         AudioSource audioSource = soundGameObject.AddComponent<AudioSource>();
