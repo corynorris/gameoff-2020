@@ -150,16 +150,19 @@ public class ResourceController : MonoBehaviour
         }
 
         
+              
+
+        
 
         return null;
     }
     
 
-
+    /*
     public float GetTotalGas(Gas gas)
     {
         return GasTotals[(int)gas];
-    }
+    }*/
 
     public bool HopperEmpty()
     {
