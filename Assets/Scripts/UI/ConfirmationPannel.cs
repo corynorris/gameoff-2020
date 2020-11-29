@@ -19,11 +19,18 @@ public class ConfirmationPannel : MonoBehaviour
     private float gameSpeed = 1;
 
     LevelManager levelManager;
+    LevelController levelController;
 
     // Start is called before the first frame update
     void Start()
-    {        
+    {
+        Init();
+    }
+
+    private void Init()
+    {
         levelManager = FindObjectOfType<LevelManager>();
+        levelController = FindObjectOfType<LevelController>();
     }
 
     // Update is called once per frame
@@ -33,7 +40,10 @@ public class ConfirmationPannel : MonoBehaviour
         //confirmButton = gameObject.GetComponents<GameObject>()[1];
         //cancelButton = gameObject.GetComponents<GameObject>()[2];
         //turnManager = FindObjectOfType<TurnManager>();       
-        
+        //if(levelController == null)
+        //    levelController = FindObjectOfType<LevelController>();
+
+
     }
 
     public void SetTargetScene(string scene)
@@ -58,17 +68,23 @@ public class ConfirmationPannel : MonoBehaviour
 
     public void Activate()
     {
+        if (levelController == null)
+            Init();
         UpdatePannel();
         gameObject.SetActive(true);
+        levelController.BlockGrid();
         gameSpeed = turnManager.GetSpeed();
         turnManager.SetSpeed(0);
     }
 
     public void Deactivate()
     {
+        if (levelController == null)
+            Init();
         //UpdatePannel();
         gameObject.SetActive(false);
         turnManager.SetSpeed(gameSpeed);
+        levelController.UnblockGrid();
     }
 
     private void UpdatePannel()

@@ -63,11 +63,17 @@ public class SpawnButton : MonoBehaviour
         //  FindObjectOfType<DefenderSpawner>().setDefender(defenderPrefab);               
         if (buttonStatus)
         {
-            resourceController.ClearActiveResource();
-            buttonStatus = false;        }
-            
+            //resourceController.ClearActiveResource();
+            //buttonStatus = false;        
+        }
+
         else
-            resourceController.SetActiveResource(resourceIndex);
+        {
+            
+            if(resourceCount > 0)
+                resourceController.SetActiveResource(resourceIndex);
+        }
+            
     }
 
     void Update()
