@@ -90,6 +90,7 @@ public class GridController : MonoBehaviour
 
 
 
+
     public void Clear()
     {
         foreach (CellController child in this.BackgroundCellObj.GetComponentsInChildren<CellController>())      
