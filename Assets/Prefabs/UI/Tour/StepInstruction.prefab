@@ -196,13 +196,13 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8208699130852822119}
-  m_LocalRotation: {x: -0, y: -0, z: -0.009117801, w: 0.99995846}
+  m_LocalRotation: {x: -0, y: -0, z: 0.35881585, w: 0.93340844}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.36637977, y: 0.2607372, z: 1}
   m_Children: []
   m_Father: {fileID: 117889309086565884}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -1.0450001}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 42.055}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -137, y: -151.1}
@@ -235,7 +235,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Texture: {fileID: 2800000, guid: 2f0b86e7313fded4a8af8e1170f2bce4, type: 3}
+  m_Texture: {fileID: 2800000, guid: 5d4be752101baa84eade81995c597c0a, type: 3}
   m_UVRect:
     serializedVersion: 2
     x: 0
