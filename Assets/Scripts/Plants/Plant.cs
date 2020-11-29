@@ -23,18 +23,6 @@ public abstract class Plant : CellController
     [Tooltip("Max neighbours before the plant dies.")]
     public int maxNeighboursBeforeOvercrowding = 8;
 
-    [Tooltip("Amount of gas produced each growth period")]
-    public int gasProduction = 2;
-
-    [Tooltip("Amount of gas produced each growth period")]
-    public Gas gasProductionType = Gas.Oxygen;
-
-    [Tooltip("Amount of gas consumed each growth period")]
-    public int gasConsumption = 1;
-
-    [Tooltip("Amount of gas produced each growth period")]
-    public Gas gasConsumptionType = Gas.Argon;
-
     [SerializeField]
     protected int turnsAlive = 0;
     protected int turnsOfGrowth = 0;
@@ -47,9 +35,6 @@ public abstract class Plant : CellController
     protected GridDirection spawnDirection;
     
     public abstract bool Grow();
-
-    private bool isDecaying = false;
-    private int turnsUntilDecay;
 
     private Animator animator;
 
@@ -71,13 +56,6 @@ public abstract class Plant : CellController
     public override void MakeClaims()
     {
         Age();
-
-        if (isDecaying)
-        {
-            Debug.Log("Decaying, won't age");
-            return;
-        }
-
 
         if (maxTurnsAlive > 0 && turnsAlive > maxTurnsAlive)
         {
@@ -120,10 +98,6 @@ public abstract class Plant : CellController
         parentTurnsAlive++;
     }
 
-    private bool HasGas()
-    {
-        return this.Grid.ResourceController.GetTotalGas(this.gasConsumptionType) > 0;
-    }
 
     private void TrackGrowth()
     {
@@ -144,68 +118,6 @@ public abstract class Plant : CellController
 
         this.turnsUntilGrowth = Mathf.Max(0, this.turnsUntilGrowth);
     }
-
-    public override void ProduceEffects()
-    {
-
-        if (this.Grid.ResourceController.GetTotalGas(this.gasConsumptionType) <= 0)
-        {
-            if (onResourceDepletion == NoResourceOptions.Die)
-            {
-                this.Kill();
-            }
-
-            if (onResourceDepletion == NoResourceOptions.StopGrowingAndAllGas)
-            {
-                this.turnsUntilGrowth++;
-            }
-
-
-            if (onResourceDepletion == NoResourceOptions.StopGrowingAndGasProduction)
-            {
-                this.turnsUntilGrowth++;
-                this.Grid.ResourceController.ConsumeGas(this.gasConsumptionType, this.gasConsumption);
-            }
-
-            if (onResourceDepletion == NoResourceOptions.StopGrowing)
-            {
-                this.turnsUntilGrowth = 2;
-                this.Grid.ResourceController.ProduceGas(this.gasProductionType, this.gasProduction);
-                this.Grid.ResourceController.ConsumeGas(this.gasConsumptionType, this.gasConsumption);
-            }
-
-            if (onResourceDepletion == NoResourceOptions.Decay)
-            {
-                this.turnsUntilGrowth = 2;
-
-                if (!isDecaying)
-                {
-                    isDecaying = true;
-                    turnsUntilDecay = turnsAlive;
-                }
-                else
-                {
-                    turnsUntilDecay -= 2;
-                }
-
-                if (turnsUntilDecay <= 0)
-                {
-                    this.Kill();
-                }
-            }
-
-
-        }
-        else
-        {
-            isDecaying = false;
-            // TODO: send the gas to be produced somewhere
-            this.Grid.ResourceController.ProduceGas(this.gasProductionType, this.gasProduction);
-            this.Grid.ResourceController.ConsumeGas(this.gasConsumptionType, this.gasConsumption);
-        }
-
-    }
-
 
     public override void Initialize(CellController cellParent)
     {

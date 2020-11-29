@@ -40,9 +40,10 @@ public class ProgressPannel : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(gameObject.GetInstanceID());
-        Debug.Log(levelController);
-        Debug.Log(gridController);
+        // WHY??
+        //Debug.Log(gameObject.GetInstanceID());
+        //Debug.Log(levelController);
+        //Debug.Log(gridController);
     }
 
     private void InitializeObjectiveBlocks()
@@ -50,7 +51,7 @@ public class ProgressPannel : MonoBehaviour
         for (int displayIndex = 0; displayIndex < levelController.GetObjectiveResourcePrefabs().Length; displayIndex++)
         {
             progressDisplays[displayIndex] = Instantiate(progressDisplayPrefab, progressDisplayPositions[displayIndex + 1].position, progressDisplayPositions[displayIndex + 1].rotation) as GameObject;
-            progressDisplays[displayIndex].transform.parent = progressDisplayFrame.transform;
+            progressDisplays[displayIndex].transform.SetParent(progressDisplayFrame.transform);
             progressDisplays[displayIndex].transform.localScale = progressDisplayPrefab.transform.localScale;
             progressDisplays[displayIndex].transform.localPosition = progressDisplayPositions[displayIndex + 1].localPosition;
             progressDisplays[displayIndex].GetComponent<ProgressBlockHelper>().SetObjectiveString(levelController.GetObjectiveResourcePrefabs()[displayIndex].cellName);
@@ -95,8 +96,8 @@ public class ProgressPannel : MonoBehaviour
         {
             gridController = FindObjectOfType<GridController>();
         }
-        Debug.Log(levelController);
-        Debug.Log(gridController);
+        //Debug.Log(levelController);
+        //Debug.Log(gridController);
 
         if (levelController == null)
         {

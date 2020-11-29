@@ -12,11 +12,6 @@ public class LevelController : MonoBehaviour
     [SerializeField] TextMeshProUGUI turnText;
     [SerializeField] int turnLimit = 100;
 
-    [SerializeField] int argonTarget = 100;
-    [SerializeField] int heliumTarget = 100;
-    [SerializeField] int neonTarget = 100;
-    [SerializeField] int oxygenTarget = 100;
-
     [SerializeField] Plant[] objectiveResourcePrefabs;
     [SerializeField] int[] resourceObjectiveTargets;
     [SerializeField] Color[] objectiveResourceColors;
@@ -100,21 +95,7 @@ public class LevelController : MonoBehaviour
 
     void EndGame()
     {        
-        /*if (argonTarget < 0 || resourceController.GetTotalGas(Gas.Argon) >= argonTarget)
-        {
-            if (heliumTarget < 0 || resourceController.GetTotalGas(Gas.Helium) >= heliumTarget)
-            {
-                if (neonTarget < 0 || resourceController.GetTotalGas(Gas.Neon) >= neonTarget)
-                {
-                    if (oxygenTarget < 0 || resourceController.GetTotalGas(Gas.Oxygen) >= oxygenTarget)
-                    {
-                        Debug.Log("Game won2");
-                        GameWon();
-                        return;
-                    }
-                }
-            }
-        }*/
+
 
         if (CheckPlantWinCondition())
         {

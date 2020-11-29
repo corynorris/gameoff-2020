@@ -18,7 +18,7 @@ public class MenuButtonLoader : MonoBehaviour
     void Start()
     {
         //pannel = FindObjectOfType<ConfirmationPannel>();
-        Debug.Log(pannel);
+        //Debug.Log(pannel);
     }
 
     // Update is called once per frame
