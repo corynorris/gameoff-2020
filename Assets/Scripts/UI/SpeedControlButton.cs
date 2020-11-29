@@ -8,6 +8,9 @@ public class SpeedControlButton : MonoBehaviour
     [SerializeField] float gameSpeed = 1;
     [SerializeField] string toolTipText;
 
+    [SerializeField] Sprite enabled;
+    [SerializeField] Sprite diabled;
+
     public bool pauseGame = false;
     private TurnManager turnManager;
 
@@ -22,7 +25,7 @@ public class SpeedControlButton : MonoBehaviour
     {
         if (turnManager.getTurnNumber() > 0)
         {
-            gameObject.SetActive(false);
+            gameObject.GetComponent<Image>().sprite = enabled;
         }
     }
 
@@ -51,7 +54,7 @@ public class SpeedControlButton : MonoBehaviour
         {
             turnManager.Resume();
         }
-        gameObject.SetActive(false);
+        gameObject.GetComponent<Image>().sprite = enabled;
         //UpdateColors();
     }
 
