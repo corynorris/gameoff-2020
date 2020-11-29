@@ -47,7 +47,7 @@ public class ShipController : MonoBehaviour
 
     public void FireGun()
     {
-        SoundManager.PlaySound(SoundManager.Sound.Shoot, turnManager.GetSpeed());
+        SoundManager.PlaySound(SoundManager.Sound.Shoot, turnManager.GetSpeed(), 0.75f, 0.7f);
         gun.GetComponentInChildren<Animator>().SetTrigger("fire");
     }
 

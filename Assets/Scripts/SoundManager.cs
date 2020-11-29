@@ -29,11 +29,12 @@ public static class SoundManager
     }
 
 
-    public static void PlaySound(Sound sound,float speed)
-
+    public static void PlaySound(Sound sound,float speed,float volume, float pitch)
     {
         GameObject soundGameObject = new GameObject("Sound");
         AudioSource audioSource = soundGameObject.AddComponent<AudioSource>();
+        audioSource.volume = volume;
+        audioSource.pitch = pitch;
         audioSource.PlayOneShot(GetAudioClip(sound));
         GameObject.Destroy(soundGameObject, GetAudioClip(sound).length*speed);
     }
