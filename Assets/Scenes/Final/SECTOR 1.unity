@@ -787,17 +787,6 @@ MonoBehaviour:
   buttonPrefab: {fileID: 4231019901656266730, guid: a5257e5667199894aa6fe0523e36b44c,
     type: 3}
   buttonFrame: {fileID: 1446111545}
-  gasDisplayFrame: {fileID: 1446111546}
-  gasDisplayPrefab: {fileID: 4234007794714168585, guid: a6791892dd0fd5747bf37fd393193d9d,
-    type: 3}
-  Argon: 100
-  Helium: 100
-  Neon: 100
-  Oxygen: 100
-  ArgonChargeRate: 0
-  HeliumChargeRate: 0
-  NeonChargeRate: 0
-  OxygenChargeRate: 0
 --- !u!4 &129714827
 Transform:
   m_ObjectHideFlags: 0
@@ -4389,7 +4378,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2158769, guid: dc539c649f2f6d1468aa0ec59fd02c03, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -255.99998
+      value: -256
       objectReference: {fileID: 0}
     - target: {fileID: 650573311, guid: dc539c649f2f6d1468aa0ec59fd02c03, type: 3}
       propertyPath: turnManager
@@ -4403,6 +4392,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 84822954}
+    - target: {fileID: 2039572962, guid: dc539c649f2f6d1468aa0ec59fd02c03, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -195.90002
+      objectReference: {fileID: 0}
     - target: {fileID: 2986794546916249336, guid: dc539c649f2f6d1468aa0ec59fd02c03,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -4483,12 +4476,6 @@ PrefabInstance:
 --- !u!1 &1446111545 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5930265703027049535, guid: dc539c649f2f6d1468aa0ec59fd02c03,
-    type: 3}
-  m_PrefabInstance: {fileID: 1446111544}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &1446111546 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5403035255976324571, guid: dc539c649f2f6d1468aa0ec59fd02c03,
     type: 3}
   m_PrefabInstance: {fileID: 1446111544}
   m_PrefabAsset: {fileID: 0}

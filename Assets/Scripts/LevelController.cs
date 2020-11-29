@@ -23,6 +23,8 @@ public class LevelController : MonoBehaviour
 
     [SerializeField] bool openHelpOnLoad;
 
+    [SerializeField] GameObject gridBlocker;
+
 
     private TurnManager turnManager;
     private ResourceController resourceController;
@@ -56,6 +58,8 @@ public class LevelController : MonoBehaviour
 
         if (openHelpOnLoad)
             OpenHelpPanel();
+
+        UnblockGrid();
     }
 
     // Update is called once per frame
@@ -111,7 +115,7 @@ public class LevelController : MonoBehaviour
 
     void GameLost()
     {
-        Debug.Log("You Lost");
+        
         //turnManager.SetSpeed(0);
         turnManager.Pause();
         losePanel.Activate();
@@ -120,7 +124,7 @@ public class LevelController : MonoBehaviour
 
     void GameWon()
     {
-        Debug.Log("You Win");
+        
         //turnManager.SetSpeed(0);
         turnManager.Pause();
         hasWon = true;
@@ -182,14 +186,25 @@ public class LevelController : MonoBehaviour
 
     public void OpenHelpPanel()
     {
-        helpScreenPanel.SetActive(true);
+        helpScreenPanel.SetActive(true);        
         turnManager.Pause();
     }
 
     public void CloseHelpPanel()
     {
         helpScreenPanel.SetActive(false);
-        turnManager.Resume();
+        if(turnManager.getTurnNumber() > 0)
+            turnManager.Resume();
+    }
+
+    public void BlockGrid()
+    {
+        gridBlocker.SetActive(true);
+    }
+
+    public void UnblockGrid()
+    {
+        gridBlocker.SetActive(false);
     }
 
 }
