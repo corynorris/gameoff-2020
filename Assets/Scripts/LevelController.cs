@@ -118,7 +118,7 @@ public class LevelController : MonoBehaviour
         
         //turnManager.SetSpeed(0);
         turnManager.Pause();
-        losePannel.Activate();
+        losePanel.Activate();
         SoundManager.PlaySound(SoundManager.Sound.Lose, turnManager.GetSpeed(),0.38f,1f);
     }
 
