@@ -11,7 +11,7 @@ public class SpeedControlButton : MonoBehaviour
     [SerializeField] Sprite enabled;
     [SerializeField] Sprite diabled;
 
-    public bool pauseGame = false;
+    public bool started = false;
     private TurnManager turnManager;
 
     // Start is called before the first frame update
@@ -46,17 +46,13 @@ public class SpeedControlButton : MonoBehaviour
     public void UpdateSpeed()
     {
         turnManager.SetSpeed(gameSpeed);
-        if (pauseGame)
-        {
-            turnManager.Pause();
-        }
-        else
+        if (!started)
         {
             turnManager.Resume();
-        }
-        SoundManager.PlaySound(SoundManager.Sound.PlayButton, turnManager.GetSpeed(), 0.8f, 0.2f);
-        gameObject.GetComponent<Image>().sprite = enabled;
-        //UpdateColors();
+            SoundManager.PlaySound(SoundManager.Sound.PlayButton, turnManager.GetSpeed(), 0.8f, 0.2f);
+            gameObject.GetComponent<Image>().sprite = enabled;
+            started = true;
+        }        
     }
 
     private void UpdateColors()

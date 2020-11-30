@@ -124,7 +124,7 @@ public class LevelController : MonoBehaviour
         turnManager.Pause();
         losePanel.Activate();
         BlockGrid();
-        SoundManager.PlaySound(SoundManager.Sound.Lose, turnManager.GetSpeed(),0.38f,1f);
+        SoundManager.PlaySound(SoundManager.Sound.Lose, turnManager.GetSpeed(),0.065f,0.55f);
     }
 
     void GameWon()
