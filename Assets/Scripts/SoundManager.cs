@@ -11,7 +11,8 @@ public static class SoundManager
         Win,
         Lose,
         Click,
-        CantPlace
+        CantPlace,
+        PlayButton
     }
 
 

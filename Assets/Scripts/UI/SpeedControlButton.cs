@@ -54,6 +54,7 @@ public class SpeedControlButton : MonoBehaviour
         {
             turnManager.Resume();
         }
+        SoundManager.PlaySound(SoundManager.Sound.PlayButton, turnManager.GetSpeed(), 0.8f, 0.2f);
         gameObject.GetComponent<Image>().sprite = enabled;
         //UpdateColors();
     }
