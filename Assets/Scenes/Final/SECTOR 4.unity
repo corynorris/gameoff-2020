@@ -6225,6 +6225,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 650573311, guid: dc539c649f2f6d1468aa0ec59fd02c03, type: 3}
+      propertyPath: turnManager
+      value: 
+      objectReference: {fileID: 1699569170}
     - target: {fileID: 777568113, guid: dc539c649f2f6d1468aa0ec59fd02c03, type: 3}
       propertyPath: startOpen
       value: 0

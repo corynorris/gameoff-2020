@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using UnityEngine;
 
-public static class SoundManager 
+public static class SoundManager
 {
 
     public enum Sound
@@ -12,7 +12,10 @@ public static class SoundManager
         Lose,
         Click,
         CantPlace,
-        PlayButton
+        PlayButton,
+        PositiveClick,
+        NegativeClick,
+        SlimeSelect
     }
 
 
@@ -29,10 +32,11 @@ public static class SoundManager
         return null;
     }
 
-    public static void PlaySound(Sound sound)
+    public static void PlaySound(Sound sound, float volume = 1, float pitch = 1)
     {
-        PlaySound(sound, Time.timeScale, 1.0f, 1.0f);
+        PlaySound(sound, Time.timeScale, volume, pitch);
     }
+
 
     public static void PlaySound(Sound sound,float speed,float volume = 1, float pitch = 1)
     {

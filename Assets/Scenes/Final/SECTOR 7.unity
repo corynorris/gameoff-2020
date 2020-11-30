@@ -14964,6 +14964,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 650573311, guid: dc539c649f2f6d1468aa0ec59fd02c03, type: 3}
+      propertyPath: turnManager
+      value: 
+      objectReference: {fileID: 1635268388}
     - target: {fileID: 1240938168, guid: dc539c649f2f6d1468aa0ec59fd02c03, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -15149,7 +15153,7 @@ PrefabInstance:
     - target: {fileID: 6144315968484509120, guid: dc539c649f2f6d1468aa0ec59fd02c03,
         type: 3}
       propertyPath: resourceObjectiveTargets.Array.data[1]
-      value: 30
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 6144315968484509120, guid: dc539c649f2f6d1468aa0ec59fd02c03,
         type: 3}
@@ -15160,7 +15164,7 @@ PrefabInstance:
     - target: {fileID: 6144315968484509120, guid: dc539c649f2f6d1468aa0ec59fd02c03,
         type: 3}
       propertyPath: resourceObjectiveTargets.Array.data[2]
-      value: 36
+      value: 22
       objectReference: {fileID: 0}
     - target: {fileID: 6144315968484509120, guid: dc539c649f2f6d1468aa0ec59fd02c03,
         type: 3}

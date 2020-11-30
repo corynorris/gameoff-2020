@@ -14779,6 +14779,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 650573311, guid: dc539c649f2f6d1468aa0ec59fd02c03, type: 3}
+      propertyPath: turnManager
+      value: 
+      objectReference: {fileID: 527828654}
     - target: {fileID: 777568113, guid: dc539c649f2f6d1468aa0ec59fd02c03, type: 3}
       propertyPath: startOpen
       value: 0

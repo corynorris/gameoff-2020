@@ -62,6 +62,7 @@ public class TabGroup : MonoBehaviour
         button.background.sprite = button.GetTabImageSelected();
 
         UpdatePanel(button);
+        SoundManager.PlaySound(SoundManager.Sound.PositiveClick, 0.12f, 0.5f);
     }
 
     public void ResetTabs()
