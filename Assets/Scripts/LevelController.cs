@@ -56,10 +56,13 @@ public class LevelController : MonoBehaviour
         winDelayTimer = 0.6f;
         winTimer = 0;
 
+
+        UnblockGrid();
+
         if (openHelpOnLoad)
             OpenHelpPanel();
 
-        UnblockGrid();
+        
     }
 
     // Update is called once per frame
