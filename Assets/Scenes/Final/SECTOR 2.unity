@@ -4430,8 +4430,8 @@ MonoBehaviour:
   - {fileID: 330614273167916891, guid: ba802a4ddd47d3940901bffab0fddf1a, type: 3}
   resourceMax: 0100000001000000
   buttonSprites:
-  - {fileID: 21300000, guid: 1189c403a0fc10d43951113413598373, type: 3}
-  - {fileID: 21300000, guid: aff1e7071cdb81e4bae4ad954bbb9944, type: 3}
+  - {fileID: 21300000, guid: 5aa433b0e1faf77469810c0b69155eaf, type: 3}
+  - {fileID: 21300000, guid: 6a3ee1f370a284d4d81d0000ae39caa6, type: 3}
   resourceChargeRate:
   - 0.001
   - 0.001
@@ -8471,7 +8471,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 303918262, guid: dc539c649f2f6d1468aa0ec59fd02c03, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -100
+      value: -2
       objectReference: {fileID: 0}
     - target: {fileID: 578026881, guid: dc539c649f2f6d1468aa0ec59fd02c03, type: 3}
       propertyPath: startOpen
