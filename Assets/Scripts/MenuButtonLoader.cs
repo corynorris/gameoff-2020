@@ -33,6 +33,6 @@ public class MenuButtonLoader : MonoBehaviour
         pannel.SetConfirmCallToAction(confirmationText);
         pannel.SetMessage(message);
         pannel.SetTargetScene(sceneTarget);
-        pannel.Activate();
+        pannel.Activate();        
     }
 }

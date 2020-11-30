@@ -15240,7 +15240,7 @@ PrefabInstance:
     - target: {fileID: 6144315968484509120, guid: dc539c649f2f6d1468aa0ec59fd02c03,
         type: 3}
       propertyPath: resourceObjectiveTargets.Array.data[1]
-      value: 30
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 6144315968484509120, guid: dc539c649f2f6d1468aa0ec59fd02c03,
         type: 3}
@@ -15251,7 +15251,7 @@ PrefabInstance:
     - target: {fileID: 6144315968484509120, guid: dc539c649f2f6d1468aa0ec59fd02c03,
         type: 3}
       propertyPath: resourceObjectiveTargets.Array.data[2]
-      value: 36
+      value: 22
       objectReference: {fileID: 0}
     - target: {fileID: 6144315968484509120, guid: dc539c649f2f6d1468aa0ec59fd02c03,
         type: 3}

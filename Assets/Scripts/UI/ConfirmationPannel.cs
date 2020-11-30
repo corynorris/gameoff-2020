@@ -74,6 +74,8 @@ public class ConfirmationPannel : MonoBehaviour
         gameObject.SetActive(true);
         levelController.BlockGrid();
         gameSpeed = turnManager.GetSpeed();
+        SoundManager.PlaySound(SoundManager.Sound.PositiveClick, 0.08f, 0.65f);
+        AudioManager.getInstance().setVolume(0.3f);
         turnManager.SetSpeed(0);
     }
 
@@ -85,6 +87,8 @@ public class ConfirmationPannel : MonoBehaviour
         gameObject.SetActive(false);
         turnManager.SetSpeed(gameSpeed);
         levelController.UnblockGrid();
+        AudioManager.getInstance().setVolume(0.6f);
+        SoundManager.PlaySound(SoundManager.Sound.NegativeClick, 0.07f, 0.6f);
     }
 
     private void UpdatePannel()
@@ -99,7 +103,7 @@ public class ConfirmationPannel : MonoBehaviour
     }
     public void Action(string level)
     {
-        if(level == "")
+        if (level == "")
         {
             levelManager.ReloadLevel();
         }

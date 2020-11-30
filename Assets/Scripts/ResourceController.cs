@@ -121,6 +121,7 @@ public class ResourceController : MonoBehaviour
         }
         if (activeResourceIndex >= 0) { 
             ship.LoadGun(resourcePrefabs[activeResourceIndex]);
+            SoundManager.PlaySound(SoundManager.Sound.SlimeSelect, 0.35f, 0.3f);
         } 
     }
 
@@ -145,6 +146,7 @@ public class ResourceController : MonoBehaviour
 
                 int prevActiveResourceIndex = activeResourceIndex;
                 SetActiveResource(NextAvailableResource());
+                
                 return resourcePrefabs[prevActiveResourceIndex];
             }
         }
