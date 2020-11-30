@@ -43,7 +43,7 @@ public class LevelManager : MonoBehaviour
 
     public void LoadLevelSelectMenu()
     {
-        SceneManager.LoadScene("LevelSelect", LoadSceneMode.Additive);
+        SceneManager.LoadScene("LevelSelect", LoadSceneMode.Single);
     }
 
     public void UnloadLevelSelectMenu()

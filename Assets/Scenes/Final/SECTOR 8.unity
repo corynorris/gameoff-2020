@@ -16502,7 +16502,7 @@ PrefabInstance:
     - target: {fileID: 4171360673095531218, guid: 98503460e65e27347b0a2053fb89cace,
         type: 3}
       propertyPath: turnFrequency
-      value: 0.91
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 4171360673095531219, guid: 98503460e65e27347b0a2053fb89cace,
         type: 3}
