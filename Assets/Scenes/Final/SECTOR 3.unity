@@ -8796,9 +8796,9 @@ MonoBehaviour:
   - {fileID: -1346845524776363284, guid: a6a66392f6dbf98408bcfe1a094e4615, type: 3}
   resourceMax: 010000000100000001000000
   buttonSprites:
-  - {fileID: 21300000, guid: 1189c403a0fc10d43951113413598373, type: 3}
-  - {fileID: 21300000, guid: aff1e7071cdb81e4bae4ad954bbb9944, type: 3}
-  - {fileID: 21300000, guid: c4936d9b17e84734ab052b0f9269dcef, type: 3}
+  - {fileID: 21300000, guid: 5aa433b0e1faf77469810c0b69155eaf, type: 3}
+  - {fileID: 21300000, guid: 6a3ee1f370a284d4d81d0000ae39caa6, type: 3}
+  - {fileID: 21300000, guid: 274b2d8d1ab033041b0d90b3fbf0adac, type: 3}
   resourceChargeRate:
   - 0.001
   - 0.001
@@ -11275,6 +11275,10 @@ PrefabInstance:
     - target: {fileID: 2009300965, guid: dc539c649f2f6d1468aa0ec59fd02c03, type: 3}
       propertyPath: startOpen
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2039572962, guid: dc539c649f2f6d1468aa0ec59fd02c03, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -195.90002
       objectReference: {fileID: 0}
     - target: {fileID: 1328745775323786697, guid: dc539c649f2f6d1468aa0ec59fd02c03,
         type: 3}

@@ -916,7 +916,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.017921448, y: -0.00000047683716}
+  m_Offset: {x: 3.0895424, y: 1.022255}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -927,7 +927,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 17.77383, y: 9.996217}
+  m_Size: {x: 74.393974, y: 52.11109}
   m_EdgeRadius: 0
 --- !u!1 &355339447
 GameObject:
@@ -3294,7 +3294,7 @@ MonoBehaviour:
   message: All progress will be lost, are you sure?
   confirmationText: Main Menu
   cancelText: Cancel
-  sceneTarget: Manu
+  sceneTarget: Menu
   pannel: {fileID: 650573311}
 --- !u!1 &1038784941
 GameObject:
