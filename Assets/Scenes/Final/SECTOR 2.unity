@@ -8436,7 +8436,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2158769, guid: dc539c649f2f6d1468aa0ec59fd02c03, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -256
+      value: -255.99998
       objectReference: {fileID: 0}
     - target: {fileID: 191049115, guid: dc539c649f2f6d1468aa0ec59fd02c03, type: 3}
       propertyPath: m_Sprite
@@ -8515,7 +8515,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2039572962, guid: dc539c649f2f6d1468aa0ec59fd02c03, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -195.90002
+      value: -190.99998
       objectReference: {fileID: 0}
     - target: {fileID: 2044507850, guid: dc539c649f2f6d1468aa0ec59fd02c03, type: 3}
       propertyPath: m_IsActive
@@ -10290,7 +10290,7 @@ PrefabInstance:
     - target: {fileID: 4171360673095531218, guid: 98503460e65e27347b0a2053fb89cace,
         type: 3}
       propertyPath: turnFrequency
-      value: 0.91
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 4171360673095531219, guid: 98503460e65e27347b0a2053fb89cace,
         type: 3}

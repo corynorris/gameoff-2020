@@ -31,7 +31,7 @@ public class LevelManager : MonoBehaviour
 
     public void LoadOptionsMenu()
     {
-        SceneManager.LoadScene("MainMenu");
+        SceneManager.LoadScene("Menu");
     }
 
     public void UnloadOptionsMenu()
