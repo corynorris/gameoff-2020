@@ -11,6 +11,8 @@ public class SpeedControlButton : MonoBehaviour
     [SerializeField] Sprite enabled;
     [SerializeField] Sprite diabled;
 
+    [SerializeField] HintController hints;
+
     public bool started = false;
     private TurnManager turnManager;
 
@@ -52,6 +54,7 @@ public class SpeedControlButton : MonoBehaviour
             SoundManager.PlaySound(SoundManager.Sound.PlayButton, turnManager.GetSpeed(), 0.8f, 0.2f);
             gameObject.GetComponent<Image>().sprite = enabled;
             started = true;
+            hints.turnOff();
         }        
     }
 

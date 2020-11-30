@@ -44,7 +44,7 @@ public class TabGroup : MonoBehaviour
     }
 
     public void OnTabEnter(TabButton button)
-    {
+    {        
         ResetTabs();
         if(selectedTab == null || selectedTab != button)
             button.background.sprite = button.GetTabImageHover();
@@ -52,7 +52,8 @@ public class TabGroup : MonoBehaviour
 
     public void OnTabExit(TabButton button)
     {
-       ResetTabs();        
+        AudioManager.getInstance().setVolume(0.6f);
+        ResetTabs();        
     }
 
     public void OnTabSelect(TabButton button)

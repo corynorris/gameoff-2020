@@ -125,7 +125,7 @@ public class LevelController : MonoBehaviour
         losePanel.Activate();
         BlockGrid();
         SoundManager.PlaySound(SoundManager.Sound.Lose, turnManager.GetSpeed(),0.065f,0.55f);
-        AudioManager.getInstance().setVolume(0.3f);
+        AudioManager.getInstance().setVolume(0.13f);
     }
 
     void GameWon()
@@ -136,7 +136,7 @@ public class LevelController : MonoBehaviour
         hasWon = true;
         winTimer = Time.time;
         SoundManager.PlaySound(SoundManager.Sound.Win, turnManager.GetSpeed(), 0.45f, 1.2f);
-        AudioManager.getInstance().setVolume(0.3f);
+        AudioManager.getInstance().setVolume(0.13f);
         //turnManager.SetSpeed(0);
         //wonPannel.Activate();
     }
@@ -197,7 +197,7 @@ public class LevelController : MonoBehaviour
         helpScreenPanel.SetActive(true);        
         turnManager.Pause();
         SoundManager.PlaySound(SoundManager.Sound.PositiveClick, 0.08f, 0.65f);
-        AudioManager.getInstance().setVolume(0.3f);
+        AudioManager.getInstance().setVolume(0.13f);
     }
 
     public void CloseHelpPanel()

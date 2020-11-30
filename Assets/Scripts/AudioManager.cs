@@ -67,44 +67,12 @@ public class AudioManager : MonoBehaviour
 
     public void playMenuMusic()
     {
-        Debug.Log("SWITCHING TO MENU MUSIC");
-        if (_instance.backgroundMusic.clip == null || _instance.backgroundMusic.clip.name != menuMuisc.name)
-        {
-            Debug.Log("WRONG MUSIC FOUND, SWITCHING");
-            _instance.backgroundMusic.Stop();
-            _instance.backgroundMusic.clip = menuMuisc;
-            _instance.backgroundMusic.Play();
-        }
-        if (!_instance.backgroundMusic.isPlaying)
-        {
-            Debug.Log("MUSIC NOT PLAYING, STARTING");
-            _instance.backgroundMusic.Play();
-        }
-        else
-        {
-            Debug.Log("MUSIC ALREADY PLAYING");
-        }
+        changeMusic(menuMuisc);
     }
 
     public void playLevelMusic()
     {
-        Debug.Log("SWITCHING TO LEVEL MUSIC");
-        if (_instance.backgroundMusic.clip == null || _instance.backgroundMusic.clip.name != levelMuisc.name)
-        {
-            Debug.Log("WRONG MUSIC FOUND, SWITCHING");
-            _instance.backgroundMusic.Stop();
-            _instance.backgroundMusic.clip = levelMuisc;
-            _instance.backgroundMusic.Play();
-        }
-        if (!_instance.backgroundMusic.isPlaying)
-        {
-            Debug.Log("MUSIC NOT PLAYING, STARTING");
-            _instance.backgroundMusic.Play();
-        }
-        else
-        {
-            Debug.Log("MUSIC ALREADY PLAYING");
-        }
+        changeMusic(levelMuisc);    
     }
 
     public void setVolume(float volume)
