@@ -7313,7 +7313,7 @@ PrefabInstance:
     - target: {fileID: 6144315968484509120, guid: dc539c649f2f6d1468aa0ec59fd02c03,
         type: 3}
       propertyPath: resourceObjectiveTargets.Array.data[0]
-      value: 75
+      value: 60
       objectReference: {fileID: 0}
     - target: {fileID: 6144315968484509120, guid: dc539c649f2f6d1468aa0ec59fd02c03,
         type: 3}
@@ -7324,7 +7324,7 @@ PrefabInstance:
     - target: {fileID: 6144315968484509120, guid: dc539c649f2f6d1468aa0ec59fd02c03,
         type: 3}
       propertyPath: turnLimit
-      value: 40
+      value: 36
       objectReference: {fileID: 0}
     - target: {fileID: 6144315968484509120, guid: dc539c649f2f6d1468aa0ec59fd02c03,
         type: 3}
@@ -7335,7 +7335,7 @@ PrefabInstance:
     - target: {fileID: 6144315968484509120, guid: dc539c649f2f6d1468aa0ec59fd02c03,
         type: 3}
       propertyPath: resourceObjectiveTargets.Array.data[1]
-      value: 44
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 6144315968484509120, guid: dc539c649f2f6d1468aa0ec59fd02c03,
         type: 3}
@@ -39205,8 +39205,8 @@ MonoBehaviour:
   - 0.001
   resourceCount: 0100000001000000
   tooltipText:
-  - Spreader
-  - Edge
+  - Prickly Scarlet
+  - Choking Azure
   buttonPrefab: {fileID: 4231019901656266730, guid: a5257e5667199894aa6fe0523e36b44c,
     type: 3}
   buttonFrame: {fileID: 1835144173}

@@ -6215,7 +6215,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2158769, guid: dc539c649f2f6d1468aa0ec59fd02c03, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -256
+      value: -256.00003
       objectReference: {fileID: 0}
     - target: {fileID: 216749964, guid: dc539c649f2f6d1468aa0ec59fd02c03, type: 3}
       propertyPath: startOpen
@@ -10970,8 +10970,8 @@ MonoBehaviour:
   - 0.001
   resourceCount: 0100000001000000
   tooltipText:
-  - Spreader
-  - Fragile
+  - Prickly Scarlet
+  - Fragile Orange
   buttonPrefab: {fileID: 4231019901656266730, guid: a5257e5667199894aa6fe0523e36b44c,
     type: 3}
   buttonFrame: {fileID: 2066529252}

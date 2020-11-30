@@ -8418,8 +8418,8 @@ MonoBehaviour:
   - 0.001
   resourceCount: 0100000001000000
   tooltipText:
-  - Checkered
-  - Runner
+  - Vertical Cerulean
+  - Fleeing Mauve
   buttonPrefab: {fileID: 4231019901656266730, guid: a5257e5667199894aa6fe0523e36b44c,
     type: 3}
   buttonFrame: {fileID: 179385069}

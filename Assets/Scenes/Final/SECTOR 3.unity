@@ -8805,9 +8805,9 @@ MonoBehaviour:
   - 0.001
   resourceCount: 010000000100000001000000
   tooltipText:
-  - Spreader
-  - Checkered
-  - Vertical
+  - Prickly Scarlet
+  - Cautious Verdant
+  - Vertical Cerulean
   buttonPrefab: {fileID: 4231019901656266730, guid: a5257e5667199894aa6fe0523e36b44c,
     type: 3}
   buttonFrame: {fileID: 714439224}

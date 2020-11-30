@@ -795,7 +795,7 @@ MonoBehaviour:
   - 0.001
   resourceCount: 01000000
   tooltipText:
-  - Spreader
+  - Prickly Scarlet
   buttonPrefab: {fileID: 4231019901656266730, guid: a5257e5667199894aa6fe0523e36b44c,
     type: 3}
   buttonFrame: {fileID: 1446111545}
@@ -4589,7 +4589,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2039572962, guid: dc539c649f2f6d1468aa0ec59fd02c03, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -195.90004
+      value: -195.90002
       objectReference: {fileID: 0}
     - target: {fileID: 2986794546916249336, guid: dc539c649f2f6d1468aa0ec59fd02c03,
         type: 3}
