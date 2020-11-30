@@ -211,6 +211,7 @@ public class LevelController : MonoBehaviour
 
     public void UnblockGrid()
     {
+        Debug.Log("deactivete");
         gridBlocker.SetActive(false);
     }
 
