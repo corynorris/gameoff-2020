@@ -3294,7 +3294,7 @@ MonoBehaviour:
   message: All progress will be lost, are you sure?
   confirmationText: Main Menu
   cancelText: Cancel
-  sceneTarget: MainMenu
+  sceneTarget: Manu
   pannel: {fileID: 650573311}
 --- !u!1 &1038784941
 GameObject:
@@ -6028,7 +6028,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 324.66, y: -195.90002}
+  m_AnchoredPosition: {x: 324.66, y: -195.90004}
   m_SizeDelta: {x: -153.12335, y: -155.5166}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2039572964

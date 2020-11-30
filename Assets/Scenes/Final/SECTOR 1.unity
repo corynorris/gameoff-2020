@@ -4396,6 +4396,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1019550046, guid: dc539c649f2f6d1468aa0ec59fd02c03, type: 3}
+      propertyPath: sceneTarget
+      value: Menu
+      objectReference: {fileID: 0}
     - target: {fileID: 1038784941, guid: dc539c649f2f6d1468aa0ec59fd02c03, type: 3}
       propertyPath: m_IsActive
       value: 0

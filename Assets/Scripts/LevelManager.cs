@@ -33,7 +33,7 @@ public class LevelManager : MonoBehaviour
 
     public void LoadOptionsMenu()
     {
-        SceneManager.LoadScene("Options", LoadSceneMode.Additive);
+        SceneManager.LoadScene("MainMenu");
     }
 
     public void UnloadOptionsMenu()
@@ -64,5 +64,10 @@ public class LevelManager : MonoBehaviour
     public void LoadNextLevel()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+    }
+
+    public void NewGame()
+    {
+        SceneManager.LoadScene("SECTOR 1");
     }
 }
