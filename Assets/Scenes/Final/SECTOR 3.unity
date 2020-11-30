@@ -11236,6 +11236,26 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 216749960, guid: dc539c649f2f6d1468aa0ec59fd02c03, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 238732826, guid: dc539c649f2f6d1468aa0ec59fd02c03, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 728877797, guid: dc539c649f2f6d1468aa0ec59fd02c03, type: 3}
+      propertyPath: startOpen
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 777568113, guid: dc539c649f2f6d1468aa0ec59fd02c03, type: 3}
+      propertyPath: startOpen
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1038784941, guid: dc539c649f2f6d1468aa0ec59fd02c03, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1240938168, guid: dc539c649f2f6d1468aa0ec59fd02c03, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -11248,6 +11268,14 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 504034526}
+    - target: {fileID: 2009300961, guid: dc539c649f2f6d1468aa0ec59fd02c03, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2009300965, guid: dc539c649f2f6d1468aa0ec59fd02c03, type: 3}
+      propertyPath: startOpen
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1328745775323786697, guid: dc539c649f2f6d1468aa0ec59fd02c03,
         type: 3}
       propertyPath: m_AnchorMax.x
@@ -11480,6 +11508,11 @@ PrefabInstance:
         type: 3}
       propertyPath: objectiveResourceColors.Array.data[0].b
       value: 0.19215688
+      objectReference: {fileID: 0}
+    - target: {fileID: 6144315968484509120, guid: dc539c649f2f6d1468aa0ec59fd02c03,
+        type: 3}
+      propertyPath: openHelpOnLoad
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dc539c649f2f6d1468aa0ec59fd02c03, type: 3}

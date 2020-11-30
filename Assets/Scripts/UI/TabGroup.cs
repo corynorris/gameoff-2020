@@ -21,6 +21,8 @@ public class TabGroup : MonoBehaviour
 
     [SerializeField] Image image;
 
+    [SerializeField] GameObject gifGameObject;
+
     private TabButton selectedTab;
 
     public void Subscribe(TabButton button)
@@ -31,7 +33,11 @@ public class TabGroup : MonoBehaviour
         }
 
         if (selectedTab == null && button.StartOpen())
+        {
             selectedTab = button;
+            UpdatePanel(button);
+        }
+            
          
         tabButtons.Add(button);
         ResetTabs();
@@ -77,7 +83,9 @@ public class TabGroup : MonoBehaviour
         expandConditionTextField.text = button.GetExpandConditionTextString();
         deathConditionTextField.text = button.GetDeathConditionTextString();
 
-        image.sprite = button.GetDiagramImage();
+        gifGameObject.GetComponent<Animator>().runtimeAnimatorController = button.GetAnimator().runtimeAnimatorController;
+        gifGameObject.GetComponent<SpriteRenderer>().sprite = button.GetSpriteRenderer().sprite;
+
 
     }
 

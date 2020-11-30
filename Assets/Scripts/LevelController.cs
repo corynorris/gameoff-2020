@@ -188,6 +188,7 @@ public class LevelController : MonoBehaviour
 
     public void OpenHelpPanel()
     {
+        BlockGrid();
         helpScreenPanel.SetActive(true);        
         turnManager.Pause();
     }
@@ -195,7 +196,8 @@ public class LevelController : MonoBehaviour
     public void CloseHelpPanel()
     {
         helpScreenPanel.SetActive(false);
-        if(turnManager.getTurnNumber() > 0)
+        UnblockGrid();
+        if (turnManager.getTurnNumber() > 0)
             turnManager.Resume();
     }
 

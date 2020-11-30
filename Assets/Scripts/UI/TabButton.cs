@@ -26,6 +26,18 @@ public class TabButton : MonoBehaviour, IPointerEnterHandler, IPointerClickHandl
     [SerializeField] string expandConditionTextString;
     [SerializeField] string deathConditionTextString;
 
+    [SerializeField] GameObject gif;    
+
+    public Animator GetAnimator()
+    {
+        return gif.GetComponent<Animator>(); ;
+    }
+
+    public SpriteRenderer GetSpriteRenderer()
+    {
+        return gif.GetComponent<SpriteRenderer>();
+    }
+
     public void OnPointerClick(PointerEventData eventData)
     {
         tabGroup.OnTabSelect(this);

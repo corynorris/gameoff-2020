@@ -485,7 +485,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 20742cbc02ec0aa42aec4ebec863ff3c, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 6588956cd4b0cee498ed0fdd271529a5, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -535,8 +535,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameSpeed: 1
   toolTipText: Start
-  enabled: {fileID: 21300000, guid: e6e42f71dffe91145a8f345f145e8b2f, type: 3}
-  diabled: {fileID: 21300000, guid: 20742cbc02ec0aa42aec4ebec863ff3c, type: 3}
+  enabled: {fileID: 21300000, guid: 9c4dcadb5aaa6ce4f895f6a24b07dfef, type: 3}
+  diabled: {fileID: 21300000, guid: 6588956cd4b0cee498ed0fdd271529a5, type: 3}
   pauseGame: 0
 --- !u!114 &1407229725823098043
 MonoBehaviour:
@@ -647,13 +647,17 @@ MonoBehaviour:
   startOpen: 0
   diagramImage: {fileID: 21300000, guid: 4dce6a6c8d7998c40a84a8cc97886e35, type: 3}
   tabText: 
-  tabImageSelected: {fileID: 21300000, guid: 4380b2908d55fdf408dfb5151f143191, type: 3}
-  tabImageHover: {fileID: 21300000, guid: 4380b2908d55fdf408dfb5151f143191, type: 3}
-  tabImageIdle: {fileID: 21300000, guid: 6daa377049e79664689e64d25b73c09d, type: 3}
-  titleTextString: 
-  descriptionTextString: 
-  expandConditionTextString: 
-  deathConditionTextString: 
+  tabImageSelected: {fileID: 21300000, guid: e9417ce195683014f8feaddae9f8961d, type: 3}
+  tabImageHover: {fileID: 21300000, guid: e9417ce195683014f8feaddae9f8961d, type: 3}
+  tabImageIdle: {fileID: 21300000, guid: fe9d3520860c8ca498baba08acf77224, type: 3}
+  titleTextString: Fragile Orange
+  descriptionTextString: Much like Prickly Scarlet this goo expands out in all directions
+    however it is not as hardy and dies back when overcrowded.
+  expandConditionTextString: Every 2 cycles expands 1 tile up, down, left and right
+    as space permits.
+  deathConditionTextString: Dies off is surounded by 7 or more goos (including other
+    Orange goos).
+  gif: {fileID: 1375243342499228894, guid: 4e23caa960ebb0547b3df631ca2de21f, type: 3}
 --- !u!222 &216749963
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -746,13 +750,17 @@ MonoBehaviour:
   startOpen: 0
   diagramImage: {fileID: 21300000, guid: c4936d9b17e84734ab052b0f9269dcef, type: 3}
   tabText: 
-  tabImageSelected: {fileID: 21300000, guid: bcac36a99b528ba4dbf8307f745f073a, type: 3}
-  tabImageHover: {fileID: 21300000, guid: bcac36a99b528ba4dbf8307f745f073a, type: 3}
-  tabImageIdle: {fileID: 21300000, guid: a6f8085129ff2784ea026365e9de5616, type: 3}
-  titleTextString: 
-  descriptionTextString: 
-  expandConditionTextString: 
-  deathConditionTextString: 
+  tabImageSelected: {fileID: 21300000, guid: 8b7b1f604b28dfd44831661bbe561dc7, type: 3}
+  tabImageHover: {fileID: 21300000, guid: 8b7b1f604b28dfd44831661bbe561dc7, type: 3}
+  tabImageIdle: {fileID: 21300000, guid: 1a5f184c817bf02409e097aa40290422, type: 3}
+  titleTextString: Fleeing Mauve
+  descriptionTextString: This shy goo sits still and spreads out away from other
+    goos if they come close.
+  expandConditionTextString: Every cycle expands 1 tile up, down, left or right away
+    from any directly neighboring tiles(including other Mauve goos).
+  deathConditionTextString: Never dies back. Once it grows somwhere it's there for
+    good.
+  gif: {fileID: 8385044310736066294, guid: d55ce35a399ce7244bd57ff36c61f437, type: 3}
 --- !u!222 &238732829
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1302,7 +1310,7 @@ RectTransform:
   m_Children:
   - {fileID: 91900645}
   m_Father: {fileID: 1565296003}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -1739,7 +1747,7 @@ RectTransform:
   m_Children:
   - {fileID: 1849493825}
   m_Father: {fileID: 1565296003}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -1878,10 +1886,14 @@ MonoBehaviour:
   tabImageSelected: {fileID: 21300000, guid: 4666071c5946c0f4688c420d1e7c2f1f, type: 3}
   tabImageHover: {fileID: 21300000, guid: 4666071c5946c0f4688c420d1e7c2f1f, type: 3}
   tabImageIdle: {fileID: 21300000, guid: 711f00bd15229e0499930a81b34478ed, type: 3}
-  titleTextString: Tab 2 Title
-  descriptionTextString: Tab 2 Description
-  expandConditionTextString: Tab 2 Expand condition
-  deathConditionTextString: Tab 2 death condition
+  titleTextString: Cautious Verdant
+  descriptionTextString: This goo expands out quickly but dies back if an area becomes
+    crowded.
+  expandConditionTextString: Every 2 cycles expands 1 tile in every diagonal direction
+    as space permits.
+  deathConditionTextString: Dies off is surounded by 6 or more goos (including other
+    Verdant goos).
+  gif: {fileID: 2324245107990552983, guid: 027634bdc4ae67f46a44d40194190c2a, type: 3}
 --- !u!222 &578026880
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2522,10 +2534,13 @@ MonoBehaviour:
   tabImageSelected: {fileID: 21300000, guid: 760a302a4ec8d714eba59a5fb0787800, type: 3}
   tabImageHover: {fileID: 21300000, guid: 760a302a4ec8d714eba59a5fb0787800, type: 3}
   tabImageIdle: {fileID: 21300000, guid: 4bab50badd16b204b89a1ad9236e068a, type: 3}
-  titleTextString: 
-  descriptionTextString: 
-  expandConditionTextString: 
-  deathConditionTextString: 
+  titleTextString: Vertical Cerulean
+  descriptionTextString: Quickly fill in a vertical cloumn with unremovable teal
+    goo.
+  expandConditionTextString: Every cycle expands 1 tile up and down as space permits.
+  deathConditionTextString: Never dies back. Once it grows somwhere it's there for
+    good.
+  gif: {fileID: 3119657959990267939, guid: b34ae6fefb5b56449acfa4b39e2cf7c5, type: 3}
 --- !u!222 &728877796
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2737,80 +2752,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!1 &754722888
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 754722889}
-  - component: {fileID: 754722891}
-  - component: {fileID: 754722890}
-  m_Layer: 5
-  m_Name: Image
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &754722889
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 754722888}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1565296003}
-  m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 189.28, y: 64.95}
-  m_SizeDelta: {x: 352.0342, y: 129.90001}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!222 &754722891
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 754722888}
-  m_CullTransparentMesh: 0
---- !u!114 &754722890
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 754722888}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 1189c403a0fc10d43951113413598373, type: 3}
-  m_Type: 0
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
-  m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
 --- !u!1 &777568109
 GameObject:
   m_ObjectHideFlags: 0
@@ -2869,10 +2810,14 @@ MonoBehaviour:
   tabImageSelected: {fileID: 21300000, guid: c7ecd727cfaeee6439880bdafefaba17, type: 3}
   tabImageHover: {fileID: 21300000, guid: c7ecd727cfaeee6439880bdafefaba17, type: 3}
   tabImageIdle: {fileID: 21300000, guid: 257c7383e9697754fa15450bda4fd0f3, type: 3}
-  titleTextString: Tab 1 Title
-  descriptionTextString: Tab 1 Description
-  expandConditionTextString: Tab 1 Expand condition
-  deathConditionTextString: Tab 1 death condition
+  titleTextString: Prickly Scarlet
+  descriptionTextString: This hardy red goo spreads out in all directions and is
+    diffuclt to remove.
+  expandConditionTextString: Every 2 cycles expands 1 tile up, down, left and right
+    as space permits.
+  deathConditionTextString: Never dies back. Once it grows somwhere it's there for
+    good.
+  gif: {fileID: 8404877822364704224, guid: 4651588c89f47d7408108c48de759121, type: 3}
 --- !u!222 &777568112
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3406,13 +3351,17 @@ MonoBehaviour:
   startOpen: 0
   diagramImage: {fileID: 21300000, guid: 88dd86f312f48c84ba2b99cb26b1760c, type: 3}
   tabText: 
-  tabImageSelected: {fileID: 21300000, guid: 1eb5a8257d690244299e9731af2e1b39, type: 3}
-  tabImageHover: {fileID: 21300000, guid: 1eb5a8257d690244299e9731af2e1b39, type: 3}
-  tabImageIdle: {fileID: 21300000, guid: d7477fb4b51e3354e939f17a8e27f406, type: 3}
-  titleTextString: 
-  descriptionTextString: 
-  expandConditionTextString: 
-  deathConditionTextString: 
+  tabImageSelected: {fileID: 21300000, guid: 8529af06b3d5b154eaf63b8998e4a63b, type: 3}
+  tabImageHover: {fileID: 21300000, guid: 8529af06b3d5b154eaf63b8998e4a63b, type: 3}
+  tabImageIdle: {fileID: 21300000, guid: 5f13d83f7011f4244ac6a135a6fa39d9, type: 3}
+  titleTextString: Chocking Azure
+  descriptionTextString: 'This parasitic goo spreads quickly by envolping other goo
+    but can also choke them out and suffer itself. '
+  expandConditionTextString: Every cycle expands 1 tile in all directions as long
+    as it continues to border an adjecent goo.
+  deathConditionTextString: Never dies back. Once it grows somwhere it's there for
+    good.
+  gif: {fileID: 449646427849648796, guid: ee6587ea6f6330a46b8cb9b093039980, type: 3}
 --- !u!222 &1038784944
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -4600,9 +4549,9 @@ RectTransform:
   - {fileID: 611211514}
   - {fileID: 1083736360}
   - {fileID: 797805901}
-  - {fileID: 754722889}
   - {fileID: 486303072}
   - {fileID: 403308551}
+  - {fileID: 3119657960542802955}
   m_Father: {fileID: 2063814149}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -6001,10 +5950,13 @@ MonoBehaviour:
   tabImageSelected: {fileID: 21300000, guid: b2e4bcc6744b45440837110e34d53f2d, type: 3}
   tabImageHover: {fileID: 21300000, guid: b2e4bcc6744b45440837110e34d53f2d, type: 3}
   tabImageIdle: {fileID: 21300000, guid: c689d6e6c0aa58346acab035371cb8c0, type: 3}
-  titleTextString: 
-  descriptionTextString: 
-  expandConditionTextString: 
-  deathConditionTextString: 
+  titleTextString: Horizontal Cerulean
+  descriptionTextString: Like its vertical cousin this goo quickly fills in a horizontal
+    cloumn with unremovable teal goo.
+  expandConditionTextString: Every cycle expands 1 tile left and right as space permits.
+  deathConditionTextString: Never dies back. Once it grows somwhere it's there for
+    good.
+  gif: {fileID: 1284123449877951680, guid: e81531cec08b2da488f8f9cb3a052655, type: 3}
 --- !u!222 &2009300964
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -6286,7 +6238,8 @@ MonoBehaviour:
   descriptionTextField: {fileID: 611211515}
   expandConditionTextField: {fileID: 1465098557}
   deathConditionTextField: {fileID: 91900646}
-  image: {fileID: 754722890}
+  image: {fileID: 0}
+  gifGameObject: {fileID: 3119657960542802952}
 --- !u!1 &2095306264
 GameObject:
   m_ObjectHideFlags: 0
@@ -7400,6 +7353,107 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!1 &3119657960542802952
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3119657960542802955}
+  - component: {fileID: 3119657960542802954}
+  - component: {fileID: 3119657960542802953}
+  m_Layer: 0
+  m_Name: GIF
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3119657960542802955
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3119657960542802952}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 189.28, y: 64.95, z: -100}
+  m_LocalScale: {x: 68, y: 68, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1565296003}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &3119657960542802954
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3119657960542802952}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 685cab1549eb14940b852544fcea7e26, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!212 &3119657960542802953
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3119657960542802952}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 695239339
+  m_SortingLayer: 6
+  m_SortingOrder: 0
+  m_Sprite: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 1, y: 1}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 0
+  m_MaskInteraction: 0
+  m_SpriteSortPoint: 0
 --- !u!1 &3208323475857315804
 GameObject:
   m_ObjectHideFlags: 0
