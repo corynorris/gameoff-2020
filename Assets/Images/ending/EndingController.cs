@@ -37,13 +37,13 @@ public class EndingController : MonoBehaviour
             levelManager.LoadLevel("Menu");
         }
 
-        if (timer + 1 < Time.time)
+        if (timer + 5 < Time.time)
         {
             if (topText.GetComponent<Text>().color.a <= 0) { 
             StartCoroutine(FadeTextToFullAlpha(6f, topText.GetComponent<Text>()));
             }
         }
-        if (timer + 7 < Time.time)
+        if (timer + 9.5 < Time.time)
         {
 
             if (middleText.GetComponent<Text>().color.a <= 0)
