@@ -117,9 +117,7 @@ public class LevelController : MonoBehaviour
         return;
     }
 
-    void GameLost()
-    {
-        
+    void GameLost() {        
         //turnManager.SetSpeed(0);
         turnManager.Pause();
         losePanel.Activate();
@@ -129,8 +127,7 @@ public class LevelController : MonoBehaviour
     }
 
     void GameWon()
-    {
-        
+    {       
         //turnManager.SetSpeed(0);
         turnManager.Pause();
         hasWon = true;

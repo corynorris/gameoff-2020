@@ -30,11 +30,13 @@ public class HintController : MonoBehaviour
             {
                 hints.SetActive(true);
                 hintsShown = true;
+                SoundManager.PlaySound(SoundManager.Sound.PositiveClick, 0.08f, 0.65f);
             }
             else
             {
                 hints.SetActive(false);
                 hintsShown = false;
+                SoundManager.PlaySound(SoundManager.Sound.NegativeClick, 0.07f, 0.6f);
             }
         }
     }

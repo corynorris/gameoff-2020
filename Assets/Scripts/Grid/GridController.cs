@@ -22,8 +22,7 @@ public class GridController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        AudioManager.getInstance().setVolume(0.6f);
-        AudioManager.getInstance().playLevelMusic();
+        
         Vector3 fgPos = ForegroundCellObj.transform.position;
         Vector3 bgPos = BackgroundCellObj.transform.position;
         ForegroundCellObj.transform.SetPositionAndRotation(new Vector3(fgPos.x, fgPos.y, bgPos.z - 0.1f), ForegroundCellObj.transform.rotation);
@@ -38,7 +37,8 @@ public class GridController : MonoBehaviour
 
     void Awake()
     {
-
+        AudioManager.getInstance().setVolume(0.6f);
+        AudioManager.getInstance().playLevelMusic();
         List<CellController> backgroundCells = new List<CellController>(BackgroundCellObj.GetComponentsInChildren<CellController>());
         List<CellController> foregroundCells = new List<CellController>(ForegroundCellObj.GetComponentsInChildren<CellController>());
         foregroundArray = new CellController[TilesWide, TilesHigh];
