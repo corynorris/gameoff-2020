@@ -34,8 +34,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 389, y: -256}
-  m_SizeDelta: {x: -629.7327, y: -394.31708}
+  m_AnchoredPosition: {x: 304.5, y: -242}
+  m_SizeDelta: {x: -452.7023, y: -394.31708}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2158771
 CanvasRenderer:
@@ -652,12 +652,12 @@ MonoBehaviour:
   tabImageHover: {fileID: 21300000, guid: e9417ce195683014f8feaddae9f8961d, type: 3}
   tabImageIdle: {fileID: 21300000, guid: fe9d3520860c8ca498baba08acf77224, type: 3}
   titleTextString: Fragile Orange
-  descriptionTextString: Much like Prickly Scarlet this goo expands out in all directions
-    however it is not as hardy and dies back when overcrowded.
-  expandConditionTextString: Every 2 cycles expands 1 tile up, down, left and right
-    as space permits.
-  deathConditionTextString: Dies off if surounded by 7 or more goos (including other
-    Orange goos).
+  descriptionTextString: Much like Prickly Scarlet, this goo expands out in all directions;
+    however, it is not as hardy and dies when overcrowded.
+  expandConditionTextString: 'Every 2 cycles, this goo expands 1 tile up, down, left,
+    and right as space permits. '
+  deathConditionTextString: Dies off when surrounded by 7 or more goos (including
+    itself).
   gif: {fileID: 1375243342499228894, guid: 4e23caa960ebb0547b3df631ca2de21f, type: 3}
 --- !u!222 &216749963
 CanvasRenderer:
@@ -757,10 +757,10 @@ MonoBehaviour:
   titleTextString: Fleeing Mauve
   descriptionTextString: This shy goo sits still and spreads out away from other
     goos if they come close.
-  expandConditionTextString: Every cycle expands 1 tile up, down, left or right away
-    from any directly neighboring tiles(including other Mauve goos).
-  deathConditionTextString: Never dies back. Once it grows somwhere it's there for
-    good.
+  expandConditionTextString: 'Every cycle, this goo expands 1 tile up, down, left,
+    or right away from any adjacent goo (including itself). '
+  deathConditionTextString: 'Permanent. Once it grows somewhere, it is there for
+    good. '
   gif: {fileID: 8385044310736066294, guid: d55ce35a399ce7244bd57ff36c61f437, type: 3}
 --- !u!222 &238732829
 CanvasRenderer:
@@ -1893,12 +1893,12 @@ MonoBehaviour:
   tabImageHover: {fileID: 21300000, guid: 4666071c5946c0f4688c420d1e7c2f1f, type: 3}
   tabImageIdle: {fileID: 21300000, guid: 711f00bd15229e0499930a81b34478ed, type: 3}
   titleTextString: Cautious Verdant
-  descriptionTextString: This goo expands out quickly but dies back if an area becomes
-    crowded.
-  expandConditionTextString: Every 2 cycles expands 1 tile in every diagonal direction
-    as space permits.
-  deathConditionTextString: Dies off if surounded by 6 or more goos (including other
-    Verdant goos).
+  descriptionTextString: 'This goo expands out quickly but dies off if an area becomes
+    too crowded. '
+  expandConditionTextString: Every 2 cycles, this goo expands 1 tile in every diagonal
+    direction as space permits.
+  deathConditionTextString: Dies off when surrounded by 6 or more goos (including
+    itself).
   gif: {fileID: 2324245107990552983, guid: 027634bdc4ae67f46a44d40194190c2a, type: 3}
 --- !u!222 &578026880
 CanvasRenderer:
@@ -2552,11 +2552,11 @@ MonoBehaviour:
   tabImageHover: {fileID: 21300000, guid: 760a302a4ec8d714eba59a5fb0787800, type: 3}
   tabImageIdle: {fileID: 21300000, guid: 4bab50badd16b204b89a1ad9236e068a, type: 3}
   titleTextString: Vertical Cerulean
-  descriptionTextString: Quickly fill in a vertical cloumn with unremovable teal
-    goo.
-  expandConditionTextString: Every cycle expands 1 tile up and down as space permits.
-  deathConditionTextString: Never dies back. Once it grows somwhere it's there for
-    good.
+  descriptionTextString: 'Quickly fill in a vertical column with permanent teal goo. '
+  expandConditionTextString: Exp. Every cycle, this goo expands 1 tile up and down
+    as space permits.
+  deathConditionTextString: 'Permanent. Once it grows somewhere, it is there for
+    good. '
   gif: {fileID: 3119657959990267939, guid: b34ae6fefb5b56449acfa4b39e2cf7c5, type: 3}
 --- !u!222 &728877796
 CanvasRenderer:
@@ -2830,11 +2830,10 @@ MonoBehaviour:
   tabImageIdle: {fileID: 21300000, guid: 257c7383e9697754fa15450bda4fd0f3, type: 3}
   titleTextString: Prickly Scarlet
   descriptionTextString: This hardy red goo spreads out in all directions and is
-    diffuclt to remove.
-  expandConditionTextString: Every 2 cycles expands 1 tile up, down, left and right
-    as space permits.
-  deathConditionTextString: Never dies back. Once it grows somwhere it's there for
-    good.
+    difficult to remove.
+  expandConditionTextString: Every 2 cycles, this goo expands 1 tile up, down, left,
+    and right as space permits.
+  deathConditionTextString: Permanent. Once it grows somewhere, it is there for good.
   gif: {fileID: 8404877822364704224, guid: 4651588c89f47d7408108c48de759121, type: 3}
 --- !u!222 &777568112
 CanvasRenderer:
@@ -3372,13 +3371,13 @@ MonoBehaviour:
   tabImageSelected: {fileID: 21300000, guid: 8529af06b3d5b154eaf63b8998e4a63b, type: 3}
   tabImageHover: {fileID: 21300000, guid: 8529af06b3d5b154eaf63b8998e4a63b, type: 3}
   tabImageIdle: {fileID: 21300000, guid: 5f13d83f7011f4244ac6a135a6fa39d9, type: 3}
-  titleTextString: Choking Azure
-  descriptionTextString: 'This parasitic goo spreads quickly by envolping other goo
-    but can also choke them out and suffer itself. '
-  expandConditionTextString: Every cycle expands 1 tile in all directions as long
-    as it continues to border an adjecent goo.
-  deathConditionTextString: Never dies back. Once it grows somwhere it's there for
-    good.
+  titleTextString: Wrapping Azure
+  descriptionTextString: 'This parasitic goo spreads quickly by enveloping other
+    goo sometimes at a cost to itself.  '
+  expandConditionTextString: 'Every cycle, this goo expands 1 tile in all directions
+    as long as it is adjacent to another goo. '
+  deathConditionTextString: 'Permanent. Once it grows somewhere, it is there for
+    good.  '
   gif: {fileID: 449646427849648796, guid: ee6587ea6f6330a46b8cb9b093039980, type: 3}
 --- !u!222 &1038784944
 CanvasRenderer:
@@ -5973,11 +5972,11 @@ MonoBehaviour:
   tabImageHover: {fileID: 21300000, guid: b2e4bcc6744b45440837110e34d53f2d, type: 3}
   tabImageIdle: {fileID: 21300000, guid: c689d6e6c0aa58346acab035371cb8c0, type: 3}
   titleTextString: Horizontal Cerulean
-  descriptionTextString: Like its vertical cousin this goo quickly fills in a horizontal
-    cloumn with unremovable teal goo.
-  expandConditionTextString: Every cycle expands 1 tile left and right as space permits.
-  deathConditionTextString: Never dies back. Once it grows somwhere it's there for
-    good.
+  descriptionTextString: 'Like its vertical cousin, this goo quickly fills in a horizontal
+    column with permanent teal goo. '
+  expandConditionTextString: Every cycle, this goo expands 1 tile left and right
+    as space permits.
+  deathConditionTextString: Permanent. Once it grows somewhere, it is there for good.
   gif: {fileID: 1284123449877951680, guid: e81531cec08b2da488f8f9cb3a052655, type: 3}
 --- !u!222 &2009300964
 CanvasRenderer:
@@ -6050,8 +6049,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 141, y: -191}
-  m_SizeDelta: {x: -153.12335, y: -155.5166}
+  m_AnchoredPosition: {x: 228.1, y: -191}
+  m_SizeDelta: {x: 17.681, y: -155.5166}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2039572964
 CanvasRenderer:
@@ -6505,6 +6504,7 @@ RectTransform:
   - {fileID: 837299144}
   - {fileID: 1019550042}
   - {fileID: 1279263933}
+  - {fileID: 3034408697072138223}
   m_Father: {fileID: 5930265702778731326}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -8019,12 +8019,12 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.99983096, y: 0.99983096, z: 0.99983096}
   m_Children: []
-  m_Father: {fileID: 5930265702778731326}
-  m_RootOrder: 9
+  m_Father: {fileID: 3747876010058242065}
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 366.08817, y: -194}
+  m_AnchoredPosition: {x: 366.00906, y: -193.9555}
   m_SizeDelta: {x: 30, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &875408407749451192
@@ -8824,7 +8824,6 @@ RectTransform:
   - {fileID: 6588506805122831988}
   - {fileID: 650573308}
   - {fileID: 2044507851}
-  - {fileID: 3034408697072138223}
   m_Father: {fileID: 5930265702285050184}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

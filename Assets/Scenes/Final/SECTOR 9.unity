@@ -14933,9 +14933,9 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2158769, guid: dc539c649f2f6d1468aa0ec59fd02c03, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -256
+    - target: {fileID: 355339449, guid: dc539c649f2f6d1468aa0ec59fd02c03, type: 3}
+      propertyPath: m_text
+      value: Victory!
       objectReference: {fileID: 0}
     - target: {fileID: 650573311, guid: dc539c649f2f6d1468aa0ec59fd02c03, type: 3}
       propertyPath: turnManager
@@ -14964,10 +14964,6 @@ PrefabInstance:
     - target: {fileID: 2009300965, guid: dc539c649f2f6d1468aa0ec59fd02c03, type: 3}
       propertyPath: startOpen
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2039572962, guid: dc539c649f2f6d1468aa0ec59fd02c03, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -195.90002
       objectReference: {fileID: 0}
     - target: {fileID: 1328745775323786697, guid: dc539c649f2f6d1468aa0ec59fd02c03,
         type: 3}
