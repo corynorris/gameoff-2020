@@ -5173,7 +5173,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 690557193, guid: d9651a0fdc6f9364f9c97d13d4f23bba, type: 3}
       propertyPath: m_text
-      value: Chose your goo type here
+      value: Choose your goo type here
       objectReference: {fileID: 0}
     - target: {fileID: 1319478144, guid: d9651a0fdc6f9364f9c97d13d4f23bba, type: 3}
       propertyPath: tourStops.Array.size
