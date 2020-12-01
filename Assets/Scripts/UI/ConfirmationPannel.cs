@@ -75,7 +75,6 @@ public class ConfirmationPannel : MonoBehaviour
         levelController.BlockGrid();
         gameSpeed = turnManager.GetSpeed();
         SoundManager.PlaySound(SoundManager.Sound.PositiveClick, 0.08f, 0.65f);
-        AudioManager.getInstance().setVolume(0.13f);
         turnManager.SetSpeed(0);
     }
 
