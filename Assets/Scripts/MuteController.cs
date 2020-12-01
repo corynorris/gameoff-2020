@@ -26,6 +26,7 @@ public class MuteController : MonoBehaviour
     public void mute()
     {
         PlayerPrefs.SetInt("mute", 1);
+        AudioListener.volume = 0;        
         muteButton.SetActive(false);
         unmuteButton.SetActive(true);
         listener.enabled = false;
@@ -34,6 +35,7 @@ public class MuteController : MonoBehaviour
     public void unmute()
     {
         PlayerPrefs.SetInt("mute", 0);
+        AudioListener.volume = 1;
         muteButton.SetActive(true);
         unmuteButton.SetActive(false);
         listener.enabled = true;

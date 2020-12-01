@@ -5171,6 +5171,10 @@ PrefabInstance:
       propertyPath: m_margin.z
       value: 210.11223
       objectReference: {fileID: 0}
+    - target: {fileID: 690557193, guid: d9651a0fdc6f9364f9c97d13d4f23bba, type: 3}
+      propertyPath: m_text
+      value: Chose your goo type here
+      objectReference: {fileID: 0}
     - target: {fileID: 1319478144, guid: d9651a0fdc6f9364f9c97d13d4f23bba, type: 3}
       propertyPath: tourStops.Array.size
       value: 7
@@ -5366,6 +5370,11 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 1446111546}
+    - target: {fileID: 3263613241517638978, guid: d9651a0fdc6f9364f9c97d13d4f23bba,
+        type: 3}
+      propertyPath: m_text
+      value: "Grow enough \ngoo to win"
+      objectReference: {fileID: 0}
     - target: {fileID: 3263613241517638979, guid: d9651a0fdc6f9364f9c97d13d4f23bba,
         type: 3}
       propertyPath: m_LocalPosition.z
@@ -5395,6 +5404,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_margin.w
       value: -29.884527
+      objectReference: {fileID: 0}
+    - target: {fileID: 3567381006608193797, guid: d9651a0fdc6f9364f9c97d13d4f23bba,
+        type: 3}
+      propertyPath: m_text
+      value: To win this level, place the goo in the center
       objectReference: {fileID: 0}
     - target: {fileID: 3929454189649441267, guid: d9651a0fdc6f9364f9c97d13d4f23bba,
         type: 3}
@@ -5595,6 +5609,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_margin.z
       value: 63.67632
+      objectReference: {fileID: 0}
+    - target: {fileID: 7526415236918744119, guid: d9651a0fdc6f9364f9c97d13d4f23bba,
+        type: 3}
+      propertyPath: m_text
+      value: Start growing
       objectReference: {fileID: 0}
     - target: {fileID: 7819836847215199847, guid: d9651a0fdc6f9364f9c97d13d4f23bba,
         type: 3}
@@ -8069,27 +8088,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1476484884}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1989457632 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 191049113, guid: dc539c649f2f6d1468aa0ec59fd02c03,
-    type: 3}
-  m_PrefabInstance: {fileID: 1446111544}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1989457633
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1989457632}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3405959e9ebaa584e82a831b58e0fb37, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  image: {fileID: 0}
-  interval: 1
-  flashColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!1 &1996819028
 GameObject:
   m_ObjectHideFlags: 0
