@@ -17,7 +17,7 @@ public class EndingController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        volume = 0.6f;
+        volume = 0.25f;
         AudioManager.getInstance().setVolume(volume);
         AudioManager.getInstance().changeMusic(music);
         timer = Time.time;

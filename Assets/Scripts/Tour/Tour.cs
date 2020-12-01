@@ -10,14 +10,26 @@ public class Tour : MonoBehaviour
     private int currentStop = 0;
     public void Start()
     {
-        ToggleEventSystem(false);
 
-        foreach (TourStop stop in tourStops)
+        int tourplayed = PlayerPrefs.GetInt("tour", 0);
+
+        if(tourplayed == 0)
         {
-            stop.Tour = this;
+            ToggleEventSystem(false);
+
+            foreach (TourStop stop in tourStops)
+            {
+                stop.Tour = this;
+            }
+
+            ActivateCurrentStop();
+        }
+        else
+        {
+            Destroy(this.gameObject);
         }
 
-        ActivateCurrentStop();
+        
     }
 
 
@@ -44,6 +56,7 @@ public class Tour : MonoBehaviour
         } else
         {
             ToggleEventSystem(true);
+            PlayerPrefs.SetInt("tour", 1);
         }
     }
 

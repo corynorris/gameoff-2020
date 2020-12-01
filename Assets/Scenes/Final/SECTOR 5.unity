@@ -7126,10 +7126,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2158769, guid: dc539c649f2f6d1468aa0ec59fd02c03, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -256
-      objectReference: {fileID: 0}
     - target: {fileID: 238732826, guid: dc539c649f2f6d1468aa0ec59fd02c03, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -7173,10 +7169,6 @@ PrefabInstance:
     - target: {fileID: 2009300965, guid: dc539c649f2f6d1468aa0ec59fd02c03, type: 3}
       propertyPath: startOpen
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2039572962, guid: dc539c649f2f6d1468aa0ec59fd02c03, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -195.90002
       objectReference: {fileID: 0}
     - target: {fileID: 1328745775323786697, guid: dc539c649f2f6d1468aa0ec59fd02c03,
         type: 3}
@@ -39463,7 +39455,7 @@ MonoBehaviour:
   resourceCount: 0100000001000000
   tooltipText:
   - Prickly Scarlet
-  - Choking Azure
+  - Wrapping Azure
   buttonPrefab: {fileID: 4231019901656266730, guid: a5257e5667199894aa6fe0523e36b44c,
     type: 3}
   buttonFrame: {fileID: 1835144173}

@@ -4,6 +4,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 using System;
+using UnityEngine.SceneManagement;
 
 public class LevelController : MonoBehaviour
 {
@@ -58,10 +59,10 @@ public class LevelController : MonoBehaviour
 
 
         UnblockGrid();
-
-        if (openHelpOnLoad)
+        
+        if (openHelpOnLoad && PlayerPrefs.GetInt(SceneManager.GetActiveScene().name, 0) == 0)
             OpenHelpPanel();
-
+        PlayerPrefs.SetInt(SceneManager.GetActiveScene().name, 1);       
         
     }
 
