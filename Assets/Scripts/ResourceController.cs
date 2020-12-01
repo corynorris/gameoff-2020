@@ -21,6 +21,9 @@ public class ResourceController : MonoBehaviour
     [SerializeField] GameObject buttonFrame;
 
 
+    public delegate void HopperEmptyHandler();
+    public event HopperEmptyHandler HopperEmpty; // event
+
     private ShipController ship;
 
     SpawnButton[] spawnButtons;
@@ -122,7 +125,11 @@ public class ResourceController : MonoBehaviour
         if (activeResourceIndex >= 0) { 
             ship.LoadGun(resourcePrefabs[activeResourceIndex]);
             SoundManager.PlaySound(SoundManager.Sound.SlimeSelect, 0.35f, 0.3f);
-        } 
+        }  else
+        {
+            Debug.Log("Out of resources");
+            HopperEmpty?.Invoke();
+        }
     }
 
     public void ClearActiveResource()
@@ -160,10 +167,5 @@ public class ResourceController : MonoBehaviour
     }
     
 
-
-    public bool HopperEmpty()
-    {
-        return false;
-    }
 
 }

@@ -7089,6 +7089,21 @@ PrefabInstance:
       propertyPath: m_SizeDelta.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1407229725823098043, guid: dc539c649f2f6d1468aa0ec59fd02c03,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1407229725823098043, guid: dc539c649f2f6d1468aa0ec59fd02c03,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1407229725823098043, guid: dc539c649f2f6d1468aa0ec59fd02c03,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 2986794546916249336, guid: dc539c649f2f6d1468aa0ec59fd02c03,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -7234,6 +7249,27 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dc539c649f2f6d1468aa0ec59fd02c03, type: 3}
+--- !u!1 &281939881 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 191049113, guid: dc539c649f2f6d1468aa0ec59fd02c03,
+    type: 3}
+  m_PrefabInstance: {fileID: 281939880}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &281939882
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 281939881}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3405959e9ebaa584e82a831b58e0fb37, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  renderer: {fileID: 0}
+  interval: 0.5
+  flashColor: {r: 1, g: 0, b: 0, a: 0}
 --- !u!1001 &281978975
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -29016,12 +29052,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!1 &1129319115 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5403035255976324571, guid: dc539c649f2f6d1468aa0ec59fd02c03,
-    type: 3}
-  m_PrefabInstance: {fileID: 281939880}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1137849343
 GameObject:
   m_ObjectHideFlags: 0
@@ -39075,18 +39105,6 @@ MonoBehaviour:
   buttonPrefab: {fileID: 4231019901656266730, guid: a5257e5667199894aa6fe0523e36b44c,
     type: 3}
   buttonFrame: {fileID: 1835144173}
-  gasDisplayFrame: {fileID: 1129319115}
-  gasDisplayPrefab: {fileID: 4234007794714168585, guid: a6791892dd0fd5747bf37fd393193d9d,
-    type: 3}
-  Argon: 100
-  Helium: 100
-  Neon: 100
-  Oxygen: 100
-  ArgonChargeRate: 0
-  HeliumChargeRate: 0
-  NeonChargeRate: 0
-  OxygenChargeRate: 0
-  turnManager: {fileID: 1846410644}
 --- !u!4 &1605295488
 Transform:
   m_ObjectHideFlags: 0
