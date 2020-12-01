@@ -9,6 +9,7 @@ public class MainMenu : MonoBehaviour
     {
         AudioManager.getInstance().setVolume(0.6f);
         AudioManager.getInstance().playMenuMusic();
+
     }
 
     public void PlayGame()
