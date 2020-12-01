@@ -37,8 +37,8 @@ public class FlashEffect : MonoBehaviour
     {
         if (isFlashing) {
             isFlashing = false;
-            image.color = originalColor;
             StopAllCoroutines();
+            image.color = originalColor;
         }
     }
 
