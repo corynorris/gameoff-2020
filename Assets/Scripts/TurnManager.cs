@@ -40,6 +40,11 @@ public class TurnManager : MonoBehaviour
         }
     }
 
+    public bool IsRunning()
+    {
+        return running;
+    }
+
     void NotifyTurnPassed()
     {
         turnsElapsed += 1;
