@@ -2466,7 +2466,7 @@ MonoBehaviour:
   resourceCount: 0100000001000000010000000100000001000000
   tooltipText:
   - Prickly Scarlet
-  - Choking Azure
+  - Wrapping Azure
   - Fleeing Mauve
   - Horizontal Cerulean
   - Vertical Cerulean
@@ -14933,6 +14933,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 355339448, guid: dc539c649f2f6d1468aa0ec59fd02c03, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 25
+      objectReference: {fileID: 0}
     - target: {fileID: 355339449, guid: dc539c649f2f6d1468aa0ec59fd02c03, type: 3}
       propertyPath: m_text
       value: Victory!
@@ -15258,6 +15262,11 @@ PrefabInstance:
     - target: {fileID: 6144315968484509120, guid: dc539c649f2f6d1468aa0ec59fd02c03,
         type: 3}
       propertyPath: openHelpOnLoad
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7840406341717566459, guid: dc539c649f2f6d1468aa0ec59fd02c03,
+        type: 3}
+      propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []

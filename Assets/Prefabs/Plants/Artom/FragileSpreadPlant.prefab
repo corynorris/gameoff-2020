@@ -224,7 +224,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cellName: fragileSpread
-  priority: 3
+  priority: 1
   numNeighbours: 0
   turnDelayBetweenGrowth: 2
   useParentsGrowthRate: 0
@@ -232,13 +232,8 @@ MonoBehaviour:
   maxTurnsAlive: 0
   maxTurnsOfGrowing: 0
   maxNeighboursBeforeOvercrowding: 6
-  gasProduction: 2
-  gasProductionType: 3
-  gasConsumption: 0
-  gasConsumptionType: 0
   turnsAlive: 0
   bornFromParent: 0
-  image: {fileID: 21300000, guid: a0376447f9d6f914aa26312b7ac61c0e, type: 3}
   onResourceDepletion: 0
   actionPatterns:
   - action: 1

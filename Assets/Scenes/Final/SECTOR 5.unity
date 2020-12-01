@@ -39455,7 +39455,7 @@ MonoBehaviour:
   resourceCount: 0100000001000000
   tooltipText:
   - Prickly Scarlet
-  - Choking Azure
+  - Wrapping Azure
   buttonPrefab: {fileID: 4231019901656266730, guid: a5257e5667199894aa6fe0523e36b44c,
     type: 3}
   buttonFrame: {fileID: 1835144173}
