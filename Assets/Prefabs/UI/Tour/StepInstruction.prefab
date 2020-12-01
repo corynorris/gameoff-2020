@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 117889309086565884}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: StepInstruction
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -48,7 +48,7 @@ GameObject:
   - component: {fileID: 7213767095320508849}
   - component: {fileID: 7213767095320508851}
   - component: {fileID: 7213767095320508848}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Instructions
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -63,7 +63,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7213767095320508862}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: -100}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 117889309086565884}
@@ -71,7 +71,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 25, y: -120.8}
+  m_AnchoredPosition: {x: 212.4, y: 99.6}
   m_SizeDelta: {x: 489.5102, y: 25}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7213767095320508851
@@ -101,7 +101,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: You can select the type of plant to launc here
+  m_text: To win this level, place your plant in the center
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: bd8a1fc0eb283aa44938f46154af1d43, type: 2}
   m_sharedMaterial: {fileID: -3798943163961671121, guid: bd8a1fc0eb283aa44938f46154af1d43,
@@ -165,7 +165,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 1
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: -55.571823, y: -31.422848, z: 344.54562, w: -29.884527}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -182,7 +182,7 @@ GameObject:
   - component: {fileID: 2725654339389799061}
   - component: {fileID: 3284861909534807153}
   - component: {fileID: 4244495313490041972}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Arrow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -196,16 +196,16 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8208699130852822119}
-  m_LocalRotation: {x: -0, y: -0, z: -0.6923393, w: 0.72157216}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.36637977, y: 0.2607372, z: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0.6928434, w: 0.7210881}
+  m_LocalPosition: {x: 0, y: 0, z: -100}
+  m_LocalScale: {x: 0.35, y: 0.25, z: 1}
   m_Children: []
   m_Father: {fileID: 117889309086565884}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -87.631004}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -87.711006}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -137, y: -160.5}
+  m_AnchoredPosition: {x: -108.2, y: 71.1}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3284861909534807153
