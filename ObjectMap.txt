@@ -1,9 +1,0 @@
-Interface 
-	- Camera controls
-	- Seed selection		
-Game
-	- Grid(singleton)
-		- setCurrentSeed(CellController)
-		- spawnCell(int x, int y, Vector3 position, CellController)		
-	- Grid squares
-		- updateState(CellController[,])
