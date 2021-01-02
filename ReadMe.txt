@@ -5,13 +5,14 @@ A puzzle game about terraforming the moon, submitted for Github Gameoff 2020.
 https://itch.io/jam/game-off-2020/rate/839094
 
 ## Results
-| Criteria | Rank |
-| -------- | ---- |
-| Innovation | #5 |
-| Gameplay | #7 |
-| Overall | #36 |
-| Audio | #80 |
-| Graphics | #109 |
+
+| Criteria   | Rank  |
+| ---------- | ----- |
+| Innovation | #5    |
+| Gameplay   | #7    |
+| Overall    | #36   |
+| Audio      | #80   |
+| Graphics   | #109  |
 | Theme Interpretation | #221 |
 
 
