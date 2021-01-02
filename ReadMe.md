@@ -15,12 +15,6 @@ https://itch.io/jam/game-off-2020/rate/839094
 | Graphics   | #109  |
 | Theme Interpretation | #221 |
 
-| Tables        | Are           | Cool  |
-| ------------- |:-------------:| -----:|
-| col 3 is      | right-aligned | $1600 |
-| col 2 is      | centered      |   $12 |
-| zebra stripes | are neat      |    $1 |
-
 ## Demo
 https://corynorris.github.io/gameoff-2020/
 
