@@ -6,7 +6,7 @@ https://itch.io/jam/game-off-2020/rate/839094
 
 ## Results
 | Criteria | Rank |
-|---|---|
+| -------- | ---- |
 | Innovation | #5 |
 | Gameplay | #7 |
 | Overall | #36 |
