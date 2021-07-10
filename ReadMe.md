@@ -16,7 +16,7 @@ https://itch.io/jam/game-off-2020/rate/839094
 | Theme Interpretation | #221 |
 
 ## Demo
-https://corynorris.github.io/gameoff-2020/
+https://crankky.itch.io/goona
 
 ## Instructions
 You start each level with various slimes. To beat the level a certain number of tiles have to be filled by each slime as directed.
